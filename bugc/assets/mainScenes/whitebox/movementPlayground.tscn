@@ -1,3 +1,19 @@
 [gd_scene format=3 uid="uid://y8vi3ek4qx1y"]
 
+[ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/characterNodes/mainCharacter.tscn" id="1_p3l2t"]
+[ext_resource type="PackedScene" uid="uid://leh8y087iygp" path="res://assets/mainScenes/whitebox/whiteboxObjects/plane.tscn" id="2_5juvl"]
+[ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/mainScenes/whitebox/whiteboxObjects/box.tscn" id="3_sckpk"]
+
 [node name="Node3D" type="Node3D" unique_id=976585356]
+
+[node name="MainCharacter" parent="." unique_id=882916200 instance=ExtResource("1_p3l2t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9484982, 0, 7.5807934)
+
+[node name="Node3D" parent="." unique_id=118299117 instance=ExtResource("2_5juvl")]
+transform = Transform3D(2.0395105, 0, 0, 0, 1, 0, 0, 0, 1.3153532, 0.10180092, 0, 0.110399246)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=283524947]
+transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
+
+[node name="exampleObject" parent="." unique_id=1747730527 instance=ExtResource("3_sckpk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.752095, 1.2010717, -1.8616009)

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://leh8y087iygp"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkw6c"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_38uue"]
+
+[node name="Node3D" type="Node3D" unique_id=118299117]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1128082440]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1303144363]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qkw6c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1217699998]
+shape = SubResource("WorldBoundaryShape3D_38uue")
+debug_color = Color(0.99999994, 0.01637035, 0.021757409, 0.41960785)
