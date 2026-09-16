@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://co3i1ap6yftey"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38uue"]
+radius = 0.48266602
+height = 2.0856934
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qkw6c"]
+radius = 0.46240234
+height = 2.058838
+
 [node name="MainCharacter" type="Node3D" unique_id=882916200]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1416166855]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=1986074596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0775146, 0)
+shape = SubResource("CapsuleShape3D_38uue")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=2000520641]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0941162, 0)
+mesh = SubResource("CapsuleMesh_qkw6c")
+
+[node name="Camera3D" type="Camera3D" parent="RigidBody3D" unique_id=402914334]
+transform = Transform3D(1, 0, 0, 0, 0.98919195, 0.14662628, 0, -0.14662628, 0.98919195, 0, 2.2744617, 3.1631331)
