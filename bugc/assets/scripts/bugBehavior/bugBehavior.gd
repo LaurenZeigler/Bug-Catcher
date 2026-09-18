@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends CharacterBody3D
 
 @export var speed := 1.5
 
@@ -25,7 +25,7 @@ func _on_timer_timout():
 			var random_target = Vector3(randf_range(-10,10), 0, randf_range(-10,10))
 			nav_agent.target_position = random_target
 			state = State.WALKING
-			timer.start(walking_duration)
+			timer.start(idle_duration)
 		State.WALKING:
 			state = State.IDLE
 	
@@ -35,15 +35,15 @@ func _process(delta : float) -> void:
 			state = State.IDLE
 			timer.start(idle_duration)
 		else:
-			move_toward_target(speed, delta)
+			move_toward_target(speed)
 
-func move_toward_target(move_speed, time):
-	var next_position = nav_agent.get_target_position()
-	#var direction = (next_position - global_transform.origin).normalized()
-	var new_velocity = (next_position * move_speed).normalized()
-	print (next_position)
-	print("moving" + str(new_velocity))
-	position = position.slerp(next_position, time)
-	#if direction.length() > 0:
-		#var target_rotation = global_transform.looking_at(next_position).basis
-		#global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
+func move_toward_target(move_speed):
+	var next_position = nav_agent.target_position
+	var direction = (next_position - global_transform.origin).normalized()
+	velocity = direction * move_speed
+	print(next_position)
+	print("moving to" + str(direction))
+	move_and_slide()
+	if direction.length() > 0:
+		var target_rotation = global_transform.looking_at(next_position).basis
+		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
