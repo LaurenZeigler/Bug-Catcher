@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://bcsrckv4om07x"]
+
+[ext_resource type="PackedScene" uid="uid://dtyq3a5a6dwvv" path="res://assets/mainScenes/whitebox/Slots.tscn" id="1_l34y4"]
+[ext_resource type="Texture2D" uid="uid://cndv8sji1t5ie" path="res://assets/UI/TempSlot/BG.png" id="1_rb531"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l34y4"]
+texture = ExtResource("1_rb531")
+
+[node name="InventoryPlayground" type="Node3D" unique_id=97466689]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1790496238]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1215917869]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" unique_id=2139356789]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 422.0
+offset_bottom = 624.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l34y4")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/PanelContainer" unique_id=935570113]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 4
+
+[node name="Slot0" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1900301340 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot1" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1677950898 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot2" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1800280414 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot3" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=76514854 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot4" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=941768170 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot5" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1433728167 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot6" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1184008262 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot7" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=998967176 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot8" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=889940110 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot9" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1515624872 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot10" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=372824750 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot11" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=271914181 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot12" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=538030573 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot13" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1426685942 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot14" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=338513820 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot15" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=526639004 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot16" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1459370938 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot17" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1854215564 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot18" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1867692256 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot19" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1576250363 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot20" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1369954487 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot21" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=172656659 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot22" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=1284396958 instance=ExtResource("1_l34y4")]
+layout_mode = 2
+
+[node name="Slot23" parent="CanvasLayer/Control/PanelContainer/GridContainer" unique_id=685160061 instance=ExtResource("1_l34y4")]
+layout_mode = 2
