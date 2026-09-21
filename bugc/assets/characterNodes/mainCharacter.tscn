@@ -14,7 +14,7 @@ height = 2.058838
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=309607646]
 collision_layer = 256
-collision_mask = 513
+collision_mask = 1537
 script = ExtResource("1_stc2r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1986074596]

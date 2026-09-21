@@ -63,6 +63,7 @@ sprint={
 3d_physics/layer_1="Ground"
 3d_physics/layer_9="Player"
 3d_physics/layer_10="Bug"
+3d_physics/layer_11="Nest"
 
 [physics]
 
