@@ -1,7 +1,14 @@
 extends CharacterBody3D
 
 ## partially referenced from: https://github.com/dratmat/3D-Character-Movement
-## TODO: Fine tune 
+## TODO: 
+## - Cannot climb stairs yet
+## - Character should move independently:
+## 		- Rotate towards direction (maybe through parent object and IK look?)
+## 		- Movement direction based on camera
+## 		- Camera stays put
+## - Jump mechanic velocity changes (maybe based on gravity?)
+## - Fine tune speeds
 
 ## MOVEMENT
 @export_group("Movement")

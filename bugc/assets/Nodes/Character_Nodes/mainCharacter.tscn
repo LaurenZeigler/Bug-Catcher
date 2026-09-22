@@ -1,11 +1,33 @@
 [gd_scene format=3 uid="uid://co3i1ap6yftey"]
 
 [ext_resource type="Script" uid="uid://duelkekl8fdgd" path="res://assets/Scripts/playerController.gd" id="1_stc2r"]
+[ext_resource type="Material" uid="uid://cqerdtvx0hw5a" path="res://assets/Resources/Materials/character_temp.tres" id="2_2vrhs"]
 [ext_resource type="ArrayMesh" uid="uid://uuavxg45axqo" path="res://assets/Resources/3D_Meshes/character/cat/cat_geo.res" id="2_dbi22"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38uue"]
-radius = 0.48266602
-height = 2.0856934
+radius = 0.16259766
+height = 1.0785522
+
+[sub_resource type="Shader" id="Shader_ibssk"]
+code = "shader_type spatial;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	// Called for every pixel the material is visible on.
+}
+
+//void light() {
+//	// Called for every pixel for every light affecting the material.
+//	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10yu6"]
+render_priority = 0
+shader = SubResource("Shader_ibssk")
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=309607646]
 collision_layer = 256
@@ -13,13 +35,17 @@ collision_mask = 1537
 script = ExtResource("1_stc2r")
 
 [node name="collider" type="CollisionShape3D" parent="." unique_id=1986074596]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0775146, 0)
+transform = Transform3D(1.9513701, 0, 0, 0, 1.9513701, 0, 0, 0, 1.9513701, 0, 1.0169512, 0)
 shape = SubResource("CapsuleShape3D_38uue")
 
 [node name="playerSkin" type="MeshInstance3D" parent="." unique_id=2000520641]
 unique_name_in_owner = true
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.0047315955, -0.047487736)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+material_override = ExtResource("2_2vrhs")
 mesh = ExtResource("2_dbi22")
+surface_material_override/0 = SubResource("ShaderMaterial_10yu6")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="playerSkin" unique_id=203539775]
 
 [node name="camera_pivot" type="Node3D" parent="." unique_id=1798444442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5708131, 0)

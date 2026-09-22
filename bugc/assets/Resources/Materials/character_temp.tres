@@ -1,0 +1,28 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cqerdtvx0hw5a"]
+
+[ext_resource type="Texture2D" uid="uid://duoe3ltbguu85" path="res://assets/Resources/Images/Textures/cat2_0.png" id="1_06d5n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06d5n"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.2439144, 0.06584751, 0.034792975, 1)
+grow = true
+grow_amount = 0.013
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[resource]
+next_pass = SubResource("StandardMaterial3D_06d5n")
+shading_mode = 0
+albedo_texture = ExtResource("1_06d5n")
+grow_amount = 0.198
+point_size = 35.0
+fov_override = 151.4
+proximity_fade_distance = 0.01
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(0.2439144, 0.06584751, 0.034792975, 1)
+stencil_outline_thickness = 0.013

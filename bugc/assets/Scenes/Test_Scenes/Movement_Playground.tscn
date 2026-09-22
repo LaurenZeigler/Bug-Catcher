@@ -30,7 +30,7 @@ transform = Transform3D(0.23671974, -1.0040988, 0.00018315566, 0.41121572, 0.578
 transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
 
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.850983, 0, -20.414328)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6927395, 1.1912413, -12.676722)
 
 [node name="whitebox_stairs" parent="." unique_id=1571562960 instance=ExtResource("5_e564j")]
 transform = Transform3D(2.3309205, 0, 0, 0, 1, 0, 0, 0, 3.7936752, -6.887891, 0.03702429, 4.358774)
@@ -51,4 +51,4 @@ transform = Transform3D(2.3309205, 0, 0, 0, 5.166685, 0, 0, 0, 3.7936752, -14.82
 transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 8.416472, -0.10437155, -10.161155)
 
 [node name="whitebox_cube2" parent="." unique_id=1944569724 instance=ExtResource("3_btpeq")]
-transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.7422042, 1.2623253, -13.037181)
+transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.7422042, 1.1231775, -13.037181)
