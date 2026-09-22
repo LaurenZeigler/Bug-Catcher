@@ -7,6 +7,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_akxyx"]
 
 [node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+collision_layer = 512
+collision_mask = 1793
 script = ExtResource("1_u8rkr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
