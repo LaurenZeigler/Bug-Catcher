@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dtyq3a5a6dwvv"]
+
+[ext_resource type="Script" uid="uid://di8k80cnj13t4" path="res://assets/scripts/Inventory/Slot.gd" id="1_6m1qx"]
+[ext_resource type="Texture2D" uid="uid://br734wmhnv3ph" path="res://assets/UI/TempSlot/Slot1.png" id="1_ujo35"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujo35"]
+font_size = 25
+
+[node name="Slot0" type="TextureRect" unique_id=1900301340]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ujo35")
+script = ExtResource("1_6m1qx")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=1028150670]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 96.0
+mouse_filter = 2
+
+[node name="Quantity" type="Label" parent="." unique_id=382652820]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 60.0
+offset_right = 91.0
+offset_bottom = 95.0
+text = "00"
+label_settings = SubResource("LabelSettings_ujo35")
+horizontal_alignment = 2
