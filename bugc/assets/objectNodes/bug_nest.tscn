@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cywxeqe0fpq6m"]
+
+[ext_resource type="Script" uid="uid://b6asofqwncss4" path="res://assets/scripts/bugBehavior/bugNestBehavior.gd" id="1_0muv2"]
+[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/characterNodes/mainBug.tscn" id="2_gkf2b"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_735tp"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
+radius = 0.49951172
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
+radius = 6.6049805
+
+[node name="BugNest" type="Node3D" unique_id=85989814 node_paths=PackedStringArray("timer")]
+script = ExtResource("1_0muv2")
+timer = NodePath("Timer")
+items = Array[PackedScene]([ExtResource("2_gkf2b")])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=35653089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_735tp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=187034253]
+collision_layer = 1024
+collision_mask = 769
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=895727500]
+shape = SubResource("CylinderShape3D_m74y1")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=524401790]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+collision_layer = 1024
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1920011923]
+shape = SubResource("CylinderShape3D_735tp")
+
+[node name="Timer" type="Timer" parent="." unique_id=2088175351]
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_body_exited"]
