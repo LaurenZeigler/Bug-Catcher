@@ -1,8 +1,12 @@
 extends CharacterBody3D
 
-@export var walk_speed := 1.5
-@export var fly_speed := 1.5
-@export var fly_height : float = 1
+@export var bugInfo : BugInfo
+
+@onready var reaction_type : String
+
+@onready var walk_speed : float = bugInfo.walking_speed
+@onready var fly_speed : float = bugInfo.flying_speed
+@onready var fly_height : float = bugInfo.flying_height
 
 @onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
 @onready var timer : Timer = $Timer
@@ -14,21 +18,20 @@ var state = State.IDLE
 @export var walking_duration = 2
 @export var idle_duration = 2
 
-@export var walk_chance : float = .7
-@export var fly_chance : float = .3
+@onready var walk_chance : float = bugInfo.timeWalking
+@onready var fly_chance : float = bugInfo.timeFlying
 
 var target_position : Vector3
 
-func _ready() -> void:
+func _ready() -> void:	
 	timer.timeout.connect(_on_timer_timout)
 	timer.start(idle_duration)
-	
-	
+	react_to_player()
 	
 func _on_timer_timout():
 	match state:
 		State.IDLE:
-			var random_target = Vector3(randf_range(-10,10), 0, randf_range(-10,10))
+			var random_target = position + Vector3(randf_range(-10,10), 0, randf_range(-10,10))
 			nav_agent.target_position = random_target
 			var move_type = randf_range(0,1)
 			if move_type <= walk_chance:
@@ -53,7 +56,6 @@ func _process(delta : float) -> void:
 			timer.start(idle_duration)
 		else:
 			move_toward_target(walk_speed)
-		
 	elif state == State.FLYING:
 		if nav_agent.is_navigation_finished():
 			state = State.IDLE
@@ -66,8 +68,8 @@ func move_toward_target(move_speed):
 	var next_position = nav_agent.target_position
 	var direction = (next_position - global_transform.origin).normalized()
 	velocity = direction * move_speed
-	print(next_position)
-	print("moving to" + str(direction))
+	#print(next_position)
+	#print("moving to" + str(direction))
 	move_and_slide()
 	if direction.length() > 0:
 		var target_rotation = global_transform.looking_at(next_position).basis
@@ -80,12 +82,17 @@ func fly_toward_target(move_speed):
 	
 	# for fly height make it affect the model itself instead of the base of it so that there is a reference to floor
 	# maybe change the collision box with it?
-	
+	# or maybe make a offset node on the mesh and collision that moves on flight
+		
 	
 	velocity = direction * move_speed
-	print(next_position)
-	print("flying to" + str(direction))
+	#print(next_position)
+	#print("flying to" + str(direction))
 	move_and_slide()
 	if direction.length() > 0:
 		var target_rotation = global_transform.looking_at(next_position).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
+
+func react_to_player():
+	print(reaction_type)
+	#if ()

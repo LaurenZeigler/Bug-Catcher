@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7p8c11v1ovjr"]
 
-[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Scripts/bugBehavior/bugBehavior.gd" id="1_u8rkr"]
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/scripts/bugBehavior/bugBehavior.gd" id="1_u8rkr"]
+[ext_resource type="Resource" uid="uid://v7fn33ks85jm" path="res://assets/Resources/Bugs/bugTest.tres" id="2_xt7kx"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_u8rkr"]
 
@@ -10,6 +11,7 @@
 collision_layer = 512
 collision_mask = 1793
 script = ExtResource("1_u8rkr")
+bugInfo = ExtResource("2_xt7kx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
 mesh = SubResource("SphereMesh_u8rkr")

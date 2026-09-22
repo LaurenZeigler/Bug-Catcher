@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://v7fn33ks85jm"]
+
+[ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/scripts/bugBehavior/bugInfo.gd" id="1_2g5ai"]
+
+[resource]
+script = ExtResource("1_2g5ai")
+name = "Test"
+timeWalking = 0.5
+timeFlying = 0.5
+walking_speed = 1.5
+running_speed = 3.0
+flying_speed = 1.5
+flying_height = 1.0
+canFly = true
+canWalk = true
+metadata/_custom_type_script = "uid://beete4wxtiv4c"
