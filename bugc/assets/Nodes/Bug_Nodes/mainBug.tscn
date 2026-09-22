@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c7p8c11v1ovjr"]
+
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Scripts/bugBehavior/bugBehavior.gd" id="1_u8rkr"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_u8rkr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_akxyx"]
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+collision_layer = 512
+collision_mask = 1793
+script = ExtResource("1_u8rkr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
+mesh = SubResource("SphereMesh_u8rkr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580186757]
+shape = SubResource("SphereShape3D_akxyx")
+
+[node name="Timer" type="Timer" parent="." unique_id=958815534]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1288847061]

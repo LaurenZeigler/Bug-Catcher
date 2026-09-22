@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://y8vi3ek4qx1y"]
+
+[ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/Nodes/Character_Nodes/mainCharacter.tscn" id="1_a4hq8"]
+[ext_resource type="PackedScene" uid="uid://leh8y087iygp" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_plane.tscn" id="2_e564j"]
+[ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
+[ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Nodes/Bug_Nodes/bug_nest.tscn" id="4_a07t8"]
+[ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_stairs.tscn" id="5_e564j"]
+
+[node name="Node3D" type="Node3D" unique_id=976585356]
+
+[node name="MainCharacter" parent="." unique_id=882916200 instance=ExtResource("1_a4hq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9484982, 0, 7.5807934)
+
+[node name="Node3D" parent="." unique_id=118299117 instance=ExtResource("2_e564j")]
+transform = Transform3D(2.263851, 0, 0, 0, 1.3118267, 0, 0, 0, 2.4346316, 0.12862492, 0, 0.10750961)
+
+[node name="Node3D2" parent="." unique_id=1388133900 instance=ExtResource("2_e564j")]
+transform = Transform3D(0.4223646, -0.52791536, 0, 0.21620093, 1.031322, 0, 0, 0, 0.5559142, 7.4562664, 0, -5.379921)
+
+[node name="Node3D3" parent="." unique_id=1470347848 instance=ExtResource("2_e564j")]
+transform = Transform3D(0.3192298, -0.8571557, 0, 0.351037, 0.7794894, 0, 0, 0, 0.5559142, 10.025141, 1.5104837, -5.3799114)
+
+[node name="Node3D5" parent="." unique_id=1142489124 instance=ExtResource("2_e564j")]
+transform = Transform3D(0.33327213, -0.824673, 0, 0.33773416, 0.8137777, 0, 0, 0, 0.5559142, 9.253355, 0.80039406, -5.3799133)
+
+[node name="Node3D4" parent="." unique_id=1119953495 instance=ExtResource("2_e564j")]
+transform = Transform3D(0.23671974, -1.0040988, 0.00018315566, 0.41121572, 0.5780179, -4.0363477e-05, -4.814205e-05, 0.00037278025, 0.55591416, 11.1276455, 1.9965878, -5.3799057)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=283524947]
+transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
+
+[node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.850983, 0, -20.414328)
+
+[node name="whitebox_stairs" parent="." unique_id=1571562960 instance=ExtResource("5_e564j")]
+transform = Transform3D(2.3309205, 0, 0, 0, 1, 0, 0, 0, 3.7936752, -6.887891, 0.03702429, 4.358774)
+
+[node name="whitebox_stairs2" parent="." unique_id=1389565881 instance=ExtResource("5_e564j")]
+transform = Transform3D(2.3309205, 0, 0, 0, 1.8176721, 0, 0, 0, 3.7936752, -8.792525, 0.03702429, 4.358774)
+
+[node name="whitebox_stairs3" parent="." unique_id=1028418714 instance=ExtResource("5_e564j")]
+transform = Transform3D(2.3309205, 0, 0, 0, 2.7036135, 0, 0, 0, 3.7936752, -10.848648, 0.03702429, 4.358774)
+
+[node name="whitebox_stairs4" parent="." unique_id=1523838401 instance=ExtResource("5_e564j")]
+transform = Transform3D(2.3309205, 0, 0, 0, 3.8624258, 0, 0, 0, 3.7936752, -12.90407, 0.03702429, 4.358774)
+
+[node name="whitebox_stairs5" parent="." unique_id=2047924012 instance=ExtResource("5_e564j")]
+transform = Transform3D(2.3309205, 0, 0, 0, 5.166685, 0, 0, 0, 3.7936752, -14.823618, 0.03702429, 4.358774)
+
+[node name="whitebox_cube" parent="." unique_id=1747730527 instance=ExtResource("3_btpeq")]
+transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 8.416472, -0.10437155, -10.161155)
+
+[node name="whitebox_cube2" parent="." unique_id=1944569724 instance=ExtResource("3_btpeq")]
+transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.7422042, 1.2623253, -13.037181)
