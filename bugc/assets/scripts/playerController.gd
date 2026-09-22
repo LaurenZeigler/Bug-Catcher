@@ -42,8 +42,8 @@ func _physics_process(delta : float):
 func move_character(raw_input : Vector2):
 	var forward := global_basis.z
 	var right := global_basis.x
-	var cur_accel = acceleration
-	var cur_vel = velocity
+	#var cur_accel = acceleration
+	#var cur_vel = velocity
 	
 	var move_direction := forward * raw_input.y + right * raw_input.x
 	move_direction.y = 0.0

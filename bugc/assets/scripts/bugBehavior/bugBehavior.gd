@@ -54,7 +54,7 @@ func _process(delta : float) -> void:
 			fly_toward_target(fly_speed)
 
 func move_toward_target(move_speed):
-	motion_mode = 0
+	motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
 	var next_position = nav_agent.target_position
 	var direction = (next_position - global_transform.origin).normalized()
 	velocity = direction * move_speed
@@ -66,7 +66,7 @@ func move_toward_target(move_speed):
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
 func fly_toward_target(move_speed):
-	motion_mode = 1
+	motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
 	var next_position = nav_agent.target_position
 	var direction = (next_position - global_transform.origin).normalized()
 	velocity = direction * move_speed
