@@ -13,4 +13,5 @@ flying_speed = 1.5
 flying_height = 1.0
 canFly = true
 canWalk = true
+bug_disposition = 1
 metadata/_custom_type_script = "uid://beete4wxtiv4c"
