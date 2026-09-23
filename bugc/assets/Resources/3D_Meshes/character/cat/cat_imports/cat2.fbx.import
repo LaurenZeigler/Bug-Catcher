@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://buktovg8t0dca"
+uid="uid://dd1bor85nvqiq"
 path="res://.godot/imported/cat2.fbx-6198eada5395b2b4a2a1747bf7fc675a.scn"
 
 [deps]
@@ -19,8 +19,8 @@ nodes/root_script=null
 mesh_library/use_node_names_as_mesh_names=false
 array_mesh/deduplicate_surfaces=true
 nodes/apply_root_scale=true
-nodes/root_scale=9.0
-nodes/import_as_skeleton_bones=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
@@ -31,7 +31,7 @@ meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
-animation/fps=24.0
+animation/fps=30
 animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
@@ -39,36 +39,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"meshes": {
-"cat_geo": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/character/cat/cat_geo.res",
-"save_to_file/path": "uid://uuavxg45axqo"
-},
-"net_geo": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/character/cat/net_geo.res",
-"save_to_file/path": "uid://dukdrmdge8vx8"
-}
-},
-"nodes": {
-"PATH:Skeleton3D": {
-"rest_pose/selected_animation": "Idle",
-"rest_pose/selected_timestamp": 0.35,
-"retarget/bone_map": Object(BoneMap,"resource_local_to_scene":false,"resource_name":"","profile":null,"bonemap":null,"script":null)
-
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
