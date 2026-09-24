@@ -10,6 +10,9 @@ extends CharacterBody3D
 ## - Jump mechanic velocity changes (maybe based on gravity?)
 ## - Fine tune speeds
 
+# SIGNAL
+signal use_net
+
 ## MOVEMENT
 @export_group("Movement")
 @export var speed_walk : float = 5.0
@@ -67,6 +70,11 @@ func _physics_process(delta):
 		speed_cur = speed_sneak
 	else: 
 		speed_cur = speed_walk
+
+	# Tool/Net Use
+	if Input.is_action_just_pressed("use_tool"):
+		use_net.emit()
+	
 
 	# Toggle mouse mode between visible and captured when the cancel action (usually ESC) is pressed
 	if Input.is_action_just_pressed("ui_cancel"):

@@ -1,11 +1,16 @@
 [gd_scene format=3 uid="uid://bx3m3cow4liht"]
 
+[ext_resource type="Script" uid="uid://c8maxq47l61q4" path="res://assets/Nodes/Character_Nodes/tools/netBehavior.gd" id="1_hmwxg"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_38uue"]
 
 [node name="Nets" type="Node3D" unique_id=406932818]
+script = ExtResource("1_hmwxg")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1984421644]
+[node name="Area3D" type="Area3D" parent="." unique_id=989829765]
+collision_layer = 2048
+collision_mask = 512
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=325311380]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=325311380]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 shape = SubResource("BoxShape3D_38uue")

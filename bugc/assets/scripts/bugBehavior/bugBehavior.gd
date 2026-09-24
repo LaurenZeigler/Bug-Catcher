@@ -62,10 +62,11 @@ func _on_timer_timout():
 		#State.FLYING:
 			#state = State.FLYIDLE
 			#prev_state = State.FLYING
-	
+
 func _process(delta : float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
 	if state == State.RUNNING:
 		run_from_target()
 	elif state == State.WALKING:
@@ -74,12 +75,6 @@ func _process(delta : float) -> void:
 			timer.start(idle_duration)
 		else:
 			move_toward_target(walk_speed)
-	#elif state == State.FLYING:
-		#if nav_agent.is_navigation_finished():
-			#state = State.IDLE
-			#timer.start(idle_duration)
-		#else:
-			#fly_toward_target(fly_speed,delta)
 
 func move_toward_target(move_speed):
 	#motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
@@ -95,7 +90,7 @@ func move_toward_target(move_speed):
 		#next_position = Vector3(position.x, 0, position.z)
 		#direction = (next_position - transform.origin).normalized()
 		#velocity = direction * fly_speed
-	
+		
 	next_position = nav_agent.target_position
 	direction = (next_position - transform.origin).normalized()
 	velocity = direction * move_speed
@@ -133,16 +128,16 @@ func move_toward_target(move_speed):
 		#global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 
 func run_from_target():
-	print("RUNNING")
-	print(runningFromTarget.position)
-	print(global_position)
+	#print("RUNNING")
+	#print(runningFromTarget.position)
+	#print(global_position)
 	timer.stop()
 	
-	#direction = (next_position - transform.origin).normalized()
+	#direction math, ask Kade if curious
 	var pos_dif = (global_position - runningFromTarget.position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3(pos_dif.x / total, 0, pos_dif.z / total)
-	#print(direction)
+
 	velocity = direction * (walk_speed * 4)
 	move_and_slide()
 	if direction.length() > 0:
@@ -173,3 +168,7 @@ func react_to_player(body):
 	else:
 		print("ERROR no reaction type")
 	print(disposition)
+
+func caught_by_player():
+	print("bug been caught")
+	queue_free()

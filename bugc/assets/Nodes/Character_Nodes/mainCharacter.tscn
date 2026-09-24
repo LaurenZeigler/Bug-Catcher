@@ -429,3 +429,5 @@ transform = Transform3D(1, 0, 0, 0, 0.9632503, 0.26860538, 0, -0.26860538, 0.963
 
 [node name="Nets" parent="." unique_id=406932818 instance=ExtResource("4_ibssk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10281026, 1.1047773, -1.6338533)
+
+[connection signal="use_net" from="." to="Nets" method="use_net"]
