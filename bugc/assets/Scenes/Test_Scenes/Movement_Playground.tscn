@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Nodes/Bug_Nodes/bug_nest.tscn" id="4_a07t8"]
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_stairs.tscn" id="5_e564j"]
+[ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/Nodes/Object_Nodes/bait_base.tscn" id="6_btpeq"]
 
 [node name="Node3D" type="Node3D" unique_id=976585356]
 
@@ -52,3 +53,6 @@ transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 8.416472
 
 [node name="whitebox_cube2" parent="." unique_id=1944569724 instance=ExtResource("3_btpeq")]
 transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.7422042, 1.1231775, -13.037181)
+
+[node name="baitBase" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.730488, 0.0655923, -13.404952)

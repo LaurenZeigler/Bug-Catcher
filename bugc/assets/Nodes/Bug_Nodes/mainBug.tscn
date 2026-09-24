@@ -25,9 +25,16 @@ shape = SubResource("SphereShape3D_akxyx")
 
 [node name="Detection" type="Area3D" parent="." unique_id=1542686731]
 collision_layer = 512
-collision_mask = 256
+collision_mask = 2304
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
+shape = SubResource("CylinderShape3D_m74y1")
+
+[node name="Detection2" type="Area3D" parent="." unique_id=1269379334]
+collision_layer = 512
+collision_mask = 4096
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection2" unique_id=611361460]
 shape = SubResource("CylinderShape3D_m74y1")
 
 [node name="Timer" type="Timer" parent="." unique_id=958815534]
@@ -38,3 +45,4 @@ shape = SubResource("CylinderShape3D_m74y1")
 
 [connection signal="body_entered" from="Detection" to="." method="react_to_player"]
 [connection signal="body_exited" from="Detection" to="." method="escaped_player"]
+[connection signal="body_entered" from="Detection2" to="." method="detected_bait"]

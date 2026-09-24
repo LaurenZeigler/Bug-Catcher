@@ -155,6 +155,13 @@ func escaped_player(body):
 	else:
 		print("escaped but dont matter")
 
+func detected_bait(body):
+	if (body.get_meta_list() != null):
+		var list = body.get_meta_list()
+		print("bait detected")
+	else:
+		print("bait not detected")
+
 func react_to_player(body):
 	runningFromTarget = body
 	print(body)

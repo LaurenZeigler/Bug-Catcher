@@ -72,6 +72,7 @@ use_tool={
 3d_physics/layer_10="Bug"
 3d_physics/layer_11="Nest"
 3d_physics/layer_12="Net"
+3d_physics/layer_13="Bug Food"
 
 [physics]
 
