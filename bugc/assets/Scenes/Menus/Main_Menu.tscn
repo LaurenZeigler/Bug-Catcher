@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dm4ctmhwmev0n"]
+
+[ext_resource type="Texture2D" uid="uid://cey167jmm8ug1" path="res://assets/Resources/Images/temporary/cat_and_bugs.png" id="1_f55cs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ct0f"]
+bg_color = Color(0.5834289, 0.6159312, 0.5147513, 1)
+
+[node name="MainMenu" type="Control" unique_id=187841228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=2115759218]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 649.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ct0f")
+
+[node name="Button" type="Button" parent="." unique_id=1591276792]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 538.0
+offset_top = 557.0
+offset_right = -450.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "play"
+
+[node name="Button2" type="Button" parent="." unique_id=927457845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 557.0
+offset_right = -244.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "settings
+"
+
+[node name="Button3" type="Button" parent="." unique_id=215692455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 952.0
+offset_top = 557.0
+offset_right = -36.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "quit
+
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1079078036]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 371.0
+offset_bottom = 144.0
+theme_override_font_sizes/normal_font_size = 54
+text = "BugCatcher"
+
+[node name="CatAndBugs" type="Sprite2D" parent="." unique_id=148222569]
+position = Vector2(909.00006, 274.00003)
+scale = Vector2(0.48366567, 0.48366562)
+texture = ExtResource("1_f55cs")
