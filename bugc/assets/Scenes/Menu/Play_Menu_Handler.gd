@@ -6,7 +6,7 @@ extends Node3D
 ## Overall inventory menus are handled under TAB_menu
 @onready var TAB_menu = $TAB_menu
 ## Nodes that will be used by buttons
-@onready var Tool_menu = $TAB_menu/UI/UI_Tools
+@onready var Tool_menu = $TAB_menu/UI_Inventory/UI_Tools
 @onready var Bugs_menu = $TAB_menu/UI_Inventory/UI_Bugs
 @onready var Guide_menu = $TAB_menu/UI_Inventory/UI_Guide
 @onready var Map_menu = $TAB_menu/UI_Inventory/UI_Map
@@ -41,3 +41,34 @@ func _pause_game():
 func _unpause_game():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	## TODO: figure out how to unpause game scene LATER. pausing is unimportant right now
+
+## Return to MAIN MENU ##
+func _on_exit_btn_pressed() -> void:
+	get_tree().change_scene_to_file("res://assets/Scenes/Menu/Main_Menu.tscn")
+
+func _on_continue_btn_pressed() -> void:
+	ESC_menu.hide()
+	_unpause_game()
+
+## TAB SWITCHING ##
+func _hide_inv_tabs():
+	Tool_menu.hide()
+	Bugs_menu.hide()
+	Guide_menu.hide()
+	Map_menu.hide()
+
+func _on_tools_btn_pressed() -> void:
+	_hide_inv_tabs()
+	Tool_menu.show()
+
+func _on_bugs_btn_pressed() -> void:
+	_hide_inv_tabs()
+	Bugs_menu.show()
+
+func _on_guide_btn_pressed() -> void:
+	_hide_inv_tabs()
+	Guide_menu.show()
+
+func _on_map_btn_pressed() -> void:
+	_hide_inv_tabs()
+	Map_menu.show()

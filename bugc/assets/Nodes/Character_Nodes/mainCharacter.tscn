@@ -21,7 +21,7 @@ shape = SubResource("CapsuleShape3D_38uue")
 [node name="Cat_Offset" type="Node3D" parent="." unique_id=987467329]
 transform = Transform3D(-8, 0, -6.993822e-07, 0, 8, 0, 6.993822e-07, 0, -8, 0, 0, 0)
 
-[node name="Cat" parent="Cat_Offset" unique_id=1370347353 instance=ExtResource("2_2vrhs")]
+[node name="player_skin" parent="Cat_Offset" unique_id=1370347353 instance=ExtResource("2_2vrhs")]
 
 [node name="camera_pivot" type="Node3D" parent="." unique_id=1798444442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5708131, 0)
