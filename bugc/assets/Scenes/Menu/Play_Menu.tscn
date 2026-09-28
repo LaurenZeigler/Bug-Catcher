@@ -98,7 +98,6 @@ theme_override_font_sizes/font_size = 13
 text = "EXIT TO MAIN MENU"
 
 [node name="TAB_menu" type="CanvasLayer" parent="." unique_id=1790496238]
-visible = false
 
 [node name="UI_Inventory" type="Control" parent="TAB_menu" unique_id=1215917869]
 layout_mode = 3

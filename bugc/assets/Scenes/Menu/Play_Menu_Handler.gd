@@ -1,5 +1,6 @@
 extends Node3D
 
+@onready var inventory_grid = $TAB_menu/UI_Inventory/UI_Tools/GridContainer
 ## 
 @onready var ESC_menu = $ESC_menu
 
@@ -14,7 +15,14 @@ extends Node3D
 func _ready() -> void:
 	TAB_menu.hide()
 	ESC_menu.hide()
-	
+	load_inventory()
+
+func load_inventory():
+	for child in inventory_grid.get_children():
+		var data = GlobalInv.inventory[child.name]
+		child.set_slot(data)
+
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("MENU_esc"):
 		if TAB_menu.visible == false and ESC_menu.visible == false:

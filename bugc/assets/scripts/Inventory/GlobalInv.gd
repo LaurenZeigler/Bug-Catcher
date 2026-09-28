@@ -1,15 +1,30 @@
 extends Node
 signal updated
+@onready var icons = {
+	"Bug": preload("res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Bug.png"),
+	"Tool": preload("res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Gear.png")
+	}
 
 var inventory = {}
 const SLOTS = 30
 
 func _ready() -> void:
 	initailize()
+	create_sample_inventory()
 	
 func initailize():
 	for i in SLOTS:
-		inventory["slot"+str(i)] = {}
+		inventory["Slot"+str(i)] = {}
+
+func create_sample_inventory():
+	for slot in inventory:
+		if randf() >= 0.5:
+			continue
+		var items = ["Bug", "Tool"]
+		inventory[slot] = {
+			"item_name": items.pick_random(),
+			"quantity": randi_range(1,10)}
+	updated.emit()
 
 func add_item(item_name,quantity):
 	var empty_slot = ""
@@ -58,8 +73,8 @@ func swap_item(from_slot,to_slot):
 	inventory[to_slot] = item_moved
 	
 	
-	
-	
+func get_item_texture(item_name:String):
+	return icons[item_name]
 	
 	
 	
