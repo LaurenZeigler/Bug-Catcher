@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qp5mldwr30g4"
-path="res://.godot/imported/BGGuidbook.png-2aac40e445d461128cf93c573d8d6817.ctex"
+uid="uid://c1bcd8mryfksh"
+path="res://.godot/imported/BGBugs.png-c3d0691060c2126fd47f4f9317fe075a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Resources/Images/UI/TempSlot/BGGuidbook.png"
-dest_files=["res://.godot/imported/BGGuidbook.png-2aac40e445d461128cf93c573d8d6817.ctex"]
+source_file="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/BGBugs.png"
+dest_files=["res://.godot/imported/BGBugs.png-c3d0691060c2126fd47f4f9317fe075a.ctex"]
 
 [params]
 

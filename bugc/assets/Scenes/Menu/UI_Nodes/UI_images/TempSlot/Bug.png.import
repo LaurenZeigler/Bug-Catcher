@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br734wmhnv3ph"
-path="res://.godot/imported/Slot1.png-950e161d6d597982a1944267fc3ef72c.ctex"
+uid="uid://dcuygfaaq0e24"
+path="res://.godot/imported/Bug.png-1124ea8bb56f74763b48256c204cb591.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Resources/Images/UI/TempSlot/Slot1.png"
-dest_files=["res://.godot/imported/Slot1.png-950e161d6d597982a1944267fc3ef72c.ctex"]
+source_file="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Bug.png"
+dest_files=["res://.godot/imported/Bug.png-1124ea8bb56f74763b48256c204cb591.ctex"]
 
 [params]
 

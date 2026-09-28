@@ -1,0 +1,43 @@
+extends Node3D
+
+## 
+@onready var ESC_menu = $ESC_menu
+
+## Overall inventory menus are handled under TAB_menu
+@onready var TAB_menu = $TAB_menu
+## Nodes that will be used by buttons
+@onready var Tool_menu = $TAB_menu/UI/UI_Tools
+@onready var Bugs_menu = $TAB_menu/UI_Inventory/UI_Bugs
+@onready var Guide_menu = $TAB_menu/UI_Inventory/UI_Guide
+@onready var Map_menu = $TAB_menu/UI_Inventory/UI_Map
+
+func _ready() -> void:
+	TAB_menu.hide()
+	ESC_menu.hide()
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("MENU_esc"):
+		if TAB_menu.visible == false and ESC_menu.visible == false:
+			ESC_menu.show()
+			_pause_game()
+		else:
+			ESC_menu.hide()
+			_unpause_game()
+		if TAB_menu.visible == true: # executing after previous if statement prevents ESC menu from showing up after 1 key press.
+			TAB_menu.hide()
+			_unpause_game()
+	if Input.is_action_just_pressed("open_TAB_menu"):
+		if TAB_menu.visible == false and ESC_menu.visible == false:
+			TAB_menu.show()
+			_pause_game()
+		else:
+			TAB_menu.hide()
+			_unpause_game()
+			
+func _pause_game():
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	## TODO: figure out how to pause game scene LATER. pausing is unimportant right now
+
+func _unpause_game():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	## TODO: figure out how to unpause game scene LATER. pausing is unimportant right now

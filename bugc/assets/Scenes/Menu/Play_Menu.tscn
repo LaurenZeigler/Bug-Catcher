@@ -1,0 +1,259 @@
+[gd_scene format=3 uid="uid://bcsrckv4om07x"]
+
+[ext_resource type="Script" uid="uid://8ws2n1i4o5ws" path="res://assets/Scripts/Play_Menu_Handler.gd" id="1_s3d50"]
+[ext_resource type="Texture2D" uid="uid://c1bcd8mryfksh" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/BGBugs.png" id="2_sn67a"]
+[ext_resource type="Texture2D" uid="uid://bs8ay6br5othx" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/BG1.png" id="2_xaf3s"]
+[ext_resource type="PackedScene" uid="uid://dtyq3a5a6dwvv" path="res://assets/Scenes/Menu/UI_Nodes/Slots.tscn" id="3_xwofu"]
+[ext_resource type="Texture2D" uid="uid://qp5mldwr30g4" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/BGGuidbook.png" id="5_vcthq"]
+[ext_resource type="Texture2D" uid="uid://dksqagwhx5spc" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/BGSettings.png" id="6_new55"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l34y4"]
+content_margin_left = 19.0
+content_margin_top = 71.0
+content_margin_bottom = 15.0
+texture = ExtResource("2_xaf3s")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sn67a"]
+texture = ExtResource("2_sn67a")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4and"]
+texture = ExtResource("5_vcthq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8h58o"]
+texture = ExtResource("6_new55")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb531"]
+
+[node name="Play_Menu" type="Node3D" unique_id=97466689]
+script = ExtResource("1_s3d50")
+
+[node name="ESC_menu" type="CanvasLayer" parent="." unique_id=879525812]
+
+[node name="Control" type="Control" parent="ESC_menu" unique_id=1030402534]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="ESC_menu/Control" unique_id=646284748]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 36.0
+offset_right = 350.0
+offset_bottom = 158.0
+
+[node name="temp_esc" type="RichTextLabel" parent="ESC_menu/Control/Panel" unique_id=1072556627]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 18.0
+offset_right = 175.0
+offset_bottom = 59.0
+text = "escape menu"
+
+[node name="TAB_menu" type="CanvasLayer" parent="." unique_id=1790496238]
+visible = false
+
+[node name="UI_Inventory" type="Control" parent="TAB_menu" unique_id=1215917869]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="UI_Tools" type="PanelContainer" parent="TAB_menu/UI_Inventory" unique_id=2139356789]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 929.0
+offset_bottom = 605.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_l34y4")
+
+[node name="GridContainer" type="GridContainer" parent="TAB_menu/UI_Inventory/UI_Tools" unique_id=935570113]
+layout_mode = 2
+columns = 6
+
+[node name="Slot0" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1900301340 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot1" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1677950898 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot2" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1800280414 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot3" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=76514854 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot4" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=941768170 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot5" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1433728167 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot6" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1184008262 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot7" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=998967176 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot8" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=889940110 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot9" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1515624872 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot10" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=372824750 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot11" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=271914181 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot12" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=538030573 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot13" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1426685942 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot14" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=338513820 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot15" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=526639004 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot16" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1459370938 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot17" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1854215564 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot18" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1867692256 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot19" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1576250363 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot20" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1369954487 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot21" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=172656659 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot22" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1284396958 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot23" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=685160061 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot24" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=185575811 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot25" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1459231681 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot26" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=1882505536 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot27" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=803504526 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot28" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=511399788 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot29" parent="TAB_menu/UI_Inventory/UI_Tools/GridContainer" unique_id=915300176 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="UI_Bugs" type="PanelContainer" parent="TAB_menu/UI_Inventory" unique_id=1405657780]
+visible = false
+layout_mode = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 929.0
+offset_bottom = 605.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_sn67a")
+
+[node name="UI_Guide" type="PanelContainer" parent="TAB_menu/UI_Inventory" unique_id=1902545417]
+visible = false
+layout_mode = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 929.0
+offset_bottom = 605.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_f4and")
+
+[node name="TBA_guide" type="RichTextLabel" parent="TAB_menu/UI_Inventory/UI_Guide" unique_id=1616134174]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 53
+text = "Guidebook
+feature not
+available"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UI_Map" type="PanelContainer" parent="TAB_menu/UI_Inventory" unique_id=356069249]
+visible = false
+layout_mode = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 929.0
+offset_bottom = 605.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_8h58o")
+
+[node name="TBA_map" type="RichTextLabel" parent="TAB_menu/UI_Inventory/UI_Map" unique_id=1471041111]
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 53
+text = "Map
+feature not
+available"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ToolsBtn" type="Button" parent="TAB_menu/UI_Inventory" unique_id=1534510754]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 444.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+theme_override_colors/font_hover_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb531")
+text = "TOOLS"
+
+[node name="BugsBtn" type="Button" parent="TAB_menu/UI_Inventory" unique_id=1877113914]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 23.0
+offset_right = 600.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+theme_override_colors/font_hover_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb531")
+text = "BUGS"
+
+[node name="GuideBtn" type="Button" parent="TAB_menu/UI_Inventory" unique_id=1914770321]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 23.0
+offset_right = 757.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+theme_override_colors/font_hover_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb531")
+text = "GUIDE"
+
+[node name="MapBtn" type="Button" parent="TAB_menu/UI_Inventory" unique_id=1593615129]
+layout_mode = 0
+offset_left = 763.0
+offset_top = 23.0
+offset_right = 912.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+theme_override_colors/font_hover_color = Color(0.5882353, 0.5882353, 0.5882353, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxEmpty_rb531")
+text = "MAP"

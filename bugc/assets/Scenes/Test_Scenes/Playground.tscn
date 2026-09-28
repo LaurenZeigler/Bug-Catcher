@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://y8vi3ek4qx1y"]
 
 [ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/Nodes/Character_Nodes/mainCharacter.tscn" id="1_a4hq8"]
+[ext_resource type="PackedScene" uid="uid://bcsrckv4om07x" path="res://assets/Scenes/Menu/Play_Menu.tscn" id="1_xt170"]
 [ext_resource type="PackedScene" uid="uid://leh8y087iygp" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_plane.tscn" id="2_e564j"]
 [ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Nodes/Bug_Nodes/bug_nest.tscn" id="4_a07t8"]
@@ -8,6 +9,13 @@
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/Nodes/Object_Nodes/bait_base.tscn" id="6_btpeq"]
 
 [node name="Node3D" type="Node3D" unique_id=976585356]
+
+[node name="GAME_nodes" type="Node3D" parent="." unique_id=321557618]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GAME_nodes" unique_id=283524947]
+transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
+
+[node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_xt170")]
 
 [node name="MainCharacter" parent="." unique_id=882916200 instance=ExtResource("1_a4hq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9484982, 0, 7.5807934)
@@ -26,9 +34,6 @@ transform = Transform3D(0.33327213, -0.824673, 0, 0.33773416, 0.8137777, 0, 0, 0
 
 [node name="Node3D4" parent="." unique_id=1119953495 instance=ExtResource("2_e564j")]
 transform = Transform3D(0.23671974, -1.0040988, 0.00018315566, 0.41121572, 0.5780179, -4.0363477e-05, -4.814205e-05, 0.00037278025, 0.55591416, 11.1276455, 1.9965878, -5.3799057)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=283524947]
-transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
 
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6927395, 1.1912413, -12.676722)
@@ -56,5 +61,3 @@ transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.742204
 
 [node name="baitBase" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.730488, 0.0655923, -13.404952)
-
-[connection signal="use_net" from="MainCharacter" to="MainCharacter/Nets" method="use_net"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dtyq3a5a6dwvv"]
 
-[ext_resource type="Texture2D" uid="uid://br734wmhnv3ph" path="res://assets/Resources/Images/UI/TempSlot/Slot1.png" id="1_fon8f"]
-[ext_resource type="Script" uid="uid://di8k80cnj13t4" path="res://assets/scripts/Inventory/Slot.gd" id="2_yls0m"]
-[ext_resource type="Texture2D" uid="uid://dcuygfaaq0e24" path="res://assets/Resources/Images/UI/TempSlot/Bug.png" id="3_dc3rl"]
+[ext_resource type="Texture2D" uid="uid://br734wmhnv3ph" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Slot1.png" id="1_fon8f"]
+[ext_resource type="Script" uid="uid://di8k80cnj13t4" path="res://assets/Scripts/Inventory/Slot.gd" id="2_yls0m"]
+[ext_resource type="Texture2D" uid="uid://dcuygfaaq0e24" path="res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Bug.png" id="3_dc3rl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujo35"]
 font_size = 25
