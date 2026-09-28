@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://leh8y087iygp"]
 
+[ext_resource type="Material" uid="uid://cak4adovvj4at" path="res://assets/Resources/Materials/whitebox_MM.tres" id="1_c2gpe"]
+
 [sub_resource type="NavigationMesh" id="NavigationMesh_m74y1"]
 cell_height = 0.01
 
@@ -16,6 +18,7 @@ collision_mask = 768
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1303144363]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("PlaneMesh_qkw6c")
+surface_material_override/0 = ExtResource("1_c2gpe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1294289804]
 transform = Transform3D(20, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 0, 0)
