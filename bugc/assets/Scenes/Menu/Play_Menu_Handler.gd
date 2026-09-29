@@ -13,6 +13,8 @@ extends Node3D
 @onready var Guide_menu = $TAB_menu/UI_Inventory/UI_Guide
 @onready var Map_menu = $TAB_menu/UI_Inventory/UI_Map
 
+
+## SET DEFAULT STATE ##
 func _ready() -> void:
 	TAB_menu.hide()
 	ESC_menu.hide()
@@ -52,11 +54,11 @@ func _process(delta: float) -> void:
 			
 func _pause_game():
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	## TODO: figure out how to pause game scene LATER. pausing is unimportant right now
+	get_tree().paused = true
 
 func _unpause_game():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	## TODO: figure out how to unpause game scene LATER. pausing is unimportant right now
+	get_tree().paused = false
 
 ## Return to MAIN MENU ##
 func _on_exit_btn_pressed() -> void:
@@ -89,6 +91,6 @@ func _on_map_btn_pressed() -> void:
 	_hide_inv_tabs()
 	Map_menu.show()
 
-
+##  ##
 func _on_main_bug_bugcaught() -> void:
-	pass # Replace with function body.
+	pass 

@@ -3,7 +3,10 @@ extends Control
 @onready var MAIN = $Main_Menu
 @onready var SETTINGS = $Settings_Menu
 
+
+## SET DEFAULT STATE ##
 func _ready() -> void:
+	get_tree().paused = false # unpauses game if player quit to menu
 	SETTINGS.hide()
 	MAIN.show()
 
@@ -15,7 +18,7 @@ func _on_settings_btn_pressed() -> void:
 	SETTINGS.show()
 
 func _on_quit_btn_pressed() -> void:
-	pass
+	get_tree().quit()
 	
 func _on_back_btn_pressed() -> void:
 	SETTINGS.hide()

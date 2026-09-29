@@ -31,6 +31,7 @@ texture = ExtResource("6_new55")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rb531"]
 
 [node name="Play_Menu" type="Node3D" unique_id=97466689]
+process_mode = 3
 script = ExtResource("1_s3d50")
 
 [node name="ESC_menu" type="CanvasLayer" parent="." unique_id=879525812]
