@@ -18,6 +18,9 @@ texture = ExtResource("2_xaf3s")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sn67a"]
 texture = ExtResource("2_sn67a")
+texture_margin_left = 19.0
+texture_margin_top = 71.0
+texture_margin_bottom = 15.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f4and"]
 texture = ExtResource("5_vcthq")
@@ -215,6 +218,100 @@ offset_top = 23.0
 offset_right = 929.0
 offset_bottom = 605.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_sn67a")
+
+[node name="GridContainer2" type="GridContainer" parent="TAB_menu/UI_Inventory/UI_Bugs" unique_id=2118025852]
+layout_mode = 2
+columns = 6
+
+[node name="Slot0" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=633813080 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot1" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=955139251 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot2" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1807417807 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot3" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=383948012 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot4" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=860104865 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot5" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1795020719 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot6" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=605912412 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot7" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=95866957 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot8" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1962133285 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot9" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=760040621 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot10" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1155907577 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot11" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=120574427 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot12" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1846755097 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot13" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=600119988 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot14" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1736283559 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot15" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=317185388 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot16" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1583700280 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot17" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=784040676 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot18" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1009028073 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot19" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1050754962 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot20" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=590490359 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot21" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=264646391 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot22" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=2047339375 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot23" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1240063112 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot24" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=2112288966 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot25" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=1146644702 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot26" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=638656977 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot27" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=365995298 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot28" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=354112984 instance=ExtResource("3_xwofu")]
+layout_mode = 2
+
+[node name="Slot29" parent="TAB_menu/UI_Inventory/UI_Bugs/GridContainer2" unique_id=314082948 instance=ExtResource("3_xwofu")]
+layout_mode = 2
 
 [node name="UI_Guide" type="PanelContainer" parent="TAB_menu/UI_Inventory" unique_id=1902545417]
 visible = false

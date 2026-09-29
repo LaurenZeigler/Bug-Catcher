@@ -3,13 +3,23 @@ extends TextureRect
 @onready var quantity = $Quantity
 
 
-func set_slot(data:Dictionary):
+func set_tool_slot(data:Dictionary):
 	if data.is_empty():
 		icon.texture = null
 		quantity.hide()
 		return
 	
-	icon.texture = GlobalInv.get_item_texture(data.item_name)
+	icon.texture = ToolGlobalInv.get_item_texture(data.item_name)
+	quantity.text = str(data.quantity)
+	quantity.show()
+	
+func set_bug_slot(data:Dictionary):
+	if data.is_empty():
+		icon.texture = null
+		quantity.hide()
+		return
+	
+	icon.texture = BugGlobalInv.get_item_texture(data.item_name)
 	quantity.text = str(data.quantity)
 	quantity.show()
 

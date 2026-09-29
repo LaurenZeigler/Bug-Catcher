@@ -1,8 +1,9 @@
 extends Node
 signal updated
 @onready var icons = {
-	"Bug": preload("res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Bug.png"),
-	"Tool": preload("res://assets/Scenes/Menu/UI_Nodes/UI_images/TempSlot/Gear.png")
+	"ant": preload("res://assets/Resources/Images/icons/Icon_ant.png"),
+	"aphid": preload("res://assets/Resources/Images/icons/Icon_aphid.png"),
+	"bee": preload("res://assets/Resources/Images/icons/Icon_bee.png")
 	}
 
 var inventory = {}
@@ -20,7 +21,7 @@ func create_sample_inventory():
 	for slot in inventory:
 		if randf() >= 0.5:
 			continue
-		var items = ["Bug", "Tool"]
+		var items = ["ant", "aphid", "bee"]
 		inventory[slot] = {
 			"item_name": items.pick_random(),
 			"quantity": randi_range(1,10)}
