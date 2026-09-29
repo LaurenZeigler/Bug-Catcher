@@ -4,7 +4,7 @@ signal updated
 	"ant": preload("res://assets/Resources/Images/icons/Icon_ant.png"),
 	"aphid": preload("res://assets/Resources/Images/icons/Icon_aphid.png"),
 	"bee": preload("res://assets/Resources/Images/icons/Icon_bee.png"),
-	"Test": preload("res://assets/Resources/Images/icons/Icon_NA.png")
+	"test": preload("res://assets/Resources/Images/icons/Icon_NA.png")
 	}
 
 var inventory = {}
@@ -76,7 +76,7 @@ func swap_item(from_slot,to_slot):
 	
 	
 func get_item_texture(item_name:String):
-	return icons[item_name]
+	return icons[item_name.to_lower()]
 	
 	
 	

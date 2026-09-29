@@ -83,7 +83,7 @@ func swap_item(from_slot,to_slot):
 	
 	
 func get_item_texture(item_name:String):
-	return icons[item_name]
+	return icons[item_name.to_lower()]
 	
 	
 	
