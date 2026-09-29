@@ -2,7 +2,9 @@ class_name BugInfo extends Resource
 
 @export_group("Identity")
 @export var name : String
-@export var biome : String
+# @export var biome : String
+@export var icon : Resource
+
 #TODO
 #add var for spawning conditions
 #bug identification

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://qbwhtv8xpg7i"]
+
+[ext_resource type="Texture2D" uid="uid://dh0vmbbjvrjhn" path="res://assets/Resources/Images/icons/Icon_ant.png" id="1_3c0wk"]
+[ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/Scripts/bugBehavior/bugInfo.gd" id="1_mvnbp"]
+
+[resource]
+script = ExtResource("1_mvnbp")
+name = "ant"
+icon = ExtResource("1_3c0wk")
+metadata/_custom_type_script = "uid://beete4wxtiv4c"
