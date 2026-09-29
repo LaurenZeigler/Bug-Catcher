@@ -1,4 +1,5 @@
 extends CharacterBody3D
+signal bugcaught
 
 @export var bugInfo : BugInfo
 
@@ -178,4 +179,5 @@ func react_to_player(body):
 
 func caught_by_player():
 	print("bug been caught")
+	BugGlobalInv.add_bug(bugInfo.name, 1)
 	queue_free()

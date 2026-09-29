@@ -86,3 +86,7 @@ func _on_guide_btn_pressed() -> void:
 func _on_map_btn_pressed() -> void:
 	_hide_inv_tabs()
 	Map_menu.show()
+
+
+func _on_main_bug_bugcaught() -> void:
+	pass # Replace with function body.
