@@ -3,7 +3,8 @@ signal updated
 @onready var icons = {
 	"ant": preload("res://assets/Resources/Images/icons/Icon_ant.png"),
 	"aphid": preload("res://assets/Resources/Images/icons/Icon_aphid.png"),
-	"bee": preload("res://assets/Resources/Images/icons/Icon_bee.png")
+	"bee": preload("res://assets/Resources/Images/icons/Icon_bee.png"),
+	"Test": preload("res://assets/Resources/Images/icons/Icon_NA.png")
 	}
 
 var inventory = {}
@@ -47,13 +48,13 @@ func add_bug(item_name,quantity):
 		"quantity": quantity}
 	updated.emit()
 
-func remove_item(slot,quantity):
+func remove_bug(slot,quantity):
 	inventory[slot].quantity -= quantity
 	if inventory[slot].quantity <= 0:
 		inventory[slot].clear()
 	updated.emit()
 
-func move_item(quantity,from_slot,to_slot):
+'''func move_item(quantity,from_slot,to_slot):
 	var item = inventory[from_slot].item_name
 	if inventory[to_slot].is_empty():
 		inventory[to_slot] = {
@@ -71,7 +72,7 @@ func swap_item(from_slot,to_slot):
 	var item_swapped = inventory[to_slot]
 	
 	inventory[from_slot] = item_swapped
-	inventory[to_slot] = item_moved
+	inventory[to_slot] = item_moved'''
 	
 	
 func get_item_texture(item_name:String):

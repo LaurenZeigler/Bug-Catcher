@@ -3,6 +3,8 @@ signal bugcaught
 
 @export var bugInfo : BugInfo
 
+@onready var bug_name : String = bugInfo.name
+
 @onready var disposition = bugInfo.bug_disposition
 
 @onready var walk_speed : float = bugInfo.walking_speed
@@ -179,5 +181,5 @@ func react_to_player(body):
 
 func caught_by_player():
 	print("bug been caught")
-	BugGlobalInv.add_bug(bugInfo.name, 1)
+	BugGlobalInv.add_bug(bug_name, 1)
 	queue_free()

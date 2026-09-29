@@ -16,6 +16,8 @@ extends Node3D
 func _ready() -> void:
 	TAB_menu.hide()
 	ESC_menu.hide()
+	ToolGlobalInv.updated.connect(load_Tool_inventory)
+	BugGlobalInv.updated.connect(load_Bug_inventory)
 	load_Tool_inventory()
 	load_Bug_inventory()
 

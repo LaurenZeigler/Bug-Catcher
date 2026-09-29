@@ -16,6 +16,9 @@ const SLOTS = 30
 
 func _ready() -> void:
 	initailize()
+	add_item("basic_net",1)
+	add_item("fast_net",1)
+	add_item("big_net",1)
 	#create_sample_inventory()
 	
 func initailize():
@@ -58,7 +61,7 @@ func remove_item(slot,quantity):
 		inventory[slot].clear()
 	updated.emit()
 
-func move_item(quantity,from_slot,to_slot):
+'''func move_item(quantity,from_slot,to_slot):
 	var item = inventory[from_slot].item_name
 	if inventory[to_slot].is_empty():
 		inventory[to_slot] = {
@@ -76,7 +79,7 @@ func swap_item(from_slot,to_slot):
 	var item_swapped = inventory[to_slot]
 	
 	inventory[from_slot] = item_swapped
-	inventory[to_slot] = item_moved
+	inventory[to_slot] = item_moved'''
 	
 	
 func get_item_texture(item_name:String):
