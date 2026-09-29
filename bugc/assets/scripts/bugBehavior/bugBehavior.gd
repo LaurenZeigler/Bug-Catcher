@@ -15,6 +15,7 @@ signal bugcaught
 @onready var timer : Timer = $Timer
 @onready var skin : MeshInstance3D = $MeshInstance3D
 @onready var detector : Area3D = $Detection
+@onready var detector_bait : Area3D = $DetectionBait
 
 enum State {IDLE,WALKING,RUNNING}
 var state = State.IDLE
@@ -28,6 +29,7 @@ var prev_state
 
 var isRunning : bool = false
 var runningFromTarget
+var bait
 
 var target_position : Vector3
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -130,14 +132,14 @@ func move_toward_target(move_speed):
 		#var target_rotation = global_transform.looking_at(next_position).basis
 		#global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 
-func run_from_target():
+func run_from_target(target):
 	#print("RUNNING")
 	#print(runningFromTarget.position)
 	#print(global_position)
 	timer.stop()
 	
 	#direction math, ask Kade if curious
-	var pos_dif = (global_position - runningFromTarget.position) 
+	var pos_dif = (global_position - target.position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3(pos_dif.x / total, 0, pos_dif.z / total)
 
@@ -147,6 +149,19 @@ func run_from_target():
 		var target_rotation = global_transform.looking_at(direction).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
+func run_to_target(target):
+	timer.stop()
+	
+	#direction math, ask Kade if curious
+	var pos_dif = (global_position - target.position) 
+	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
+	var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
+
+	velocity = direction * (walk_speed)
+	move_and_slide()
+	if direction.length() > 0:
+		var target_rotation = global_transform.looking_at(direction).basis
+		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 
 func escaped_player(body):
 	if (disposition == bugInfo.bugDisposition.EVASIVE):
@@ -158,12 +173,27 @@ func escaped_player(body):
 	else:
 		print("escaped but dont matter")
 
+func detected_body_distanced(body):
+	if (body.get_meta("Bait") != null):
+		detected_bait(body)
+	else:
+		react_to_player(body)
+
 func detected_bait(body):
+	print(body.get_meta("Bait"))
 	if (body.get_meta_list() != null):
 		var list = body.get_meta_list()
+		bait = body
+		run_to_target(body)
 		print("bait detected")
 	else:
 		print("bait not detected")
+
+func eat_bait(body):
+	print("ate the bait")
+	state = State.IDLE
+	timer.start(idle_duration * 2)
+	body.find_parent("baitBase").queue_free()
 
 func react_to_player(body):
 	runningFromTarget = body
@@ -171,6 +201,7 @@ func react_to_player(body):
 	if (disposition == bugInfo.bugDisposition.PEACEFUL):
 		print("this is peaceful, weow")
 	elif (disposition == bugInfo.bugDisposition.EVASIVE):
+		run_from_target(body)
 		print("this is evasive, runnin")
 		state = State.RUNNING
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://co3i1ap6yftey"]
 
-[ext_resource type="Script" uid="uid://duelkekl8fdgd" path="res://assets/Scripts/playerController.gd" id="1_stc2r"]
+[ext_resource type="Script" uid="uid://duelkekl8fdgd" path="res://assets/scripts/playerController.gd" id="1_stc2r"]
 [ext_resource type="Script" uid="uid://d0yakcuenmdq6" path="res://assets/Nodes/Character_Nodes/player_skin.gd" id="2_10yu6"]
 [ext_resource type="Material" uid="uid://cqerdtvx0hw5a" path="res://assets/Resources/Materials/character_temp.tres" id="3_7bn2i"]
 [ext_resource type="Texture2D" uid="uid://bmymo8rjdpsbe" path="res://assets/Resources/3D_Meshes/character/cat/cat_imports/cat2_0.png" id="4_2hmyc"]
@@ -1332,7 +1332,7 @@ bones/12/name = "spine"
 bones/12/parent = 11
 bones/12/rest = Transform3D(0.9996704, -0.025674311, -2.6932112e-17, 0.025674311, 0.9996704, -3.4578866e-19, 2.6932112e-17, -3.4578866e-19, 1, 0.024614692, 0.0010607535, 1.9145065e-17)
 bones/12/enabled = true
-bones/12/position = Vector3(0.02257652, 0.0010484748, 1.6788375e-17)
+bones/12/position = Vector3(0.022992311, 0.0010509796, 1.6813879e-17)
 bones/12/rotation = Quaternion(-1.2924699e-26, 3.2937788e-25, 0.012838217, 0.9999177)
 bones/12/scale = Vector3(1, 1, 1)
 bones/13/name = "chest"

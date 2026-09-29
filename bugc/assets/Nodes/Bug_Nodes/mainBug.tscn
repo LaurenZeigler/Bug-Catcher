@@ -9,13 +9,19 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
 height = 1.3134766
-radius = 3.166504
+radius = 3.5351563
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
+height = 1.4433594
+radius = 0.6064453
 
 [node name="mainBug" type="CharacterBody3D" unique_id=538178057]
 collision_layer = 512
 collision_mask = 1793
 script = ExtResource("1_u8rkr")
 bugInfo = ExtResource("2_xt7kx")
+walking_duration = null
+idle_duration = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
 mesh = SubResource("SphereMesh_u8rkr")
@@ -25,17 +31,17 @@ shape = SubResource("SphereShape3D_akxyx")
 
 [node name="Detection" type="Area3D" parent="." unique_id=1542686731]
 collision_layer = 512
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
 shape = SubResource("CylinderShape3D_m74y1")
 
-[node name="Detection2" type="Area3D" parent="." unique_id=1269379334]
+[node name="DetectionBait" type="Area3D" parent="." unique_id=1269379334]
 collision_layer = 512
 collision_mask = 4096
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection2" unique_id=611361460]
-shape = SubResource("CylinderShape3D_m74y1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
+shape = SubResource("CylinderShape3D_735tp")
 
 [node name="Timer" type="Timer" parent="." unique_id=958815534]
 
@@ -43,6 +49,6 @@ shape = SubResource("CylinderShape3D_m74y1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309543927]
 
-[connection signal="body_entered" from="Detection" to="." method="react_to_player"]
+[connection signal="body_entered" from="Detection" to="." method="detected_body_distanced"]
 [connection signal="body_exited" from="Detection" to="." method="escaped_player"]
-[connection signal="body_entered" from="Detection2" to="." method="detected_bait"]
+[connection signal="body_entered" from="DetectionBait" to="." method="eat_bait"]
