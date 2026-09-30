@@ -32,46 +32,14 @@ var runningFromTarget
 var bait
 
 var target_position : Vector3
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var dir : Vector3
+var _gravity := -30.0
 
-func _ready() -> void:	
+func _ready() -> void:
 	timer.timeout.connect(_on_timer_timout)
 	timer.start(idle_duration)
 	
-func _on_timer_timout():
-	match state:
-		State.IDLE:
-			var random_target = position + Vector3(randf_range(-10,10), 0, randf_range(-10,10))
-			nav_agent.target_position = random_target
-			#var move_type = randf_range(0,1)
-			#if move_type <= walk_chance:
-				#state = State.WALKING
-			#else:
-				#state = State.FLYING
-			prev_state = State.IDLE
-			state = State.WALKING
-			timer.start(idle_duration)
-		#State.FLYIDLE:
-			#var random_target = Vector3(randf_range(-10,10), fly_height, randf_range(-10,10))
-			#nav_agent.target_position = random_target
-			#var move_type = randf_range(0,1)
-			#if move_type <= walk_chance:
-				#state = State.WALKING
-			#else:
-				#state = State.FLYING
-			#prev_state = State.FLYIDLE
-			#timer.start(idle_duration)
-		State.WALKING:
-			state = State.IDLE
-			prev_state = State.WALKING
-		#State.FLYING:
-			#state = State.FLYIDLE
-			#prev_state = State.FLYING
-
-func _process(delta : float) -> void:
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	
+func _physics_process(delta : float) -> void:
 	if state == State.RUNNING:
 		run_from_target(runningFromTarget)
 	elif state == State.WALKING:
@@ -82,85 +50,70 @@ func _process(delta : float) -> void:
 			move_toward_target(walk_speed)
 	elif state == State.BAITED:
 		run_to_target(bait)
+	elif state == State.IDLE:
+		dir = Vector3(0,0,0)
+	print(dir)
+	#velocity = velocity.move_toward(dir * walk_speed, delta)
+	velocity = dir * walk_speed
+	if not is_on_floor():
+		velocity.y += _gravity * delta
+	move_and_slide()
+
+
+func _on_timer_timout():
+	match state:
+		State.IDLE:
+			var random_target = position + Vector3(randf_range(-10,10), 0, randf_range(-10,10))
+			nav_agent.target_position = random_target
+			prev_state = State.IDLE
+			state = State.WALKING
+			timer.start(idle_duration)
+		State.WALKING:
+			state = State.IDLE
+			prev_state = State.WALKING
+
 
 func move_toward_target(move_speed):
-	#motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
 	var next_position
 	var direction
-	#if (prev_state == State.IDLE):
-		#print("walking")
-		#next_position = nav_agent.target_position
-		#direction = (next_position - transform.origin).normalized()
-		#velocity = direction * move_speed
-	#elif (prev_state == State.FLYIDLE):
-		#print("fly to ground")
-		#next_position = Vector3(position.x, 0, position.z)
-		#direction = (next_position - transform.origin).normalized()
-		#velocity = direction * fly_speed
-		
 	next_position = nav_agent.target_position
 	direction = (next_position - transform.origin).normalized()
-	velocity = direction * move_speed
-	#print(next_position)
-	#print("moving to" + str(direction))
-	move_and_slide()
+	dir.x = direction.x * move_speed
+	dir.z = direction.z * move_speed
 	if direction.length() > 0:
 		var target_rotation = global_transform.looking_at(next_position).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
-#func fly_toward_target(move_speed,delta):
-	#motion_mode = CharacterBody3D.MOTION_MODE_FLOATING
-	#var next_position
-	#var direction
-	#if (prev_state == State.FLYIDLE):
-		#print("flying")
-		#next_position = nav_agent.target_position
-		#next_position.y = fly_height
-		#direction = (next_position - transform.origin).normalized()
-		#velocity = direction * fly_speed
-	#elif (prev_state == State.IDLE):
-		#print("ground to fly")
-		#next_position = Vector3(position.x, fly_height, position.z)
-		#direction = (next_position - transform.origin).normalized()
-		#velocity = direction * fly_speed
-	#
-	## for fly height make it affect the model itself instead of the base of it so that there is a reference to floor
-	## maybe change the collision box with it?
-	## or maybe make a offset node on the mesh and collision that moves on flight	
-	##print(next_position)
-	##print("flying to" + str(direction))
-	#move_and_slide()
-	#if direction.length() > 0:
-		#var target_rotation = global_transform.looking_at(next_position).basis
-		#global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
-
 func run_from_target(target):
-	#print("RUNNING")
-	#print(runningFromTarget.position)
-	#print(global_position)
 	timer.stop()
 	
+	print("running from")
 	#direction math, ask Kade if curious
 	var pos_dif = (global_position - target.position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3(pos_dif.x / total, 0, pos_dif.z / total)
 
-	velocity = direction * (walk_speed * 4)
-	move_and_slide()
+	dir = direction * (walk_speed * 4)
+	#move_and_slide()
 	if direction.length() > 0:
 		var target_rotation = global_transform.looking_at(direction).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
 func run_to_target(target):
 	timer.stop()
+	
+	print("running to")
 	var target_position = target.find_parent("baitBase").position 
 	#direction math, ask Kade if curious
 	var pos_dif = (global_position - target_position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
 
-	velocity = direction * (walk_speed)
-	move_and_slide()
+	dir = direction * (walk_speed * 4)
+	#dir = Vector3(direction.x * (walk_speed), velocity.y, direction.z * (walk_speed))
+	#velocity.x = direction.x * (walk_speed * 4)
+	#velocity.z = direction.z * (walk_speed * 4)
+	#move_and_slide()
 	if direction.length() > 0:
 		var target_rotation = global_transform.looking_at(direction).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)

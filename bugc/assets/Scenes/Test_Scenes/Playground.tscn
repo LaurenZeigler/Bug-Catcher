@@ -76,6 +76,6 @@ transform = Transform3D(2.779522, 0, 0, 0, 2.0183434, 0, 0, 0, 7.03702, -16.6577
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.037394, 0.0655923, -13.404952)
 
 [node name="mainBug" parent="." unique_id=538178057 instance=ExtResource("8_mxwkx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[connection signal="use_net" from="MainCharacter" to="MainCharacter/player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets" method="use_net"]
 [connection signal="bugcaught" from="mainBug" to="GAME_nodes/Play_Menu" method="_on_main_bug_bugcaught"]
