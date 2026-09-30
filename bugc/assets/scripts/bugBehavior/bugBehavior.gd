@@ -168,14 +168,16 @@ func run_to_target(target):
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 
 func escaped_player(body):
-	if (disposition == bugInfo.bugDisposition.EVASIVE):
-		print("it escaped you")
-		state = State.IDLE
-		timer.start(idle_duration)
-	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
-		print("lower the defenses")
-	else:
-		print("escaped but dont matter")
+	if state != State.BAITED:
+		if (disposition == bugInfo.bugDisposition.EVASIVE):
+			print("it escaped you")
+			state = State.IDLE
+			timer.start(idle_duration)
+		elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
+			print("lower the defenses")
+		else:
+			print("escaped but dont matter")
+	
 
 func detected_body_distanced(body):
 	if (body.get_meta("Bait") != null):
@@ -204,7 +206,9 @@ func react_to_player(body):
 		runningFromTarget = body
 		#run_from_target(runningFromTarget)
 		print("this is evasive, runnin")
-		state = State.RUNNING
+		if (state != State.BAITED):
+			state = State.RUNNING
+		
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
 		print("this is defensive, AH")
 	else:
