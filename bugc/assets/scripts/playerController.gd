@@ -12,7 +12,7 @@ signal use_net
 @onready var _anim_state_machine : AnimationNodeStateMachinePlayback = _anim_tree.get("parameters/StateMachine/playback")
 @onready var _anim_player : AnimationPlayer = %AnimationPlayer
 
-enum move_state { idle, walk, sprint, sneak, jump }
+enum move_state { idle, walk, sprint, sneak, jump, net_swing }
 var anim_state : move_state = move_state.walk
 
 ## MOVEMENT SPEED ##
@@ -107,7 +107,9 @@ func _physics_process(delta: float) -> void:
 func _animate_state():
 	## CHANGE STATE ##
 	var cur_state: move_state
-	if not is_on_floor():
+	if Input.is_action_pressed("use_tool"):
+		cur_state = move_state.net_swing
+	elif not is_on_floor():
 		cur_state = move_state.jump
 	elif _is_moving() and is_on_floor and Input.is_action_pressed("sprint"):
 		cur_state = move_state.idle#sprint
@@ -126,7 +128,7 @@ func _animate_state():
 		_anim_state_machine.travel("idle")
 		_anim_player.play("idle")
 		anim_state = move_state.idle
-	if cur_state == move_state.walk:
+	elif cur_state == move_state.walk:
 		_anim_state_machine.travel("walk")
 		_anim_player.play("walk")
 		anim_state = move_state.walk
@@ -138,6 +140,10 @@ func _animate_state():
 		_anim_state_machine.travel("idle")#sneak
 		_anim_player.play("idle")#sneak
 		anim_state = move_state.sneak
+	elif cur_state == move_state.net_swing:
+		_anim_state_machine.travel("net_swing")#sneak
+		_anim_player.play("net_swing")#sneak
+		anim_state = move_state.net_swing
 	elif cur_state == move_state.jump:
 		_anim_state_machine.travel("idle")#jump
 		_anim_player.play("idle")#jump
@@ -151,26 +157,12 @@ func _is_moving():
 
 
 '''
-## partially referenced from: https://github.com/dratmat/3D-Character-Movement
 ## TODO: 
 ## - Cannot climb stairs yet
-## - Character should move independently:
-## 		- Rotate towards direction (maybe through parent object and IK look?)
-## 		- Movement direction based on camera
-## 		- Camera stays put
-## - Jump mechanic velocity changes (maybe based on gravity?)
-## - Fine tune speeds
 
 # SIGNAL
 signal use_net
 
-## MOVEMENT
-@export_group("Movement")
-@export var speed_walk : float = 5.0
-@export var speed_sprint : float = 10.0
-@export var speed_sneak : float = 2.5
-@export var velocity_jump : float = 5
-var speed_cur : float = speed_walk
 
 ## CAMERA
 @export_group("Camera")
