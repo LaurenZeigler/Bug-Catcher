@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://4utjwkki11ep"]
+
+[ext_resource type="Texture2D" uid="uid://nwd4utaj023n" path="res://assets/Resources/Images/icons/Icon_aphid.png" id="1_4e84v"]
+[ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/Scripts/bugBehavior/bugInfo.gd" id="2_4e84v"]
+[ext_resource type="ArrayMesh" uid="uid://b4wg328lpghir" path="res://assets/Resources/3D_Meshes/bugs/Aphid_temp.res" id="2_tbuhl"]
+
+[resource]
+script = ExtResource("2_4e84v")
+name = "Aphid"
+icon = ExtResource("1_4e84v")
+model = ExtResource("2_tbuhl")
+timeWalking = 0.5
+timeFlying = 0.5
+walking_speed = 1.5
+running_speed = 3.0
+flying_speed = 1.5
+flying_height = 1.0
+canFly = true
+canWalk = true
+bug_disposition = 1
+metadata/_custom_type_script = "uid://beete4wxtiv4c"

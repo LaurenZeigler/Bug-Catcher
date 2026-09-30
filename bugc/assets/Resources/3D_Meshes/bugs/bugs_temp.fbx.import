@@ -40,6 +40,44 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"meshes": {
+"Ant_temp": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/bugs/Ant_temp.res",
+"save_to_file/path": "uid://dkxopae4m0wrl"
+},
+"Aphid_temp": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/bugs/Aphid_temp.res",
+"save_to_file/path": "uid://b4wg328lpghir"
+},
+"BumbleBee_temp": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/bugs/BumbleBee_temp.res",
+"save_to_file/path": "uid://b5a6g6sohwcw1"
+},
+"Mite_temp": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://assets/Resources/3D_Meshes/bugs/Mite_temp.res",
+"save_to_file/path": "uid://b0pocp2d7kmwg"
+}
+},
 "nodes": {
 "PATH:AnimationPlayer": {
 "optimizer/enabled": false

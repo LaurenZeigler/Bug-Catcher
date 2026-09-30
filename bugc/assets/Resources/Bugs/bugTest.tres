@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://v7fn33ks85jm"]
 
 [ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/Scripts/bugBehavior/bugInfo.gd" id="1_2g5ai"]
+[ext_resource type="Texture2D" uid="uid://ctufxnmlmpmjj" path="res://assets/Resources/Images/icons/Icon_NA.png" id="1_ns45h"]
 
 [resource]
 script = ExtResource("1_2g5ai")
 name = "Test"
+icon = ExtResource("1_ns45h")
 timeWalking = 0.5
 timeFlying = 0.5
 walking_speed = 1.5
