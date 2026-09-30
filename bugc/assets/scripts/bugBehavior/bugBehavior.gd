@@ -103,20 +103,18 @@ func run_to_target(target):
 	timer.stop()
 	
 	print("running to")
-	var target_position = target.find_parent("baitBase").position 
-	#direction math, ask Kade if curious
-	var pos_dif = (global_position - target_position) 
-	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
-	var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
+	if ((target != null) and (target.find_parent("baitBase") != null)):
+		var target_position = target.find_parent("baitBase").position 
+		#direction math, ask Kade if curious
+		var pos_dif = (global_position - target_position) 
+		var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
+		var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
 
-	dir = direction * (walk_speed * 4)
-	#dir = Vector3(direction.x * (walk_speed), velocity.y, direction.z * (walk_speed))
-	#velocity.x = direction.x * (walk_speed * 4)
-	#velocity.z = direction.z * (walk_speed * 4)
-	#move_and_slide()
-	if direction.length() > 0:
-		var target_rotation = global_transform.looking_at(direction).basis
-		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
+		dir = direction * (walk_speed)
+		if direction.length() > 0:
+			var target_rotation = global_transform.looking_at(direction).basis
+			global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
+
 
 func escaped_player(body):
 	if state != State.BAITED:
