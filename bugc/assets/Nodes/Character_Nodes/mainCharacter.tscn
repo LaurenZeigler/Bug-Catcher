@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://co3i1ap6yftey"]
 
-[ext_resource type="Script" uid="uid://duelkekl8fdgd" path="res://assets/Scripts/playerController.gd" id="1_stc2r"]
+[ext_resource type="Script" uid="uid://duelkekl8fdgd" path="res://assets/scripts/playerController.gd" id="1_stc2r"]
 [ext_resource type="Script" uid="uid://d0yakcuenmdq6" path="res://assets/Nodes/Character_Nodes/player_skin.gd" id="2_10yu6"]
 [ext_resource type="Material" uid="uid://cqerdtvx0hw5a" path="res://assets/Resources/Materials/character_temp.tres" id="3_7bn2i"]
 [ext_resource type="Texture2D" uid="uid://bmymo8rjdpsbe" path="res://assets/Resources/3D_Meshes/character/cat/cat_imports/cat2_0.png" id="4_2hmyc"]
@@ -2630,3 +2630,5 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D" unique_id=402914334]
 transform = Transform3D(1, 0, 0, 0, 0.96325034, 0.26860544, 0, -0.26860544, 0.96325034, 0, 0, 0)
+
+[connection signal="use_net" from="." to="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets" method="use_net"]

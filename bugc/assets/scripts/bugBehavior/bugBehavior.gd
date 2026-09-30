@@ -155,8 +155,6 @@ func run_to_target(target):
 	timer.stop()
 	var target_position = target.find_parent("baitBase").position 
 	#direction math, ask Kade if curious
-	print(global_position)
-	print(target_position)
 	var pos_dif = (global_position - target_position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
