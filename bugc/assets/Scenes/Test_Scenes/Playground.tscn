@@ -73,7 +73,7 @@ transform = Transform3D(2.779522, 0, 0, 0, 2.0183434, 0, 0, 0, 7.03702, -18.9141
 transform = Transform3D(2.779522, 0, 0, 0, 2.0183434, 0, 0, 0, 7.03702, -16.657757, 4.01357, 13.134167)
 
 [node name="baitBase" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.730488, 0.0655923, -13.404952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.037394, 0.0655923, -13.404952)
 
 [node name="mainBug" parent="." unique_id=538178057 instance=ExtResource("8_mxwkx")]
 

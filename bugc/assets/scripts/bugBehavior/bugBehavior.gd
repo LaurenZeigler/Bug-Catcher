@@ -17,7 +17,7 @@ signal bugcaught
 @onready var detector : Area3D = $Detection
 @onready var detector_bait : Area3D = $DetectionBait
 
-enum State {IDLE,WALKING,RUNNING}
+enum State {IDLE,WALKING,RUNNING,BAITED}
 var state = State.IDLE
 var prev_state
 
@@ -36,7 +36,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready() -> void:	
 	timer.timeout.connect(_on_timer_timout)
-	timer.start(idle_duration)	
+	timer.start(idle_duration)
 	
 func _on_timer_timout():
 	match state:
@@ -73,13 +73,15 @@ func _process(delta : float) -> void:
 		velocity.y -= gravity * delta
 	
 	if state == State.RUNNING:
-		run_from_target()
+		run_from_target(runningFromTarget)
 	elif state == State.WALKING:
 		if nav_agent.is_navigation_finished():
 			state = State.IDLE
 			timer.start(idle_duration)
 		else:
 			move_toward_target(walk_speed)
+	elif state == State.BAITED:
+		run_to_target(bait)
 
 func move_toward_target(move_speed):
 	#motion_mode = CharacterBody3D.MOTION_MODE_GROUNDED
@@ -151,9 +153,11 @@ func run_from_target(target):
 		
 func run_to_target(target):
 	timer.stop()
-	
+	var target_position = target.find_parent("baitBase").position 
 	#direction math, ask Kade if curious
-	var pos_dif = (global_position - target.position) 
+	print(global_position)
+	print(target_position)
+	var pos_dif = (global_position - target_position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3((pos_dif.x * -1) / total, 0, (pos_dif.z * -1) / total)
 
@@ -180,14 +184,10 @@ func detected_body_distanced(body):
 		react_to_player(body)
 
 func detected_bait(body):
+	bait = body
+	state = State.BAITED
+	print("bait detected")
 	print(body.get_meta("Bait"))
-	if (body.get_meta_list() != null):
-		var list = body.get_meta_list()
-		bait = body
-		run_to_target(body)
-		print("bait detected")
-	else:
-		print("bait not detected")
 
 func eat_bait(body):
 	print("ate the bait")
@@ -201,7 +201,8 @@ func react_to_player(body):
 	if (disposition == bugInfo.bugDisposition.PEACEFUL):
 		print("this is peaceful, weow")
 	elif (disposition == bugInfo.bugDisposition.EVASIVE):
-		run_from_target(body)
+		runningFromTarget = body
+		#run_from_target(runningFromTarget)
 		print("this is evasive, runnin")
 		state = State.RUNNING
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
