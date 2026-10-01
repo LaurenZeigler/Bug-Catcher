@@ -159,10 +159,9 @@ func react_to_player(body):
 			state = State.RUNNING
 		
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
-		if (attack_type == bugInfo.bugAttack.NONE):
-			pass
-		else:
+		if (attack_type != bugInfo.bugAttack.NONE):
 			defend_effect()
+			
 		print("this is defensive, AH")
 	else:
 		print("ERROR no reaction type")
@@ -196,4 +195,4 @@ func defend_physical():
 	playerTarget.start_stun(stun_time)
 
 func defend_effect():
-	pass
+	print("get sprayed with " + str(attack_type))
