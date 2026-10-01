@@ -18,4 +18,5 @@ canWalk = true
 bug_disposition = 2
 bug_attack = 1
 bug_size = 2.0
+stun_time = 1.0
 metadata/_custom_type_script = "uid://beete4wxtiv4c"

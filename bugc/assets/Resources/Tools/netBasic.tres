@@ -8,5 +8,5 @@ script = ExtResource("1_vd637")
 name = "Basic"
 icon = ExtResource("1_yigxh")
 speed = 1.0
-size = 3.0
+size = 1.0
 metadata/_custom_type_script = "uid://ba2gbdreqhdn6"

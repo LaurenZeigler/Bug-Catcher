@@ -15,10 +15,17 @@ func use_net():
 	print(bodies)
 	if (bodies.get(0) != null):
 		print("theres something")
-		if (bodies.get(0).compare_net_size(get_size()) == true):
+		var result = bodies.get(0).attempt_to_catch()
+		if (result == "catch"):
 			bodies.get(0).caught_by_player()
-		else:
-			print("bug too big for net")
+		if (result == "fail"):
+			print("failed to catch")
+		if (result == "stun"):
+			bodies.get(0).defend_physical()
+		#if (bodies.get(0).compare_net_size(get_size()) == true):
+			#bodies.get(0).caught_by_player()
+		#else:
+			#print("bug too big for net")
 	else:
 		print("theres nothing")
 	
@@ -31,5 +38,8 @@ func get_speed():
 func get_size():
 	return net_info.size
 
-
-	
+func compare_bug_size(bug_size):
+	if (get_size() < bug_size):
+		return true
+	else:
+		return false

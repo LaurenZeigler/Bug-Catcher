@@ -2633,4 +2633,8 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 [node name="Camera3D" type="Camera3D" parent="camera_pivot/SpringArm3D" unique_id=402914334]
 transform = Transform3D(1, 0, 0, 0, 0.96325034, 0.26860544, 0, -0.26860544, 0.96325034, 0, 0, 0)
 
+[node name="StunTimer" type="Timer" parent="." unique_id=1997941889]
+one_shot = true
+
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets" method="use_net"]
+[connection signal="timeout" from="StunTimer" to="." method="exit_stun"]

@@ -35,6 +35,7 @@ enum bugHide {NONE, WATER, GROUND, NEST}
 @export var bug_hide : bugHide
 @export var catchHardness : float
 @export var bug_size : float
+@export var stun_time : float
 
 func get_walking_speed():
 	return walking_speed

@@ -8,6 +8,7 @@ signal bugcaught
 @onready var disposition = bugInfo.bug_disposition
 @onready var attack_type = bugInfo.bug_attack
 @onready var bug_size = bugInfo.bug_size
+@onready var stun_time = bugInfo.stun_time
 
 @onready var walk_speed : float = bugInfo.walking_speed
 @onready var fly_speed : float = bugInfo.flying_speed
@@ -159,13 +160,25 @@ func react_to_player(body):
 		
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
 		if (attack_type == bugInfo.bugAttack.NONE):
-			defend_physical()
+			pass
 		else:
 			defend_effect()
 		print("this is defensive, AH")
 	else:
 		print("ERROR no reaction type")
 	print(disposition)
+
+func attempt_to_catch():
+	var outcome : String
+	if (disposition == bugInfo.bugDisposition.DEFENSIVE):
+		if (playerTarget.get_node("player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets").compare_bug_size(bug_size) == false):
+			return "catch"
+		else:
+			return "stun"
+	elif (playerTarget.get_node("player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets").compare_bug_size(bug_size) == false):
+		return "catch"
+	else:
+		return "fail"
 
 func caught_by_player():
 	print("bug been caught")
@@ -179,7 +192,8 @@ func compare_net_size(net_size):
 		return false
 
 func defend_physical():
-	pass
+	print("not caught and u stunned, loser")
+	playerTarget.start_stun(stun_time)
 
 func defend_effect():
 	pass
