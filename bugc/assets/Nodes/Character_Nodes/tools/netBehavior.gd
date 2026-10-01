@@ -22,10 +22,6 @@ func use_net():
 			print("failed to catch")
 		if (result == "stun"):
 			bodies.get(0).defend_physical()
-		#if (bodies.get(0).compare_net_size(get_size()) == true):
-			#bodies.get(0).caught_by_player()
-		#else:
-			#print("bug too big for net")
 	else:
 		print("theres nothing")
 	

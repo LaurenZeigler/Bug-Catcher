@@ -55,7 +55,6 @@ func _physics_process(delta : float) -> void:
 		run_to_target(bait)
 	elif state == State.IDLE:
 		dir = Vector3(0,0,0)
-	#velocity = velocity.move_toward(dir * walk_speed, delta)
 	velocity = dir * walk_speed
 	if not is_on_floor():
 		velocity.y += _gravity * delta
@@ -153,7 +152,6 @@ func react_to_player(body):
 	if (disposition == bugInfo.bugDisposition.PEACEFUL):
 		print("this is peaceful, weow")
 	elif (disposition == bugInfo.bugDisposition.EVASIVE):
-		#run_from_target(runningFromTarget)
 		print("this is evasive, runnin")
 		if (state != State.BAITED):
 			state = State.RUNNING
