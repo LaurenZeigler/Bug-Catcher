@@ -6,6 +6,8 @@ signal bugcaught
 @onready var bug_name : String = bugInfo.name
 
 @onready var disposition = bugInfo.bug_disposition
+@onready var attack_type = bugInfo.bug_attack
+@onready var bug_size = bugInfo.bug_size
 
 @onready var walk_speed : float = bugInfo.walking_speed
 @onready var fly_speed : float = bugInfo.flying_speed
@@ -28,7 +30,7 @@ var prev_state
 @onready var fly_chance : float = bugInfo.timeFlying
 
 var isRunning : bool = false
-var runningFromTarget
+var playerTarget
 var bait
 
 var target_position : Vector3
@@ -41,7 +43,7 @@ func _ready() -> void:
 	
 func _physics_process(delta : float) -> void:
 	if state == State.RUNNING:
-		run_from_target(runningFromTarget)
+		run_from_target(playerTarget)
 	elif state == State.WALKING:
 		if nav_agent.is_navigation_finished():
 			state = State.IDLE
@@ -52,7 +54,6 @@ func _physics_process(delta : float) -> void:
 		run_to_target(bait)
 	elif state == State.IDLE:
 		dir = Vector3(0,0,0)
-	print(dir)
 	#velocity = velocity.move_toward(dir * walk_speed, delta)
 	velocity = dir * walk_speed
 	if not is_on_floor():
@@ -102,7 +103,6 @@ func run_from_target(target):
 func run_to_target(target):
 	timer.stop()
 	
-	print("running to")
 	if ((target != null) and (target.find_parent("baitBase") != null)):
 		var target_position = target.find_parent("baitBase").position 
 		#direction math, ask Kade if curious
@@ -147,18 +147,21 @@ func eat_bait(body):
 	body.find_parent("baitBase").queue_free()
 
 func react_to_player(body):
-	runningFromTarget = body
+	playerTarget = body
 	print(body)
 	if (disposition == bugInfo.bugDisposition.PEACEFUL):
 		print("this is peaceful, weow")
 	elif (disposition == bugInfo.bugDisposition.EVASIVE):
-		runningFromTarget = body
 		#run_from_target(runningFromTarget)
 		print("this is evasive, runnin")
 		if (state != State.BAITED):
 			state = State.RUNNING
 		
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
+		if (attack_type == bugInfo.bugAttack.NONE):
+			defend_physical()
+		else:
+			defend_effect()
 		print("this is defensive, AH")
 	else:
 		print("ERROR no reaction type")
@@ -168,3 +171,15 @@ func caught_by_player():
 	print("bug been caught")
 	BugGlobalInv.add_bug(bug_name, 1)
 	queue_free()
+
+func compare_net_size(net_size):
+	if (net_size >= bug_size):
+		return true
+	else:
+		return false
+
+func defend_physical():
+	pass
+
+func defend_effect():
+	pass

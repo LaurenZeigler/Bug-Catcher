@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bmymo8rjdpsbe" path="res://assets/Resources/3D_Meshes/character/cat/cat_imports/cat2_0.png" id="4_2hmyc"]
 [ext_resource type="Material" uid="uid://br1x26appfowe" path="res://assets/Resources/Materials/net_temp.tres" id="5_7bn2i"]
 [ext_resource type="Script" uid="uid://c8maxq47l61q4" path="res://assets/Nodes/Character_Nodes/tools/netBehavior.gd" id="6_7bn2i"]
+[ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/Resources/Tools/netBasic.tres" id="7_2hmyc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38uue"]
 radius = 0.16259766
@@ -2600,6 +2601,7 @@ libraries/ = SubResource("AnimationLibrary_2hmyc")
 [node name="Nets" type="Node3D" parent="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects" unique_id=406932818]
 transform = Transform3D(0.032513395, -0.12028185, -0.010005718, 0.11866146, 0.033750236, -0.02013395, 0.022075595, -0.004261323, 0.12296123, -0.048413493, 0.008310813, -0.14523284)
 script = ExtResource("6_7bn2i")
+net_info = ExtResource("7_2hmyc")
 
 [node name="Area3D" type="Area3D" parent="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets" unique_id=989829765]
 collision_layer = 2048
