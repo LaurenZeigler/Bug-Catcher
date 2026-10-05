@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://v7fn33ks85jm"]
+
+[ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/scripts/bugBehavior/bugInfo.gd" id="1_2g5ai"]
+[ext_resource type="Texture2D" uid="uid://ctufxnmlmpmjj" path="res://assets/Resources/Images/icons/Icon_NA.png" id="1_ns45h"]
+
+[resource]
+script = ExtResource("1_2g5ai")
+name = "Test"
+icon = ExtResource("1_ns45h")
+timeWalking = 0.5
+timeFlying = 0.5
+walking_speed = 1.5
+running_speed = 3.0
+flying_speed = 1.5
+flying_height = 1.0
+canFly = true
+canWalk = true
+bug_disposition = 2
+bug_attack = 1
+bug_size = 2.0
+stun_time = 1.0
+metadata/_custom_type_script = "uid://beete4wxtiv4c"

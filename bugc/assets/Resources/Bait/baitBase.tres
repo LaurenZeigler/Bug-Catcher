@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BaitInfo" format=3 uid="uid://ytji1p6lcly"]
+
+[ext_resource type="Script" uid="uid://0l8vdckuthc2" path="res://assets/scripts/baitInfo.gd" id="1_1o72a"]
+
+[resource]
+script = ExtResource("1_1o72a")
+name = "bread"
+metadata/_custom_type_script = "uid://0l8vdckuthc2"

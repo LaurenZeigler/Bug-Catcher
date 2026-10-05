@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://ck32yamv1nkc8"]
+
+[ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/Scenes/Test_Scenes/whiteboxObjects/whitebox_cube.tscn" id="1_oj8m3"]
+
+[node name="whitebox_stairs" type="Node3D" unique_id=1571562960]
+
+[node name="whitebox_cube" parent="." unique_id=1747730527 instance=ExtResource("1_oj8m3")]
+transform = Transform3D(1, 0, 0, 0, 0.075989306, 0, 0, 0, 1.0986899, -0.010859132, 0, 0.005269982)
+
+[node name="whitebox_cube2" parent="." unique_id=1071185490 instance=ExtResource("1_oj8m3")]
+transform = Transform3D(1, 0, 0, 0, 0.075989306, 0, 0, 0, 0.9866474, -0.010859132, 0.0507105, -0.031909686)
+
+[node name="whitebox_cube3" parent="." unique_id=1323857372 instance=ExtResource("1_oj8m3")]
+transform = Transform3D(1, 0, 0, 0, 0.075989306, 0, 0, 0, 0.87135446, -0.010859132, 0.10014546, -0.0704173)
+
+[node name="whitebox_cube4" parent="." unique_id=876105755 instance=ExtResource("1_oj8m3")]
+transform = Transform3D(1, 0, 0, 0, 0.075989306, 0, 0, 0, 0.7458754, -0.010859132, 0.1522004, -0.110118315)
+
+[node name="whitebox_cube5" parent="." unique_id=205869457 instance=ExtResource("1_oj8m3")]
+transform = Transform3D(1, 0, 0, 0, 0.075989306, 0, 0, 0, 0.6062634, -0.010859132, 0.20174378, -0.15537474)
