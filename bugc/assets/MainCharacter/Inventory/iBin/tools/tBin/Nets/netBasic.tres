@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NetInfo" format=3 uid="uid://dyt8glbqwvcxp"]
+
+[ext_resource type="Script" uid="uid://ba2gbdreqhdn6" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netInfo.gd" id="1_vd637"]
+[ext_resource type="Texture2D" uid="uid://dujp1qj6ly826" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_net.png" id="1_yigxh"]
+
+[resource]
+script = ExtResource("1_vd637")
+name = "Basic"
+icon = ExtResource("1_yigxh")
+speed = 1.0
+size = 1.0
+metadata/_custom_type_script = "uid://ba2gbdreqhdn6"
