@@ -32,6 +32,7 @@ var prev_state
 
 var isRunning : bool = false
 var playerTarget
+var bait_list : Array
 var bait
 
 var target_position : Vector3
@@ -52,7 +53,7 @@ func _physics_process(delta : float) -> void:
 		else:
 			move_toward_target(walk_speed)
 	elif state == State.BAITED:
-		run_to_target(bait)
+		run_to_target()
 	elif state == State.IDLE:
 		dir = Vector3(0,0,0)
 	velocity = dir * walk_speed
@@ -93,18 +94,19 @@ func run_from_target(target):
 	var pos_dif = (global_position - target.position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
 	var direction = Vector3(pos_dif.x / total, 0, pos_dif.z / total)
+	
 
 	dir = direction * (walk_speed * 4)
 	#move_and_slide()
 	if direction.length() > 0:
-		var target_rotation = global_transform.looking_at(direction).basis
+		var target_rotation = global_transform.looking_at(target.position).basis
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
-func run_to_target(target):
+func run_to_target():
 	timer.stop()
-	
-	if ((target != null) and (target.find_parent("baitBase") != null)):
-		var target_position = target.find_parent("baitBase").position 
+	var target = bait_list[0]
+	if ((target != null) and (target.get_meta("Bait") != null)):
+		var target_position = target.global_position 
 		#direction math, ask Kade if curious
 		var pos_dif = (global_position - target_position) 
 		var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
@@ -112,7 +114,7 @@ func run_to_target(target):
 
 		dir = direction * (walk_speed)
 		if direction.length() > 0:
-			var target_rotation = global_transform.looking_at(direction).basis
+			var target_rotation = target.global_transform.looking_at(global_position).basis
 			global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 
 
@@ -131,20 +133,26 @@ func escaped_player(body):
 func detected_body_distanced(body):
 	if (body.get_meta("Bait") != null):
 		detected_bait(body)
+		print("detecting bait")
 	else:
+		print("reacting to player")
 		react_to_player(body)
 
 func detected_bait(body):
-	bait = body
+	if (!bait_list.has(body)):
+		bait_list.append(body)
 	state = State.BAITED
 	print("bait detected")
 	print(body.get_meta("Bait"))
 
 func eat_bait(body):
 	print("ate the bait")
+	bait_list.remove_at(bait_list.find(body))
 	state = State.IDLE
 	timer.start(idle_duration * 2)
-	body.find_parent("baitBase").queue_free()
+	print(body.get_path())
+	var one_body = body.get_parent()
+	one_body.get_parent().queue_free()
 
 func react_to_player(body):
 	playerTarget = body

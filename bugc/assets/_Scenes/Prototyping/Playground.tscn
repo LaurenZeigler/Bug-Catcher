@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Bugs/bFunction/bug_nest.tscn" id="4_a07t8"]
 [ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="4_rk3c5"]
-[ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="6_4spru"]
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="6_btpeq"]
 [ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="8_mxwkx"]
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
@@ -44,11 +43,17 @@ shadow_opacity = 0.65
 [node name="MainCharacter" parent="GAME_nodes" unique_id=882916200 instance=ExtResource("1_a4hq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.302658, -1.9073486e-06, -10.594297)
 
+[node name="baitBase3" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4967, 0.06537342, -42.693344)
+
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.282652, 1.2991986, -35.510014)
-items = Array[PackedScene]([ExtResource("4_rk3c5"), ExtResource("8_mxwkx"), ExtResource("6_4spru")])
+items = Array[PackedScene]([ExtResource("4_rk3c5")])
 
-[node name="baitBase" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
+[node name="baitBase2" parent="." unique_id=687256536 instance=ExtResource("6_btpeq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.906578, 0.13118841, -30.961615)
+
+[node name="baitBase" parent="." unique_id=1865278169 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.440876, 0.065594204, -26.121042)
 
 [node name="mainBug" parent="." unique_id=538178057 instance=ExtResource("8_mxwkx")]
