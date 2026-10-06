@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="BugInfo" format=3 uid="uid://cjmuhnp2dh8vx"]
+
+[ext_resource type="Texture2D" uid="uid://dh0vmbbjvrjhn" path="res://assets/Bugs/bBin/Solitary/ant/Icon_ant.png" id="1_bqbv6"]
+[ext_resource type="Script" uid="uid://beete4wxtiv4c" path="res://assets/Bugs/bFunction/bugInfo.gd" id="2_elnyb"]
+
+[resource]
+script = ExtResource("2_elnyb")
+name = "Test"
+icon = ExtResource("1_bqbv6")
+timeWalking = 0.5
+timeFlying = 0.5
+walking_speed = 1.5
+running_speed = 3.0
+flying_speed = 1.5
+flying_height = 1.0
+canFly = true
+canWalk = true
+bug_disposition = 2
+bug_size = 1.0
+stun_time = 1.0
+metadata/_custom_type_script = "uid://beete4wxtiv4c"

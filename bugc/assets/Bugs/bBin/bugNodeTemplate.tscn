@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://c7p8c11v1ovjr"]
+
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_1peqp"]
+[ext_resource type="Resource" uid="uid://v7fn33ks85jm" path="res://assets/Bugs/bBin/bugInfoTemplate.tres" id="2_cmqra"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m57bg"]
+size = Vector3(0.7574291, 0.74909973, 1.4860535)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
+radius = 0.38183594
+height = 1.5083008
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
+height = 1.9315643
+radius = 5.819336
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
+height = 0.7281494
+radius = 1.3798828
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+collision_layer = 512
+collision_mask = 1793
+script = ExtResource("1_1peqp")
+bugInfo = ExtResource("2_cmqra")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00014781952, 0.3818764, 0.003982544)
+mesh = SubResource("BoxMesh_m57bg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580186757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.378, 0)
+shape = SubResource("CapsuleShape3D_uha4m")
+
+[node name="Detection" type="Area3D" parent="." unique_id=1542686731]
+collision_layer = 512
+collision_mask = 6400
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039344788, 0)
+shape = SubResource("CylinderShape3D_m74y1")
+
+[node name="DetectionBait" type="Area3D" parent="." unique_id=1269379334]
+collision_layer = 512
+collision_mask = 4096
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
+shape = SubResource("CylinderShape3D_735tp")
+
+[node name="Timer" type="Timer" parent="." unique_id=958815534]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1288847061]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309543927]
+
+[connection signal="body_entered" from="Detection" to="." method="detected_body_distanced"]
+[connection signal="body_exited" from="Detection" to="." method="escaped_player"]
+[connection signal="body_entered" from="DetectionBait" to="." method="eat_bait"]

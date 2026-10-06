@@ -36,7 +36,7 @@ var bait
 
 var target_position : Vector3
 var dir : Vector3
-var _gravity := -30.0
+var _gravity := -300.0
 
 func _ready() -> void:
 	timer.timeout.connect(_on_timer_timout)

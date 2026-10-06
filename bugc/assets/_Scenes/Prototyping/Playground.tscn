@@ -5,78 +5,176 @@
 [ext_resource type="PackedScene" uid="uid://leh8y087iygp" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_plane.tscn" id="2_e564j"]
 [ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Bugs/bFunction/bug_nest.tscn" id="4_a07t8"]
-[ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="5_e564j"]
+[ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="4_rk3c5"]
+[ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="6_4spru"]
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="6_btpeq"]
-[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bFunction/mainBug.tscn" id="8_mxwkx"]
+[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="8_mxwkx"]
+[ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
+
+[sub_resource type="Environment" id="Environment_ckvui"]
+background_mode = 1
+background_color = Color(0.4247644, 0.67868745, 0.69461584, 1)
+fog_enabled = true
+fog_light_color = Color(0.18771999, 0.22968554, 0.22361231, 1)
+fog_light_energy = 0.56
+fog_sun_scatter = 0.22
+fog_density = 0.0019
+fog_sky_affect = 0.275
+adjustment_enabled = true
+adjustment_saturation = 0.8
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_oc36i"]
 
 [node name="Node3D" type="Node3D" unique_id=976585356]
 
 [node name="GAME_nodes" type="Node3D" parent="." unique_id=321557618]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GAME_nodes" unique_id=25344975]
+environment = SubResource("Environment_ckvui")
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="GAME_nodes" unique_id=283524947]
-transform = Transform3D(0.45033768, 0.64898866, 0.6131963, 0, -0.68677896, 0.72686636, 0.8928583, -0.3273353, -0.30928245, 0, 13.912697, 0)
+transform = Transform3D(-0.06313908, 0.9702886, -0.23356704, 0.23565182, 0.24191082, 0.9412478, 0.96978444, 0.0043890215, -0.24392428, 0, 13.912697, 0)
+light_energy = 1.27
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.65
 
 [node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_xt170")]
 
-[node name="MainCharacter" parent="." unique_id=882916200 instance=ExtResource("1_a4hq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9484982, 0, 7.5807934)
-
-[node name="Node3D" parent="." unique_id=118299117 instance=ExtResource("2_e564j")]
-transform = Transform3D(3.332424, 0, 0, 0, 1.3118267, 0, 0, 0, 3.7534957, -6.37092, -3.8146973e-06, -9.796738)
-
-[node name="Node3D2" parent="." unique_id=1388133900 instance=ExtResource("2_e564j")]
-transform = Transform3D(0.4223646, -0.52791536, 0, 0.21620093, 1.031322, 0, 0, 0, 0.5559142, 7.4562664, 0, -5.379921)
-
-[node name="Node3D3" parent="." unique_id=1470347848 instance=ExtResource("2_e564j")]
-transform = Transform3D(0.3192298, -0.8571557, 0, 0.351037, 0.7794894, 0, 0, 0, 0.5559142, 10.025141, 1.5104837, -5.3799114)
-
-[node name="Node3D5" parent="." unique_id=1142489124 instance=ExtResource("2_e564j")]
-transform = Transform3D(0.33327213, -0.824673, 0, 0.33773416, 0.8137777, 0, 0, 0, 0.5559142, 9.253355, 0.80039406, -5.3799133)
-
-[node name="Node3D4" parent="." unique_id=1119953495 instance=ExtResource("2_e564j")]
-transform = Transform3D(0.23671974, -1.0040988, 0.00018315566, 0.41121572, 0.5780179, -4.0363477e-05, -4.814205e-05, 0.00037278025, 0.55591416, 11.1276455, 1.9965878, -5.3799057)
+[node name="MainCharacter" parent="GAME_nodes" unique_id=882916200 instance=ExtResource("1_a4hq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.302658, -1.9073486e-06, -10.594297)
 
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6927395, 1.1912413, -12.676722)
-
-[node name="whitebox_stairs" parent="." unique_id=1571562960 instance=ExtResource("5_e564j")]
-transform = Transform3D(2.3309205, 0, 0, 0, 1, 0, 0, 0, 3.7936752, -6.887891, 0.03702429, 4.358774)
-
-[node name="whitebox_stairs2" parent="." unique_id=1389565881 instance=ExtResource("5_e564j")]
-transform = Transform3D(2.3309205, 0, 0, 0, 1.8176721, 0, 0, 0, 3.7936752, -8.792525, 0.03702429, 4.358774)
-
-[node name="whitebox_stairs3" parent="." unique_id=1028418714 instance=ExtResource("5_e564j")]
-transform = Transform3D(2.3309205, 0, 0, 0, 2.7036135, 0, 0, 0, 3.7936752, -10.848648, 0.03702429, 4.358774)
-
-[node name="whitebox_stairs4" parent="." unique_id=1523838401 instance=ExtResource("5_e564j")]
-transform = Transform3D(2.3309205, 0, 0, 0, 3.8624258, 0, 0, 0, 3.7936752, -12.90407, 0.03702429, 4.358774)
-
-[node name="whitebox_stairs5" parent="." unique_id=2047924012 instance=ExtResource("5_e564j")]
-transform = Transform3D(2.3309205, 0, 0, 0, 5.166685, 0, 0, 0, 3.7936752, -14.823618, 0.03702429, 4.358774)
-
-[node name="whitebox_cube" parent="." unique_id=1747730527 instance=ExtResource("3_btpeq")]
-transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 8.416472, -0.10437155, -10.161155)
-
-[node name="whitebox_cube2" parent="." unique_id=1944569724 instance=ExtResource("3_btpeq")]
-transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 5.076217, 0.7422042, 1.1231775, -13.037181)
-
-[node name="whitebox_cube3" parent="." unique_id=1517365542 instance=ExtResource("3_btpeq")]
-transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 2.9152017, -17.803123, 1.1231775, 9.616809)
-
-[node name="whitebox_cube4" parent="." unique_id=877626198 instance=ExtResource("3_btpeq")]
-transform = Transform3D(5.076217, 0, 0, 0, 5.076217, 0, 0, 0, 2.9152017, -17.803123, 1.1231775, 16.685188)
-
-[node name="whitebox_cube5" parent="." unique_id=43092126 instance=ExtResource("3_btpeq")]
-transform = Transform3D(2.779522, 0, 0, 0, 2.0183434, 0, 0, 0, 7.03702, -18.914104, 3.215962, 13.134167)
-
-[node name="whitebox_cube6" parent="." unique_id=1763354381 instance=ExtResource("3_btpeq")]
-transform = Transform3D(2.779522, 0, 0, 0, 2.0183434, 0, 0, 0, 7.03702, -16.657757, 4.01357, 13.134167)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.282652, 1.2991986, -35.510014)
+items = Array[PackedScene]([ExtResource("4_rk3c5"), ExtResource("8_mxwkx"), ExtResource("6_4spru")])
 
 [node name="baitBase" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.037394, 0.0655923, -13.404952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.440876, 0.065594204, -26.121042)
 
 [node name="mainBug" parent="." unique_id=538178057 instance=ExtResource("8_mxwkx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[connection signal="use_net" from="MainCharacter" to="MainCharacter/player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets" method="use_net"]
+[node name="world" type="Node3D" parent="." unique_id=1781463784]
+
+[node name="BottomWorldBounds" type="StaticBody3D" parent="world" unique_id=1824446394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world/BottomWorldBounds" unique_id=436974034]
+shape = SubResource("WorldBoundaryShape3D_oc36i")
+
+[node name="distances" type="Node3D" parent="world" unique_id=2147247453]
+
+[node name="30s_sprint" parent="world/distances" unique_id=905585304 instance=ExtResource("2_e564j")]
+transform = Transform3D(18, 0, 0, 0, 1, 0, 0, 0, 1, -151.57741, 0, 129.32913)
+
+[node name="Label3D" type="Label3D" parent="world/distances/30s_sprint" unique_id=871519794]
+transform = Transform3D(1.5868899, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 8.958659, 0.079847395, 6.451721)
+modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
+outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
+text = "30 second sprint"
+
+[node name="Label3D2" type="Label3D" parent="world/distances/30s_sprint" unique_id=1442806770]
+transform = Transform3D(-0.38085356, 0, -5.7507286e-08, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 9.430758, 1.3153896, 8.888351)
+text = "|-> distance of sprinting for 30 seconds"
+
+[node name="30s_walk" parent="world/distances" unique_id=142172049 instance=ExtResource("2_e564j")]
+transform = Transform3D(9.263251, 0, 0, 0, 1, 0, 0, 0, 1, -64.29338, 0, 97.533516)
+
+[node name="Label3D3" type="Label3D" parent="world/distances/30s_walk" unique_id=1851232969]
+transform = Transform3D(3.0835843, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 8.10652, 0.079847395, 6.699501)
+modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
+outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
+text = "30 second walk
+"
+
+[node name="Label3D4" type="Label3D" parent="world/distances/30s_walk" unique_id=629629144]
+transform = Transform3D(-0.7400602, 0, -1.1174599e-07, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 8.927912, 1.3153896, 8.888329)
+text = "|-> distance of walking for 30 seconds
+"
+
+[node name="30s_sneak" parent="world/distances" unique_id=695231539 instance=ExtResource("2_e564j")]
+transform = Transform3D(3.7808084, 0, 0, 0, 1, 0, 0, 0, 1, -9.431244, 0, 64.955284)
+
+[node name="Label3D6" type="Label3D" parent="world/distances/30s_sneak" unique_id=1328249996]
+transform = Transform3D(-1.8132007, 0, -2.7378567e-07, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 7.3170433, 1.3153896, 8.888329)
+text = "|-> distance of sneaking for 30 seconds"
+
+[node name="Label3D5" type="Label3D" parent="world/distances/30s_sneak" unique_id=414940316]
+transform = Transform3D(7.555003, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 5.0368705, 0.079847395, 5.9480515)
+modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
+outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
+text = "30 second sneak
+"
+
+[node name="whitebox_plane2" parent="world" unique_id=1339508899 instance=ExtResource("2_e564j")]
+transform = Transform3D(-1.241147e-07, 0, 6.207738, 0, 1.0000004, 0, -2.8394134, 0, -2.7134885e-07, -33.565773, 0, 6.2814083)
+
+[node name="whitebox_plane" parent="world" unique_id=1388133900 instance=ExtResource("2_e564j")]
+transform = Transform3D(2.8394132, 0, 0, 0, 1.0000004, 0, 0, 0, 6.207738, 0, 0, -27.329475)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="world" unique_id=120455513]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -27.852997, -1.9073486e-06, -24.865383)
+use_collision = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="world/CSGCombiner3D" unique_id=639772979]
+transform = Transform3D(1, 0, 0, 0, 6.776633, 0, 0, 0, 1, -9.975395, 0.53889275, -15.750523)
+use_collision = true
+size = Vector3(19.907091, 0.30682373, 31.45215)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="world/CSGCombiner3D" unique_id=475180327]
+transform = Transform3D(0.36649996, 0, 0, 0, 1.8359426, 0, 0, 0, 0.09599905, -0.26263332, 1.194521, -16.04823)
+operation = 2
+size = Vector3(2.7142067, 0.62158203, 66.109406)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="world/CSGCombiner3D" unique_id=1157304883]
+transform = Transform3D(0.36095163, 0, 0, 0, 8.791713, 0, 0, 0, 0.49588582, -9.945414, 0.09832987, -15.776588)
+operation = 2
+size = Vector3(52.42231, 0.36547852, 61.600113)
+
+[node name="Label3D3" type="Label3D" parent="world/CSGCombiner3D" unique_id=1133412508]
+transform = Transform3D(-1.6128149e-07, 0, 3.6896906, 0, 3.6896908, 0, -3.6896906, 0, -1.6128149e-07, 0.14640713, 2.451086, -11.086468)
+text = "misc bugs
+"
+
+[node name="whitebox_stairs" parent="world" unique_id=1571562960 instance=ExtResource("8_qsoa8")]
+transform = Transform3D(2.9201143, 0, 0, 0, 0.69097686, 0, 0, 0, 4.527273, -30.24176, -0.0007636249, -17.88153)
+
+[node name="whitebox_stairs2" parent="world" unique_id=2048766989 instance=ExtResource("8_qsoa8")]
+transform = Transform3D(2.9201143, 0, 0, 0, 1.4255506, 0, 0, 0, 4.527273, -33.08114, -0.0007636249, -17.88153)
+
+[node name="whitebox_stairs3" parent="world" unique_id=2068056447 instance=ExtResource("8_qsoa8")]
+transform = Transform3D(2.9201143, 0, 0, 0, 2.331037, 0, 0, 0, 4.527273, -35.659958, -0.0007636249, -17.88153)
+
+[node name="whitebox_stairs4" parent="world" unique_id=614488754 instance=ExtResource("8_qsoa8")]
+transform = Transform3D(2.9304028, 0, 0, 0, 3.5476828, 0, 0, 0, 4.527273, -38.220398, -0.0007636249, -17.88153)
+
+[node name="whitebox_stairs5" parent="world" unique_id=748519125 instance=ExtResource("8_qsoa8")]
+transform = Transform3D(2.9201143, 0, 0, 0, 4.7727823, 0, 0, 0, 4.527273, -40.990128, -0.0007636249, -17.88153)
+
+[node name="whitebox_plane3" parent="world" unique_id=1844633358 instance=ExtResource("2_e564j")]
+transform = Transform3D(1.8472667e-05, 5.141049e-06, -0.25515646, -0.05393841, 0.66994923, 0, 0.36069524, 0.10018427, 1.3068166e-05, -46.01467, 0.41195583, -14.671172)
+
+[node name="whitebox_plane4" parent="world" unique_id=1981164539 instance=ExtResource("2_e564j")]
+transform = Transform3D(1.7617627e-05, 1.152775e-05, -0.25515646, -0.12098095, 0.63904244, 0, 0.34405527, 0.22470793, 1.3068166e-05, -46.01476, 0.9236765, -16.367134)
+
+[node name="whitebox_plane5" parent="world" unique_id=1895044984 instance=ExtResource("2_e564j")]
+transform = Transform3D(1.582726e-05, 1.8424502e-05, -0.25515646, -0.19368067, 0.5739832, 0, 0.30902788, 0.35973912, 1.3068166e-05, -46.014824, 1.3723893, -17.632938)
+
+[node name="whitebox_plane6" parent="world" unique_id=2001545705 instance=ExtResource("2_e564j")]
+transform = Transform3D(1.3691599e-05, 2.3599823e-05, -0.25515646, -0.24839509, 0.49599546, 0, 0.26703992, 0.46136475, 1.3068166e-05, -46.01491, 2.4439044, -19.36417)
+
+[node name="whitebox_plane7" parent="world" unique_id=1055737583 instance=ExtResource("2_e564j")]
+transform = Transform3D(9.262971e-06, 3.012731e-05, -0.25515646, -0.31680718, 0.33558375, 0, 0.18067554, 0.5884322, 1.3068166e-05, -46.014957, 2.7899132, -20.26757)
+
+[node name="whitebox_plane8" parent="world" unique_id=1342163261 instance=ExtResource("2_e564j")]
+transform = Transform3D(6.0998264e-06, 3.2791773e-05, -0.25515643, -0.34464172, 0.22158569, 0, 0.11929989, 0.6401318, 1.3068164e-05, -46.015, 3.6388803, -21.114742)
+
+[node name="whitebox_cube" parent="world" unique_id=1747730527 instance=ExtResource("3_btpeq")]
+transform = Transform3D(4.656293, 0, 0, 0, 1, 0, 0, 0, 3.761533, -41.520298, 0.5499997, -3.2672024)
+
+[node name="whitebox_cube2" parent="world" unique_id=817155342 instance=ExtResource("3_btpeq")]
+transform = Transform3D(3.6629138, 0, 0, 0, 1, 0, 0, 0, 7.1595054, -47.459354, 2.8266792, -3.1811142)
+
+[node name="Labels" type="Node3D" parent="." unique_id=1206424638]
+
 [connection signal="bugcaught" from="mainBug" to="GAME_nodes/Play_Menu" method="_on_main_bug_bugcaught"]

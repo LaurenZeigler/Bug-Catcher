@@ -1,37 +1,41 @@
-[gd_scene format=3 uid="uid://c7p8c11v1ovjr"]
+[gd_scene format=3 uid="uid://d1hyt5u2fl4c"]
 
-[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_sggqi"]
-[ext_resource type="Resource" uid="uid://v7fn33ks85jm" path="res://assets/Bugs/bBin/bugTest.tres" id="2_umxus"]
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_i1ao7"]
+[ext_resource type="Resource" uid="uid://cjmuhnp2dh8vx" path="res://assets/Bugs/bBin/Solitary/ant/antInfo.tres" id="2_y3ft0"]
+[ext_resource type="ArrayMesh" uid="uid://dkxopae4m0wrl" path="res://assets/Bugs/bBin/Solitary/ant/Ant_temp.res" id="3_xi016"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_u8rkr"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_akxyx"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
+radius = 0.2783203
+height = 1.5227051
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
-height = 1.3134766
+height = 1.9315643
 radius = 5.819336
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
-height = 1.4433594
-radius = 0.6064453
+height = 0.7281494
+radius = 1.3798828
 
 [node name="mainBug" type="CharacterBody3D" unique_id=538178057]
 collision_layer = 512
 collision_mask = 1793
-script = ExtResource("1_sggqi")
-bugInfo = ExtResource("2_umxus")
+script = ExtResource("1_i1ao7")
+bugInfo = ExtResource("2_y3ft0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
-mesh = SubResource("SphereMesh_u8rkr")
+transform = Transform3D(3.792908, 0, 0, 0, 3.792908, 0, 0, 0, 3.792908, 0, 0.31257224, 0)
+mesh = ExtResource("3_xi016")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580186757]
-shape = SubResource("SphereShape3D_akxyx")
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.2879426, 0.02722168)
+shape = SubResource("CapsuleShape3D_uha4m")
 
 [node name="Detection" type="Area3D" parent="." unique_id=1542686731]
 collision_layer = 512
 collision_mask = 6400
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039344788, 0)
 shape = SubResource("CylinderShape3D_m74y1")
 
 [node name="DetectionBait" type="Area3D" parent="." unique_id=1269379334]
@@ -39,6 +43,7 @@ collision_layer = 512
 collision_mask = 4096
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
 shape = SubResource("CylinderShape3D_735tp")
 
 [node name="Timer" type="Timer" parent="." unique_id=958815534]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cywxeqe0fpq6m"]
 
 [ext_resource type="Script" uid="uid://b6asofqwncss4" path="res://assets/Bugs/bFunction/bugNestBehavior.gd" id="1_uha4m"]
-[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bFunction/mainBug.tscn" id="2_0l11j"]
+[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="2_0l11j"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_735tp"]
 

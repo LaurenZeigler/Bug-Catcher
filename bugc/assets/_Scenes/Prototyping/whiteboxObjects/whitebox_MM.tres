@@ -2,3 +2,5 @@
 
 [resource]
 albedo_color = Color(0.3508838, 0.3995607, 0.24376053, 1)
+stencil_flags = 2
+stencil_outline_thickness = 0.068
