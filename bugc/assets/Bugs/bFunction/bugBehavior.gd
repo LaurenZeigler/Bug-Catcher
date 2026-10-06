@@ -76,14 +76,15 @@ func _on_timer_timout():
 
 
 func move_toward_target(move_speed):
-	var next_position
+	var next_position = nav_agent.target_position
 	var direction
-	next_position = nav_agent.target_position
 	direction = (next_position - transform.origin).normalized()
 	dir.x = direction.x * move_speed
 	dir.z = direction.z * move_speed
 	if direction.length() > 0:
-		var target_rotation = global_transform.looking_at(next_position).basis
+		#var nepo = Vector3(position.x, next_position.y, position.z) - next_position
+		var target_rotation = (global_transform.looking_at(global_position - next_position).basis)
+		print(target_rotation)
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
 func run_from_target(target):

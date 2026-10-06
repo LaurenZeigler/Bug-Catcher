@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c67b40l25ukqc" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_cube.tscn" id="3_btpeq"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Bugs/bFunction/bug_nest.tscn" id="4_a07t8"]
 [ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="4_rk3c5"]
+[ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="6_4spru"]
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="6_btpeq"]
 [ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="8_mxwkx"]
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
@@ -48,16 +49,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4967, 0.06537342, -42.693
 
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("4_a07t8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.282652, 1.2991986, -35.510014)
-items = Array[PackedScene]([ExtResource("4_rk3c5")])
+items = Array[PackedScene]([ExtResource("4_rk3c5"), ExtResource("6_4spru"), ExtResource("8_mxwkx")])
 
 [node name="baitBase2" parent="." unique_id=687256536 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.906578, 0.13118841, -30.961615)
 
 [node name="baitBase" parent="." unique_id=1865278169 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.440876, 0.065594204, -26.121042)
-
-[node name="mainBug" parent="." unique_id=538178057 instance=ExtResource("8_mxwkx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="world" type="Node3D" parent="." unique_id=1781463784]
 
@@ -181,5 +179,3 @@ transform = Transform3D(4.656293, 0, 0, 0, 1, 0, 0, 0, 3.761533, -41.520298, 0.5
 transform = Transform3D(3.6629138, 0, 0, 0, 1, 0, 0, 0, 7.1595054, -47.459354, 2.8266792, -3.1811142)
 
 [node name="Labels" type="Node3D" parent="." unique_id=1206424638]
-
-[connection signal="bugcaught" from="mainBug" to="GAME_nodes/Play_Menu" method="_on_main_bug_bugcaught"]
