@@ -2507,6 +2507,7 @@ bone_idx = 25
 transform = Transform3D(-0.98577136, 0.027126543, 0.16589653, -0.08118862, -0.9409867, -0.32856625, 0.1471934, -0.3373596, 0.9297987, -0.012521476, -0.0013718009, 0.0035367124)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects" unique_id=1356701743]
+unique_name_in_owner = true
 transform = Transform3D(-0.018137105, 0.123612635, 0.0039961804, -0.122799985, -0.017518857, -0.015435741, -0.014704355, -0.0061655254, 0.12397888, -0.00062583387, -0.0013226792, -0.00014450122)
 bones/0/name = "net_handle_01_jnt"
 bones/0/parent = -1
@@ -2597,6 +2598,7 @@ root_node = NodePath("../../../../../..")
 libraries/ = SubResource("AnimationLibrary_2hmyc")
 
 [node name="Nets" type="Node3D" parent="player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects" unique_id=406932818]
+unique_name_in_owner = true
 transform = Transform3D(0.032513395, -0.12028185, -0.010005718, 0.11866146, 0.033750236, -0.02013395, 0.022075595, -0.004261323, 0.12296123, -0.048413493, 0.008310813, -0.14523284)
 script = ExtResource("5_6xyts")
 net_info = ExtResource("6_m7riy")

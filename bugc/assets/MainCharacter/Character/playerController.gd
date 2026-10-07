@@ -12,6 +12,8 @@ signal use_net
 @onready var _anim_state_machine : AnimationNodeStateMachinePlayback = _anim_tree.get("parameters/StateMachine/playback")
 @onready var _anim_player : AnimationPlayer = %AnimationPlayer
 @onready var _timer : Timer = $StunTimer
+@onready var _net_skeleton : Skeleton3D = %Skeleton3D
+@onready var _net : Node3D = %Nets
 
 enum move_state { idle, walk, sprint, sneak, jump, net_swing }
 var anim_state : move_state = move_state.walk
@@ -295,4 +297,9 @@ func exit_stun():
 	print("ending stun")
 	_timer.stop()
 	stunned = false
+
+func update_net_type():
+	var net_size = _net.get_size()
+	#add something that changes material, material override
+	_net_skeleton.net_handle_04_jnt.size(net_size, net_size, net_size)
 	
