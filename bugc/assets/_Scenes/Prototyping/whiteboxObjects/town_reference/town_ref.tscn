@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dbyp2s4673h3d"]
+
+[ext_resource type="Material" uid="uid://851igg7k25yu" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref_m.tres" id="1_x3svc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oc36i"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oc36i"]
+
+[node name="town_reference" type="StaticBody3D" unique_id=569643710]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=693949444]
+transform = Transform3D(2, 0, 0, 0, 0.01, 0, 0, 0, 2, 0, 0, 0)
+shape = SubResource("BoxShape3D_oc36i")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=89714451]
+material_override = ExtResource("1_x3svc")
+mesh = SubResource("PlaneMesh_oc36i")

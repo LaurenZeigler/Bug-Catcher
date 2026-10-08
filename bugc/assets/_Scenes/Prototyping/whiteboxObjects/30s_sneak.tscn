@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dhywgvyrty20a"]
+
+[ext_resource type="Material" uid="uid://cak4adovvj4at" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_MM.tres" id="1_e7ero"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_m74y1"]
+cell_height = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qkw6c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ct0f"]
+
+[node name="30s_sneak" type="NavigationRegion3D" unique_id=318247136]
+transform = Transform3D(3.7808084, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_m74y1")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2068872817]
+collision_mask = 768
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1789836968]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qkw6c")
+surface_material_override/0 = ExtResource("1_e7ero")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=280130006]
+transform = Transform3D(20, 0, 0, 0, 0.1, 0, 0, 0, 20, 0, 0, 0)
+shape = SubResource("BoxShape3D_3ct0f")
+
+[node name="Label3D6" type="Label3D" parent="." unique_id=1975461701]
+transform = Transform3D(-1.8132007, 0, -2.7378567e-07, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 7.3170433, 1.3153896, 8.888329)
+text = "|-> distance of sneaking for 30 seconds"
+
+[node name="Label3D5" type="Label3D" parent="." unique_id=452114160]
+transform = Transform3D(7.555003, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 5.0368705, 0.079847395, 5.9480515)
+modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
+outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
+text = "30 second sneak
+"

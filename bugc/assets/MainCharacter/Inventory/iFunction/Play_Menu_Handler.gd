@@ -34,7 +34,7 @@ func load_Bug_inventory():
 		child.set_bug_slot(data)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("MENU_esc"):
+	if Input.is_action_just_pressed("menu_esc"):
 		if TAB_menu.visible == false and ESC_menu.visible == false:
 			ESC_menu.show()
 			_pause_game()
@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		if TAB_menu.visible == true: # executing after previous if statement prevents ESC menu from showing up after 1 key press.
 			TAB_menu.hide()
 			_unpause_game()
-	if Input.is_action_just_pressed("open_TAB_menu"):
+	if Input.is_action_just_pressed("menu_inv"):
 		if TAB_menu.visible == false and ESC_menu.visible == false:
 			TAB_menu.show()
 			_pause_game()

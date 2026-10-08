@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="4_rk3c5"]
 [ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="6_4spru"]
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="6_btpeq"]
+[ext_resource type="PackedScene" uid="uid://m2kkm4i7niks" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sprint.tscn" id="8_0d4pk"]
 [ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="8_mxwkx"]
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
+[ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="9_t2t6b"]
+[ext_resource type="PackedScene" uid="uid://dhywgvyrty20a" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sneak.tscn" id="10_agf4j"]
 
 [sub_resource type="Environment" id="Environment_ckvui"]
 background_mode = 1
@@ -44,6 +47,12 @@ shadow_opacity = 0.65
 [node name="MainCharacter" parent="GAME_nodes" unique_id=882916200 instance=ExtResource("1_a4hq8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.302658, -1.9073486e-06, -10.594297)
 
+[node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=1824446394]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GAME_nodes/BottomWorldBounds" unique_id=436974034]
+shape = SubResource("WorldBoundaryShape3D_oc36i")
+
 [node name="baitBase3" parent="." unique_id=1031670082 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.4967, 0.06537342, -42.693344)
 
@@ -59,55 +68,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.440876, 0.065594204, -26.
 
 [node name="world" type="Node3D" parent="." unique_id=1781463784]
 
-[node name="BottomWorldBounds" type="StaticBody3D" parent="world" unique_id=1824446394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="world/BottomWorldBounds" unique_id=436974034]
-shape = SubResource("WorldBoundaryShape3D_oc36i")
-
 [node name="distances" type="Node3D" parent="world" unique_id=2147247453]
 
-[node name="30s_sprint" parent="world/distances" unique_id=905585304 instance=ExtResource("2_e564j")]
+[node name="30s_sprint" parent="world/distances" unique_id=1287815160 instance=ExtResource("8_0d4pk")]
 transform = Transform3D(18, 0, 0, 0, 1, 0, 0, 0, 1, -151.57741, 0, 129.32913)
 
-[node name="Label3D" type="Label3D" parent="world/distances/30s_sprint" unique_id=871519794]
-transform = Transform3D(1.5868899, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 8.958659, 0.079847395, 6.451721)
-modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
-outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
-text = "30 second sprint"
-
-[node name="Label3D2" type="Label3D" parent="world/distances/30s_sprint" unique_id=1442806770]
-transform = Transform3D(-0.38085356, 0, -5.7507286e-08, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 9.430758, 1.3153896, 8.888351)
-text = "|-> distance of sprinting for 30 seconds"
-
-[node name="30s_walk" parent="world/distances" unique_id=142172049 instance=ExtResource("2_e564j")]
+[node name="30s_walk" parent="world/distances" unique_id=351726518 instance=ExtResource("9_t2t6b")]
 transform = Transform3D(9.263251, 0, 0, 0, 1, 0, 0, 0, 1, -64.29338, 0, 97.533516)
 
-[node name="Label3D3" type="Label3D" parent="world/distances/30s_walk" unique_id=1851232969]
-transform = Transform3D(3.0835843, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 8.10652, 0.079847395, 6.699501)
-modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
-outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
-text = "30 second walk
-"
-
-[node name="Label3D4" type="Label3D" parent="world/distances/30s_walk" unique_id=629629144]
-transform = Transform3D(-0.7400602, 0, -1.1174599e-07, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 8.927912, 1.3153896, 8.888329)
-text = "|-> distance of walking for 30 seconds
-"
-
-[node name="30s_sneak" parent="world/distances" unique_id=695231539 instance=ExtResource("2_e564j")]
+[node name="30s_sneak" parent="world/distances" unique_id=318247136 instance=ExtResource("10_agf4j")]
 transform = Transform3D(3.7808084, 0, 0, 0, 1, 0, 0, 0, 1, -9.431244, 0, 64.955284)
-
-[node name="Label3D6" type="Label3D" parent="world/distances/30s_sneak" unique_id=1328249996]
-transform = Transform3D(-1.8132007, 0, -2.7378567e-07, 0, 6.855364, 0, 1.0351312e-06, 0, -6.855364, 7.3170433, 1.3153896, 8.888329)
-text = "|-> distance of sneaking for 30 seconds"
-
-[node name="Label3D5" type="Label3D" parent="world/distances/30s_sneak" unique_id=414940316]
-transform = Transform3D(7.555003, 0, 0, 0, -1.2485729e-06, 28.564016, 0, -28.564016, -1.2485729e-06, 5.0368705, 0.079847395, 5.9480515)
-modulate = Color(0.7584903, 0.8376137, 0.7821293, 1)
-outline_modulate = Color(0.0956124, 0.20464233, 0.15016758, 1)
-text = "30 second sneak
-"
 
 [node name="whitebox_plane2" parent="world" unique_id=1339508899 instance=ExtResource("2_e564j")]
 transform = Transform3D(-1.241147e-07, 0, 6.207738, 0, 1.0000004, 0, -2.8394134, 0, -2.7134885e-07, -33.565773, 0, 6.2814083)

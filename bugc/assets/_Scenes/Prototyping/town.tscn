@@ -1,0 +1,191 @@
+[gd_scene format=3 uid="uid://ci5ti7j2yklfu"]
+
+[ext_resource type="PackedScene" uid="uid://bcsrckv4om07x" path="res://assets/MainCharacter/Inventory/iFunction/Play_Menu.tscn" id="1_wceg6"]
+[ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/MainCharacter/Character/mainCharacter.tscn" id="2_b30qq"]
+[ext_resource type="PackedScene" uid="uid://dbyp2s4673h3d" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref.tscn" id="3_a3xju"]
+[ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="4_b30qq"]
+[ext_resource type="PackedScene" uid="uid://m2kkm4i7niks" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sprint.tscn" id="5_a3xju"]
+
+[sub_resource type="Environment" id="Environment_o2ofy"]
+background_mode = 1
+background_color = Color(0.4247644, 0.67868745, 0.69461584, 1)
+fog_enabled = true
+fog_light_color = Color(0.18771999, 0.22968554, 0.22361231, 1)
+fog_light_energy = 0.56
+fog_sun_scatter = 0.22
+fog_density = 0.0019
+fog_sky_affect = 0.275
+adjustment_enabled = true
+adjustment_saturation = 0.8
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ih1lg"]
+
+[node name="Town" type="Node3D" unique_id=539681068]
+
+[node name="GAME_nodes" type="Node3D" parent="." unique_id=511621466]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="GAME_nodes" unique_id=981583982]
+environment = SubResource("Environment_o2ofy")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="GAME_nodes" unique_id=1981444009]
+transform = Transform3D(-0.06313908, 0.9702886, -0.23356704, 0.23565182, 0.24191082, 0.9412478, 0.96978444, 0.0043890215, -0.24392428, 0, 13.912697, 0)
+light_energy = 1.27
+light_specular = 0.0
+shadow_enabled = true
+shadow_opacity = 0.65
+
+[node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_wceg6")]
+
+[node name="MainCharacter" parent="GAME_nodes" unique_id=309607646 instance=ExtResource("2_b30qq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.75587463, -1.9073486e-06, -0.68904114)
+
+[node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=267758088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GAME_nodes/BottomWorldBounds" unique_id=21650537]
+shape = SubResource("WorldBoundaryShape3D_ih1lg")
+
+[node name="template" type="Node3D" parent="." unique_id=1268186674]
+
+[node name="town_reference" parent="template" unique_id=569643710 instance=ExtResource("3_a3xju")]
+transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 63.28109, -1.1239624, 120.12572)
+
+[node name="30s_walk" parent="template" unique_id=351726518 instance=ExtResource("4_b30qq")]
+transform = Transform3D(9.263251, 0, 0, 0, 1, 0, 0, 0, 1, 232.04735, 0, 145.74356)
+
+[node name="30s_sprint" parent="template" unique_id=1287815160 instance=ExtResource("5_a3xju")]
+transform = Transform3D(18, 0, 0, 0, 1, 0, 0, 0, 1, 142.59859, 1.5258789e-05, 178.6427)
+
+[node name="buildings" type="Node3D" parent="." unique_id=1480541773]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="buildings" unique_id=1992923320]
+transform = Transform3D(0.9544765, 0, 0.29828656, 0, 1, 0, -0.29828656, 0, 0.9544765, -22.436844, 0, -158.04417)
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="buildings/CSGCombiner3D" unique_id=619999395]
+transform = Transform3D(1.0000129, 0, 2.3841858e-07, 0, 1, 0, -2.3841858e-07, 0, 1.0000129, 7.9962406, 4.1693726, 32.85151)
+size = Vector3(15.989761, 9.338745, 65.73392)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="buildings/CSGCombiner3D" unique_id=577619389]
+transform = Transform3D(0.7459876, 0, 0.66597855, 0, 1, 0, -0.66597855, 0, 0.7459876, 18.207033, 4.1693726, 74.176056)
+size = Vector3(15.989761, 9.338745, 37.29225)
+
+[node name="landmarks" type="Node3D" parent="buildings" unique_id=1795858985]
+
+[node name="clocktower" type="CSGCombiner3D" parent="buildings/landmarks" unique_id=1065847663]
+transform = Transform3D(0.95059973, 0, 0.31041887, 0, 1, 0, -0.31041887, 0, 0.95059973, 90.649796, 0, -237.53667)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="buildings/landmarks/clocktower" unique_id=1079382356]
+transform = Transform3D(0.99997497, 0, 2.682209e-07, 0, 1, 0, -2.682209e-07, 0, 0.99997497, -8.569092, 17.01418, -8.252319)
+size = Vector3(17.621635, 35.02836, 17.678255)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="buildings/landmarks/clocktower" unique_id=1634831264]
+transform = Transform3D(0.99997497, 0, 2.682209e-07, 0, 1, 0, -2.682209e-07, 0, 0.99997497, -8.569092, 50.20424, -8.252319)
+size = Vector3(17.621635, 2.964037, 17.678255)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="buildings/landmarks/clocktower" unique_id=818691170]
+transform = Transform3D(0.99997497, 0, 2.682209e-07, 0, 1, 0, -2.682209e-07, 0, 0.99997497, -8.491943, 52.51639, -8.327454)
+size = Vector3(7.395399, 7.5883417, 7.5457845)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="buildings/landmarks/clocktower" unique_id=1233646785]
+transform = Transform3D(0.99997497, 0, 2.682209e-07, 0, 1, 0, -2.682209e-07, 0, 0.99997497, -8.4340515, 41.737225, -8.413452)
+size = Vector3(15.813978, 18.016733, 15.6837845)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="buildings/landmarks/clocktower" unique_id=728258611]
+transform = Transform3D(0.99997497, 0, 2.682209e-07, 0, 1, 0, -2.682209e-07, 0, 0.99997497, -32.143295, 11.836766, -33.49095)
+size = Vector3(44.586357, 24.673532, 49.523746)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="buildings/landmarks/clocktower" unique_id=1417164815]
+transform = Transform3D(0.99999934, 0, 3.874302e-07, 0, 1, 0, -3.874302e-07, 0, 0.99999934, -32.21924, 11.620354, -58.30168)
+radius = 22.353027
+height = 25.240723
+
+[node name="museum" type="CSGCombiner3D" parent="buildings/landmarks" unique_id=702574501]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.3276, 0, 25.550323)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1856531103]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -14.5525055, 10.283247, 67.04839)
+radius = 2.040039
+height = 2.335205
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1749752778]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -14.5525055, 21.102453, 67.04839)
+radius = 2.1733398
+height = 0.26004028
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=903631005]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -14.5525055, 26.029617, 67.04839)
+radius = 1.3637695
+height = 1.0517578
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1521257285]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -14.5525055, 30.474182, 67.04839)
+radius = 1.4853516
+height = 0.23486328
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1607998009]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -14.5525055, 31.620142, 67.04839)
+radius = 0.42626953
+height = 0.47192383
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1927710307]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -10.745895, 10.19635, 9.483986)
+radius = 1.0039063
+height = 2.2978516
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=1879725874]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -10.745895, 21.118418, 9.483986)
+radius = 1.0986328
+height = 0.17714691
+
+[node name="CSGCylinder3D8" type="CSGCylinder3D" parent="buildings/landmarks/museum" unique_id=222447612]
+transform = Transform3D(9.668083, 0, 0, 0, 9.668083, 0, 0, 0, 9.668083, -10.745895, 22.175882, 9.483986)
+radius = 0.18310547
+height = 0.30292892
+
+[node name="CSGBox3D" type="CSGBox3D" parent="buildings/landmarks/museum" unique_id=1401809883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.118805, 8.832825, 39.938286)
+size = Vector3(65.62694, 18.66565, 70.648415)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="buildings/landmarks/museum" unique_id=473829370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.466858, 8.716537, 39.842712)
+operation = 2
+size = Vector3(63.877987, 16.68863, 68.59838)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="buildings/landmarks/museum" unique_id=1352055769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.99916, 5.7568436, 33.31569)
+operation = 2
+size = Vector3(63.877987, 10.769241, 9.751189)
+
+[node name="lighthouse" type="CSGCombiner3D" parent="buildings/landmarks" unique_id=1652584161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 471.04382, 0, 125.53949)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=485841147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.269226, 0)
+radius = 19.234375
+height = 38.538452
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=764446821]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 55.33596, 0)
+radius = 15.694824
+height = 39.902084
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=1727272510]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 108.55147, 0)
+radius = 10.644043
+height = 14.965202
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=2116236773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 116.21298, 0)
+radius = 12.253418
+height = 2.591854
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=302500286]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 118.768875, 0)
+radius = 3.0341797
+height = 7.703642
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="buildings/landmarks/lighthouse" unique_id=1697115745]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 86.54282, 0)
+radius = 13.464844
+height = 30.016342
