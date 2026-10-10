@@ -465,24 +465,6 @@ text = "MAP"
 
 [node name="Popups" parent="TAB_menu" unique_id=526934980 instance=ExtResource("7_3fjay")]
 
-[node name="UI2" type="CanvasLayer" parent="TAB_menu/Popups" unique_id=1050364625]
-
-[node name="ItemNamePopup2" type="PopupPanel" parent="TAB_menu/Popups" unique_id=485266250]
-unique_name_in_owner = true
-oversampling_override = 1.0
-position = Vector2i(526, 274)
-size = Vector2i(100, 31)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TAB_menu/Popups/ItemNamePopup2" unique_id=622070478]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 96.0
-offset_bottom = 27.0
-
-[node name="ItemName" type="Label" parent="TAB_menu/Popups/ItemNamePopup2/VBoxContainer" unique_id=334962354]
-layout_mode = 2
-text = "Name"
-
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]
 [connection signal="pressed" from="TAB_menu/UI_Inventory/ToolsBtn" to="." method="_on_tools_btn_pressed"]
