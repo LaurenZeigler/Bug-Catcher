@@ -62,7 +62,7 @@ func _on_mouse_entered() -> void:
 	if item_data == null:
 		return
 	
-	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), null)
+	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
 
 func _on_mouse_exited() -> void:
 	Popups.HideNamePopup()

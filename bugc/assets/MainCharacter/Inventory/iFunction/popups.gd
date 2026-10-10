@@ -1,4 +1,5 @@
 extends Control
+@onready var itemLabel = $ItemNamePopup2/VBoxContainer/ItemName
 
 func ItemPopup(slot: Rect2i, item):
 	var mouse_pos = get_viewport().get_mouse_position()
@@ -11,6 +12,7 @@ func ItemPopup(slot: Rect2i, item):
 		correction = -Vector2i(%ItemNamePopup.size.x + padding, 0)
 	
 	%ItemNamePopup.popup(Rect2i(slot.position + correction, %ItemNamePopup.size))
+	itemLabel.text = str(item.item_name)
 
 func HideNamePopup():
 	%ItemNamePopup.hide()
