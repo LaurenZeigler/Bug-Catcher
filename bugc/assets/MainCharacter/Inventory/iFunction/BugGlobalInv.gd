@@ -1,11 +1,11 @@
 extends Node
 signal updated
-@onready var icons = {
-	#"ant": preload("res://assets/Resources/Images/icons/Icon_ant.png"),
-	#"aphid": preload("res://assets/Resources/Images/icons/Icon_aphid.png"),
-	#"bee": preload("res://assets/Resources/Images/icons/Icon_bee.png"),
+'''@onready var icons = {
+	"ant": preload("res://assets/Bugs/bBin/Solitary/ant/Icon_ant.png"),
+	"aphid": preload("res://assets/Bugs/bBin/Solitary/aphid/Icon_aphid.png"),
+	"bee": preload("res://assets/Bugs/bBin/Solitary/bumblebee/Icon_bee.png"),
 	"test": preload("res://assets/MainCharacter/inventory/iFunction/Icon_NA.png")
-	}
+	}'''
 
 var inventory = {}
 const SLOTS = 30
@@ -28,7 +28,7 @@ func initailize():
 			"quantity": randi_range(1,10)}
 	updated.emit()'''
 
-func add_bug(item_name,quantity):
+func add_bug(item_name, item_icon, quantity):
 	var empty_slot = ""
 	var item_added = false
 	for slot in inventory:
@@ -45,6 +45,7 @@ func add_bug(item_name,quantity):
 		return
 	inventory[empty_slot] = {
 		"item_name": item_name,
+		"icon": item_icon,
 		"quantity": quantity}
 	updated.emit()
 
@@ -75,8 +76,8 @@ func swap_item(from_slot,to_slot):
 	inventory[to_slot] = item_moved'''
 	
 	
-func get_item_texture(item_name:String):
-	return icons[item_name.to_lower()]
+func get_item_texture(item_name):
+	return item_name.icon
 	
 	
 	

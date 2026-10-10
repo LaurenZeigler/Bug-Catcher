@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_elnyb")
-name = "Test"
+name = "Ant"
 icon = ExtResource("1_bqbv6")
 timeWalking = 0.5
 timeFlying = 0.5

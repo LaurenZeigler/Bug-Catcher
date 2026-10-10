@@ -4,6 +4,7 @@ signal bugcaught
 @export var bugInfo : BugInfo
 
 @onready var bug_name : String = bugInfo.name
+@onready var bug_icon = bugInfo.icon
 
 @onready var disposition = bugInfo.bug_disposition
 @onready var attack_type = bugInfo.bug_attack
@@ -188,7 +189,7 @@ func attempt_to_catch():
 
 func caught_by_player():
 	print("bug been caught")
-	BugGlobalInv.add_bug(bug_name, 1)
+	BugGlobalInv.add_bug(bug_name, bug_icon, 1)
 	queue_free()
 
 func compare_net_size(net_size):

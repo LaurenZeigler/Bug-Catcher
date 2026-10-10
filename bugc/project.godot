@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GlobalInv="*uid://d1pjxbwc5c2go"
 ToolGlobalInv="*uid://d1pjxbwc5c2go"
 BugGlobalInv="*uid://bqe6harbykp34"
+Popups="*uid://bweg7s45c3aii"
 
 [display]
 

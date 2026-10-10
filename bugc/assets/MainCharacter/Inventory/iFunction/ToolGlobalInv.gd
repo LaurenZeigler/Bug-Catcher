@@ -1,17 +1,17 @@
 extends Node
 signal updated
-@onready var icons = {
-	#"big_net": preload("res://assets/Resources/Images/icons/Icon_big-net.png"),
-	#"fast_net": preload("res://assets/Resources/Images/icons/Icon_fast-net.png"),
-	#"basic_net": preload("res://assets/Resources/Images/icons/Icon_net.png"),
-	#"detritus": preload("res://assets/Resources/Images/icons/Icon_detritus.png"),
-	#"goo": preload("res://assets/Resources/Images/icons/Icon_goo.png"),
-	#"leaves": preload("res://assets/Resources/Images/icons/Icon_leaves.png"),
-	#"pheromone": preload("res://assets/Resources/Images/icons/Icon_pheromone.png"),
-	#"pollen": preload("res://assets/Resources/Images/icons/Icon_pollen.png")
+'''@onready var icons = {
+	"big_net": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_big-net.png"),
+	"fast_net": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_fast-net.png"),
+	"basic_net": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_net.png"),
+	"detritus": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_detritus.png"),
+	"goo": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_goo.png"),
+	"leaves": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_leaves.png"),
+	"pheromone": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_pheromone.png"),
+	"pollen": preload("res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_pollen.png"),
 	"test": preload("res://assets/MainCharacter/inventory/iFunction/Icon_NA.png")
 	
-	}
+	}'''
 
 var inventory = {}
 const SLOTS = 30
@@ -37,7 +37,7 @@ func initailize():
 			"quantity": randi_range(1,10)}
 	updated.emit()'''
 
-func add_item(item_name,quantity):
+func add_item(item_name, item_icon, quantity):
 	var empty_slot = ""
 	var item_added = false
 	for slot in inventory:
@@ -54,9 +54,10 @@ func add_item(item_name,quantity):
 		return
 	inventory[empty_slot] = {
 		"item_name": item_name,
+		"icon": item_icon,
 		"quantity": quantity}
 	updated.emit()
-
+	
 func remove_item(slot,quantity):
 	inventory[slot].quantity -= quantity
 	if inventory[slot].quantity <= 0:
@@ -84,8 +85,8 @@ func swap_item(from_slot,to_slot):
 	inventory[to_slot] = item_moved'''
 	
 	
-func get_item_texture(item_name:String):
-	return icons[item_name.to_lower()]
+func get_item_texture(item_name):
+	return item_name.icon
 	
 	
 	

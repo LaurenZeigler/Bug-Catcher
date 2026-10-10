@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var tool_inventory_grid = $TAB_menu/UI_Inventory/UI_Tools/GridContainer
 @onready var bug_inventory_grid = $TAB_menu/UI_Inventory/UI_Bugs/GridContainer2
-## 
+@onready var name_label = $TAB_menu/UI_Inventory/UI_ItemName/ItemName
 @onready var ESC_menu = $ESC_menu
 
 ## Overall inventory menus are handled under TAB_menu
@@ -32,6 +32,9 @@ func load_Bug_inventory():
 	for child in bug_inventory_grid.get_children():
 		var data = BugGlobalInv.inventory[child.name]
 		child.set_bug_slot(data)
+
+func tooltip_setup(item_name: String) -> void:
+	name_label.text = item_name
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("menu_esc"):
