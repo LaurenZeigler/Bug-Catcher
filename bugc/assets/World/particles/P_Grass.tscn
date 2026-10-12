@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://bxd0jmm4dnfar"]
+
+[ext_resource type="Material" uid="uid://bedjydnqjj76i" path="res://assets/World/particles/unshade.tres" id="2_p5a4i"]
+
+[sub_resource type="Gradient" id="Gradient_qgltq"]
+offsets = PackedFloat32Array(0, 0.2935203, 0.6165377, 1)
+colors = PackedColorArray(0.08235294, 0.23529412, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8f47g"]
+gradient = SubResource("Gradient_qgltq")
+
+[sub_resource type="Curve" id="Curve_gal7t"]
+_data = [Vector2(0, 0), 0.0, 11.026295, 0, 0, Vector2(0.17242908, 0.9926304), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.5194912, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h1qux"]
+curve = SubResource("Curve_gal7t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_p8spk"]
+particle_flag_align_y = true
+emission_shape_scale = Vector3(0.62, 0.105, 0.25)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+use_rotation_3d = true
+rotation_3d_min = Vector3(0, 0, 0)
+rotation_3d_max = Vector3(0, 360, 0)
+direction = Vector3(0, 0.6, 1)
+initial_velocity_min = 0.5
+initial_velocity_max = 1.0
+gravity = Vector3(0, -0.5, 0)
+scale_min = 0.099999994
+scale_max = 0.39999998
+scale_curve = SubResource("CurveTexture_h1qux")
+color = Color(0.48764008, 0.622731, 0.4060396, 1)
+color_ramp = SubResource("GradientTexture1D_8f47g")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = 0.019999977
+
+[sub_resource type="Curve" id="Curve_5fqju"]
+_data = [Vector2(0, 0.13117284), 0.0, 2.945993, 0, 0, Vector2(0.37298387, 0.49125516), 0.0, 0.0, 0, 0, Vector2(0.6600806, 0.48713994), 0.0, 0.0, 0, 0, Vector2(1, 0.13323045), -2.5728767, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_fdcog"]
+shape = 0
+curve = SubResource("Curve_5fqju")
+
+[node name="P_Grass" type="GPUParticles3D" unique_id=1730988388]
+material_override = ExtResource("2_p5a4i")
+cast_shadow = 0
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_p8spk")
+draw_pass_1 = SubResource("RibbonTrailMesh_fdcog")

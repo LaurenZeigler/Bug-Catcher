@@ -15,6 +15,8 @@ signal use_net
 @onready var _net_skeleton : Skeleton3D = %Skeleton3D
 @onready var _net : Node3D = %Nets
 
+@onready var _p_grass : GPUParticles3D = $player_skin/P_Grass
+
 enum move_state { idle, walk, sprint, sneak, jump, net_swing }
 var anim_state : move_state = move_state.walk
 
@@ -120,9 +122,9 @@ func _animate_state():
 	elif not is_on_floor():
 		cur_state = move_state.jump
 	elif _is_moving() and is_on_floor and Input.is_action_pressed("sprint"):
-		cur_state = move_state.idle#sprint
+		cur_state = move_state.sprint#sprint
 	elif _is_moving() and is_on_floor and Input.is_action_pressed("sneak"):
-		cur_state = move_state.idle#sprint
+		cur_state = move_state.sneak#sprint
 	elif _is_moving() and is_on_floor:
 		cur_state = move_state.walk
 	else:
@@ -136,33 +138,40 @@ func _animate_state():
 		_anim_state_machine.travel("idle")
 		_anim_player.play("idle")
 		anim_state = move_state.idle
+		_reset_particles()
 	elif cur_state == move_state.walk:
 		_anim_state_machine.travel("walk")
 		_anim_player.play("walk")
 		anim_state = move_state.walk
+		_p_grass.emitting = true
 	elif cur_state == move_state.sprint:
 		_anim_state_machine.travel("idle")#sprint
 		_anim_player.play("idle")#sprint
 		anim_state = move_state.sprint
+		_p_grass.emitting = true
 	elif cur_state == move_state.sneak:
 		_anim_state_machine.travel("idle")#sneak
 		_anim_player.play("idle")#sneak
 		anim_state = move_state.sneak
+		_reset_particles()
 	elif cur_state == move_state.net_swing:
 		_anim_state_machine.travel("net_swing")#sneak
 		_anim_player.play("net_swing")#sneak
 		anim_state = move_state.net_swing
+		_reset_particles()
 	elif cur_state == move_state.jump:
 		_anim_state_machine.travel("idle")#jump
 		_anim_player.play("idle")#jump
 		anim_state = move_state.jump
+		_reset_particles()
 		
 
 func _is_moving():
 	return abs(velocity.z) > 0 or abs(velocity.x) > 0
 
 
-
+func _reset_particles():
+	_p_grass.emitting = false
 
 '''
 ## TODO: 
