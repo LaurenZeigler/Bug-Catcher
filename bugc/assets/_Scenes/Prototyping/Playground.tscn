@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
 [ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="9_t2t6b"]
 [ext_resource type="PackedScene" uid="uid://dhywgvyrty20a" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sneak.tscn" id="10_agf4j"]
+[ext_resource type="PackedScene" uid="uid://bs4rqc232mxju" path="res://assets/NPC/nBin/ShopTemp.tscn" id="14_t2t6b"]
 
 [sub_resource type="Environment" id="Environment_ckvui"]
 background_mode = 1
@@ -148,4 +149,5 @@ transform = Transform3D(4.656293, 0, 0, 0, 1, 0, 0, 0, 3.761533, -41.520298, 0.5
 [node name="whitebox_cube2" parent="world" unique_id=817155342 instance=ExtResource("3_btpeq")]
 transform = Transform3D(3.6629138, 0, 0, 0, 1, 0, 0, 0, 7.1595054, -47.459354, 2.8266792, -3.1811142)
 
-[node name="Labels" type="Node3D" parent="." unique_id=1206424638]
+[node name="StaticBody3D" parent="." unique_id=1957876489 instance=ExtResource("14_t2t6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.223199, 1.0500011, -26.975178)

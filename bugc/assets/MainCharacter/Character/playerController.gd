@@ -154,15 +154,15 @@ func _animate_state():
 		_anim_player.play("idle")#sneak
 		anim_state = move_state.sneak
 		_reset_particles()
-	elif cur_state == move_state.net_swing:
-		_anim_state_machine.travel("net_swing")#sneak
-		_anim_player.play("net_swing")#sneak
-		anim_state = move_state.net_swing
-		_reset_particles()
 	elif cur_state == move_state.jump:
 		_anim_state_machine.travel("idle")#jump
 		_anim_player.play("idle")#jump
 		anim_state = move_state.jump
+		_reset_particles()
+	elif cur_state == move_state.net_swing:
+		_anim_state_machine.travel("net_swing")#net_swing
+		_anim_player.play("net_swing")#net_swing
+		anim_state = move_state.net_swing
 		_reset_particles()
 		
 
