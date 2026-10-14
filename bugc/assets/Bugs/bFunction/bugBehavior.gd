@@ -178,11 +178,11 @@ func react_to_player(body):
 func attempt_to_catch():
 	var outcome : String
 	if (disposition == bugInfo.bugDisposition.DEFENSIVE):
-		if (playerTarget.get_node("player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets").compare_bug_size(bug_size) == false):
+		if (playerTarget.get_node("player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets").compare_bug_size(bug_size) == false):
 			return "catch"
 		else:
 			return "stun"
-	elif (playerTarget.get_node("player_skin/Cat_Skeleton/BoneAttachment3D/Net_Objects/Nets").compare_bug_size(bug_size) == false):
+	elif (playerTarget.get_node("player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets").compare_bug_size(bug_size) == false):
 		return "catch"
 	else:
 		return "fail"
