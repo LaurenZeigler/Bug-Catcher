@@ -69,23 +69,19 @@ visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_65bxa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuPopup" unique_id=1468606982]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = -13.0
-offset_right = 45.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 95.0
+offset_bottom = 31.0
 
 [node name="EQUIPBtn" type="Button" parent="MenuPopup/VBoxContainer" unique_id=351268073]
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxEmpty_grquj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_88mt1")
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
 text = "EQUIP"
 
 [connection signal="pressed" from="MenuPopup/VBoxContainer/EQUIPBtn" to="." method="_on_equip_btn_pressed"]
