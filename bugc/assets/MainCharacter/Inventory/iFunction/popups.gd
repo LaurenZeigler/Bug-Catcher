@@ -11,8 +11,18 @@ func ItemPopup(slot: Rect2i, item):
 	else:
 		correction = -Vector2i($ItemNamePopup.size.x + padding, 10)
 	
-	$ItemNamePopup.popup(Rect2i(slot.position + correction, $ItemNamePopup.size))
-	itemLabel.text = str(item.item_name)
+	if Input.is_action_just_pressed("use_tool"):
+		HideNamePopup()
+		$MenuPopup.popup(Rect2i(slot.position + correction, $MenuPopup.size))
+	else:
+		$ItemNamePopup.popup(Rect2i(slot.position + correction, $ItemNamePopup.size))
+		itemLabel.text = str(item.item_name)
 
 func HideNamePopup():
 	$ItemNamePopup.hide()
+	
+func HideMenuPopup():
+	$MenuPopup.hide()
+
+func _on_equip_btn_pressed() -> void:
+	print("Equipped!")
