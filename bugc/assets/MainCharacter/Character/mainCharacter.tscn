@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://cqerdtvx0hw5a" path="res://assets/MainCharacter/Character/character_temp.tres" id="2_cu2ie"]
 [ext_resource type="Texture2D" uid="uid://bmymo8rjdpsbe" path="res://assets/MainCharacter/Character/mesh/cat/cat_imports/cat2_0.png" id="3_6llxh"]
 [ext_resource type="Material" uid="uid://br1x26appfowe" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/net_temp.tres" id="4_mrogs"]
+[ext_resource type="Script" uid="uid://uv4bt0s7qf2w" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/equipHandler.gd" id="4_pypo7"]
 [ext_resource type="Script" uid="uid://c8maxq47l61q4" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netBehavior.gd" id="5_6xyts"]
 [ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBasic.tres" id="6_m7riy"]
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="7_h1qux"]
@@ -2503,6 +2504,7 @@ settings/0/exclude_collision_count = 0
 transform = Transform3D(0.9950562, -0.062510245, -0.07717403, -0.07121194, -0.99072605, -0.11570081, -0.06922612, 0.120624274, -0.99028164, -0.08053578, 0.17118458, -0.0014202723)
 bone_name = "R_hand_IK_jnt"
 bone_idx = 25
+script = ExtResource("4_pypo7")
 
 [node name="Net_Objects" type="Node3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools" unique_id=1392250261]
 transform = Transform3D(-0.98577136, 0.027126543, 0.16589653, -0.08118862, -0.9409867, -0.32856625, 0.1471934, -0.3373596, 0.9297987, -0.012521476, -0.0013718009, 0.0035367124)

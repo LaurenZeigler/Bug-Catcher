@@ -15,6 +15,8 @@ script = ExtResource("1_73rbj")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1414371790]
 shape = SubResource("CylinderShape3D_3cb37")
 
+[node name="VehicleBody3D" type="VehicleBody3D" parent="Area3D" unique_id=832137539]
+
 [node name="Label3D" type="Label3D" parent="." unique_id=1208109670]
 transform = Transform3D(2.4473066, 0, 0, 0, 2.4473066, 0, 0, 0, 2.4473066, 0, 1.2747821, 0)
 text = "SHOP"
