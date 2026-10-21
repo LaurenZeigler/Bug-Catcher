@@ -7,7 +7,7 @@ extends Node3D
 signal catch_bug
 
 func _ready() -> void:
-	pass
+	ToolGlobalInv.add_item(net_info.name, net_info.icon, 1)
 
 func use_net():
 	print("net used")

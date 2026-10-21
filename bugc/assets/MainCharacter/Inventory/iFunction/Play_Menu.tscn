@@ -403,7 +403,13 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rb531")
 text = "MAP"
 
-[node name="Popups" parent="TAB_menu" unique_id=526934980 instance=ExtResource("7_3fjay")]
+[node name="Popups" parent="TAB_menu/UI_Inventory" unique_id=1406542051 instance=ExtResource("7_3fjay")]
+layout_mode = 0
+anchors_preset = 0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 295.0
+offset_bottom = 23.0
 
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]

@@ -66,3 +66,10 @@ func _on_mouse_entered() -> void:
 
 func _on_mouse_exited() -> void:
 	Popups.HideNamePopup()
+	
+func _gui_input(event: InputEvent) -> void:
+	if item_data == null:
+		return
+	if event.is_action_pressed("use_tool"):
+		#%MenuPopup.open(self)
+		print("Menu Opened")

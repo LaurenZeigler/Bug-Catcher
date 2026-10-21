@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bweg7s45c3aii"]
 
 [ext_resource type="Script" uid="uid://co4y4nqedyxn2" path="res://assets/MainCharacter/Inventory/iFunction/popups.gd" id="1_65bxa"]
+[ext_resource type="Texture2D" uid="uid://s52u4klkfbbh" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/PopUp.png" id="2_8yem4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d4pk"]
 bg_color = Color(0, 0.7607843, 1, 0.57254905)
@@ -13,22 +14,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65bxa"]
-bg_color = Color(0.5137255, 0.8784314, 0.89411765, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.7882353, 0.9490196, 1, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_grquj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88mt1"]
-bg_color = Color(0.63529414, 0.63529414, 0.63529414, 0.29411766)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65bxa"]
+texture = ExtResource("2_8yem4")
 
 [node name="Popups" type="Control" unique_id=526934980]
 visible = false
@@ -44,7 +31,6 @@ script = ExtResource("1_65bxa")
 
 [node name="ItemNamePopup" type="PopupPanel" parent="." unique_id=152941339]
 oversampling_override = 1.0
-position = Vector2i(526, 274)
 size = Vector2i(100, 31)
 visible = true
 theme_override_styles/panel = SubResource("StyleBoxFlat_0d4pk")
@@ -61,27 +47,17 @@ text = "Name"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="MenuPopup" type="PopupPanel" parent="." unique_id=260681304]
+[node name="MenuPopup" type="PopupMenu" parent="." unique_id=692258333]
+unique_name_in_owner = true
 oversampling_override = 1.0
 initial_position = 1
-size = Vector2i(100, 36)
+size = Vector2i(100, 40)
 visible = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_65bxa")
+theme_override_constants/v_separation = 10
+theme_override_constants/item_start_padding = 25
+theme_override_styles/panel = SubResource("StyleBoxTexture_65bxa")
+item_count = 1
+item_0/text = "Equip"
+item_0/id = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuPopup" unique_id=1468606982]
-offset_left = 5.0
-offset_top = 5.0
-offset_right = 95.0
-offset_bottom = 31.0
-
-[node name="EQUIPBtn" type="Button" parent="MenuPopup/VBoxContainer" unique_id=351268073]
-layout_mode = 2
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxEmpty_grquj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_88mt1")
-toggle_mode = true
-action_mode = 0
-keep_pressed_outside = true
-text = "EQUIP"
-
-[connection signal="pressed" from="MenuPopup/VBoxContainer/EQUIPBtn" to="." method="_on_equip_btn_pressed"]
+[connection signal="index_pressed" from="MenuPopup" to="." method="_on_popup_menu_index_pressed"]
