@@ -218,6 +218,28 @@ curve = SubResource("Curve_jc1a3")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_oc36i"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_26wmk"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_82rhd"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m74y1"]
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -720.0
+angle_max = 720.0
+angle_curve = SubResource("CurveTexture_82rhd")
+gravity = Vector3(0, 0.01, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 5.7099977
+color = Color(1, 0, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 0.99999994
+
+[sub_resource type="QuadMesh" id="QuadMesh_hq7sx"]
+size = Vector2(0.2, 0.2)
+
 [node name="Node3D" type="Node3D" unique_id=640266700]
 
 [node name="default" type="GPUParticles3D" parent="." unique_id=1356868196]
@@ -324,3 +346,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095692635, 0.17094254, -0.8
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=136314402]
 shape = SubResource("WorldBoundaryShape3D_oc36i")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=855251687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.83452, 0, 0)
+material_override = SubResource("StandardMaterial3D_26wmk")
+explosiveness = 0.5
+trail_lifetime = 4.66
+process_material = SubResource("ParticleProcessMaterial_m74y1")
+draw_pass_1 = SubResource("QuadMesh_hq7sx")
