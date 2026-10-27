@@ -10,6 +10,7 @@ signal bugcaught
 @onready var attack_type = bugInfo.bug_attack
 @onready var bug_size = bugInfo.bug_size
 @onready var stun_time = bugInfo.stun_time
+@onready var effect_time = bugInfo.effect_time
 
 @onready var walk_speed : float = bugInfo.walking_speed
 @onready var fly_speed : float = bugInfo.flying_speed
@@ -85,13 +86,10 @@ func move_toward_target(move_speed):
 	if direction.length() > 0:
 		#var nepo = Vector3(position.x, next_position.y, position.z) - next_position
 		var target_rotation = (global_transform.looking_at(global_position - next_position).basis)
-		print(target_rotation)
 		global_transform.basis = global_transform.basis.slerp(target_rotation,0.1)
 		
 func run_from_target(target):
 	timer.stop()
-	
-	print("running from")
 	#direction math, ask Kade if curious
 	var pos_dif = (global_position - target.position) 
 	var total = (sign(pos_dif.x) * pos_dif.x) + (sign(pos_dif.z) * pos_dif.z)
@@ -152,7 +150,6 @@ func eat_bait(body):
 	bait_list.remove_at(bait_list.find(body))
 	state = State.IDLE
 	timer.start(idle_duration * 2)
-	print(body.get_path())
 	var one_body = body.get_parent()
 	one_body.get_parent().queue_free()
 
@@ -168,7 +165,7 @@ func react_to_player(body):
 		
 	elif (disposition == bugInfo.bugDisposition.DEFENSIVE):
 		if (attack_type != bugInfo.bugAttack.NONE):
-			defend_effect()
+			defend_effect(body)
 			
 		print("this is defensive, AH")
 	else:
@@ -181,6 +178,7 @@ func attempt_to_catch():
 		if (playerTarget.get_node("player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets").compare_bug_size(bug_size) == false):
 			return "catch"
 		else:
+			defend_physical()
 			return "stun"
 	elif (playerTarget.get_node("player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets").compare_bug_size(bug_size) == false):
 		return "catch"
@@ -200,7 +198,24 @@ func compare_net_size(net_size):
 
 func defend_physical():
 	print("not caught and u stunned, loser")
+	var clash = $P_Clash
+	var clash_effects = clash.get_children()
+	print(clash_effects.size())
+	if clash_effects.size() != 0:
+		print("clashing")
+		for i in clash_effects:
+			i.restart()
+	
 	playerTarget.start_stun(stun_time)
 
-func defend_effect():
+func defend_effect(body):
+	print("attempt defense effect")
+	var defense = $P_Defense
+	var defense_effects = defense.get_children()
+	print(defense_effects.size())
+	if defense_effects.size() != 0:
+		print("defense effecting")
+		for i in defense_effects:
+			i.restart()
 	print("get sprayed with " + str(attack_type))
+	body.is_poisoned(effect_time)

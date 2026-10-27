@@ -3,10 +3,9 @@
 [ext_resource type="Material" uid="uid://chltcnryydtb3" path="res://assets/World/particles/billboard_unshade.tres" id="1_5sudj"]
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="3_5sudj"]
 [ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/MainCharacter/Character/mainCharacter.tscn" id="3_oraoq"]
-[ext_resource type="Texture2D" uid="uid://dbh8woxy406yg" path="res://assets/World/particles/particle_images/vfx_bite_img.png" id="4_oraoq"]
-[ext_resource type="Texture2D" uid="uid://c6ykhspqca6ix" path="res://assets/World/particles/particle_images/vfx_ring_blur.png" id="4_p8spk"]
-[ext_resource type="Texture2D" uid="uid://crvgpsh6481he" path="res://assets/World/particles/particle_images/vfx_crescent.png" id="6_gpiwo"]
-[ext_resource type="Texture2D" uid="uid://cmcshftp0jhat" path="res://assets/World/particles/particle_images/vfx_star_blur.png" id="7_qjb5m"]
+[ext_resource type="PackedScene" uid="uid://bc04jx7r1oo4y" path="res://assets/World/particles/particle_scenes/p_bite_venom.tscn" id="4_waw0c"]
+[ext_resource type="PackedScene" uid="uid://qs4t4xo8h2r6" path="res://assets/World/particles/particle_scenes/p_clash.tscn" id="5_p8spk"]
+[ext_resource type="PackedScene" uid="uid://c830wo442op6d" path="res://assets/World/particles/particle_scenes/p_screen_poison.tscn" id="6_gpiwo"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3ct0f"]
 collision_mode = 1
@@ -222,139 +221,6 @@ curve = SubResource("Curve_jc1a3")
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_oc36i"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_735tp"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.5064, 0.72, 0.079200014, 1)
-albedo_texture = ExtResource("4_p8spk")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_qgltq"]
-_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_xkk26"]
-curve = SubResource("Curve_qgltq")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qjb5m"]
-lifetime_randomness = 0.5
-radial_velocity_min = 0.49997765
-radial_velocity_max = 1.9999776
-gravity = Vector3(0, 0, 0)
-scale_min = 0.19999999
-scale_max = 0.19999999
-scale_curve = SubResource("CurveTexture_xkk26")
-
-[sub_resource type="QuadMesh" id="QuadMesh_m74y1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpiwo"]
-transparency = 1
-cull_mode = 2
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("4_oraoq")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="Curve" id="Curve_735tp"]
-_data = [Vector2(0.5405406, 1), 0.0, -1.2965149, 0, 0, Vector2(1, 0), -2.1764708, 0.0, 1, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_m74y1"]
-curve = SubResource("Curve_735tp")
-
-[sub_resource type="Curve" id="Curve_gpiwo"]
-_data = [Vector2(0, 0), 0.0, 0.62359565, 0, 1, Vector2(0.3783784, 0.23595512), 0.51166797, 0.51166797, 0, 0, Vector2(1, 0.1685394), -0.35274076, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_x80s2"]
-curve = SubResource("Curve_gpiwo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_735tp"]
-gravity = Vector3(0, 0, 0)
-scale_min = 2.0
-scale_max = 2.0
-scale_curve = SubResource("CurveTexture_x80s2")
-alpha_curve = SubResource("CurveTexture_m74y1")
-sub_emitter_mode = 4
-sub_emitter_amount_at_start = 1
-
-[sub_resource type="Curve" id="Curve_xkk26"]
-_limits = [-360.0, 360.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, -103.7662, 0, 1, Vector2(0.50675684, -52.58423), 0.0, 0.0, 0, 0, Vector2(1, 0), 106.60914, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_qs15p"]
-curve = SubResource("Curve_xkk26")
-
-[sub_resource type="Curve" id="Curve_y8r4u"]
-_data = [Vector2(0, 0), 0.0, 1.13381, 0, 1, Vector2(0.44594598, 0.50561804), 1.5045477, 1.5045477, 0, 0, Vector2(0.6418919, 1), 2.5230532, 0.0, 1, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_gq16b"]
-curve = SubResource("Curve_y8r4u")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m74y1"]
-angular_velocity_min = -0.050016094
-angular_velocity_max = 0.049983904
-angular_velocity_curve = SubResource("CurveTexture_qs15p")
-gravity = Vector3(0, 0, 0)
-scale_curve = SubResource("CurveTexture_gq16b")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thvg0"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("6_gpiwo")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_735tp"]
-material = SubResource("StandardMaterial3D_thvg0")
-
-[sub_resource type="Curve" id="Curve_2dl2u"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2364865, 0.5842697), 0.0, 0.0, 0, 0, Vector2(0.8378379, 0.30337083), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_u2xoc"]
-curve = SubResource("Curve_2dl2u")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hq7sx"]
-angular_velocity_min = -1.6093254e-05
-angular_velocity_max = 116.12998
-radial_velocity_min = -2.2351742e-05
-radial_velocity_max = 4.9999776
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_u2xoc")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82rhd"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("7_qjb5m")
-billboard_mode = 3
-billboard_keep_scale = true
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_26wmk"]
-material = SubResource("StandardMaterial3D_82rhd")
-
 [node name="Node3D" type="Node3D" unique_id=640266700]
 
 [node name="default" type="GPUParticles3D" parent="." unique_id=1356868196]
@@ -463,48 +329,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.095692635, 0.17094254, -0.8
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=136314402]
 shape = SubResource("WorldBoundaryShape3D_oc36i")
 
-[node name="VFX_Bite_Venom" type="Node3D" parent="." unique_id=501797038]
+[node name="P_Bite_Venom" parent="." unique_id=2018043422 instance=ExtResource("4_waw0c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128, 0, 0)
 
-[node name="vfx_venom" type="GPUParticles3D" parent="VFX_Bite_Venom" unique_id=137826041]
-material_override = SubResource("StandardMaterial3D_735tp")
-emitting = false
-amount = 12
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_qjb5m")
-draw_pass_1 = SubResource("QuadMesh_m74y1")
-
-[node name="vfx_bite" type="GPUParticles3D" parent="VFX_Bite_Venom" unique_id=1261205854]
-material_override = SubResource("StandardMaterial3D_gpiwo")
-emitting = false
-amount = 1
-lifetime = 0.6
-one_shot = true
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_735tp")
-draw_pass_1 = SubResource("QuadMesh_m74y1")
-
-[node name="VFX_Clash" type="Node3D" parent="." unique_id=278098018]
+[node name="P_Clash" parent="." unique_id=846733232 instance=ExtResource("5_p8spk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -192, 0, 0)
 
-[node name="vfx_slash" type="GPUParticles3D" parent="VFX_Clash" unique_id=1762568949]
-emitting = false
-amount = 1
-lifetime = 0.5
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_m74y1")
-draw_pass_1 = SubResource("QuadMesh_735tp")
+[node name="P_Screen_Poison2" parent="." unique_id=734501845 instance=ExtResource("6_gpiwo")]
 
-[node name="vfx_sparks" type="GPUParticles3D" parent="VFX_Clash" unique_id=865926725]
-emitting = false
-amount = 12
-lifetime = 0.7
-one_shot = true
-explosiveness = 1.0
-fixed_fps = 60
-process_material = SubResource("ParticleProcessMaterial_hq7sx")
-draw_pass_1 = SubResource("QuadMesh_26wmk")
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1310715555]

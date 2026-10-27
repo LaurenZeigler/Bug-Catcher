@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_i1ao7"]
 [ext_resource type="Resource" uid="uid://cjmuhnp2dh8vx" path="res://assets/Bugs/bBin/Solitary/ant/antInfo.tres" id="2_y3ft0"]
 [ext_resource type="ArrayMesh" uid="uid://dkxopae4m0wrl" path="res://assets/Bugs/bBin/Solitary/ant/Ant_temp.res" id="3_xi016"]
+[ext_resource type="PackedScene" uid="uid://qs4t4xo8h2r6" path="res://assets/World/particles/particle_scenes/p_clash.tscn" id="4_fvvsw"]
+[ext_resource type="PackedScene" uid="uid://bc04jx7r1oo4y" path="res://assets/World/particles/particle_scenes/p_bite_venom.tscn" id="5_msbru"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
 radius = 0.2783203
@@ -51,6 +53,10 @@ shape = SubResource("CylinderShape3D_735tp")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1288847061]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309543927]
+
+[node name="P_Clash" parent="." unique_id=846733232 instance=ExtResource("4_fvvsw")]
+
+[node name="P_Defense" parent="." unique_id=2018043422 instance=ExtResource("5_msbru")]
 
 [connection signal="body_entered" from="Detection" to="." method="detected_body_distanced"]
 [connection signal="body_exited" from="Detection" to="." method="escaped_player"]

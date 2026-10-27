@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://c830wo442op6d"]
+
+[ext_resource type="Texture2D" uid="uid://c6ykhspqca6ix" path="res://assets/World/particles/particle_images/vfx_ring_blur.png" id="1_oecyt"]
+[ext_resource type="Texture2D" uid="uid://b25rjem3in7cv" path="res://assets/World/particles/particle_images/vfx_screen_vignette.png" id="2_443qf"]
+
+[sub_resource type="Curve" id="Curve_qjb5m"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.5540541, 0.52808994), 1.0059648, 1.0059648, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_y8r4u"]
+curve = SubResource("Curve_qjb5m")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_thvg0"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(575, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 99.99999
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_y8r4u")
+color = Color(0.5668601, 0.9424478, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m74y1"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 0, 0)
+color = Color(0.1302984, 0.28651914, 4.813075e-08, 1)
+
+[node name="P_Screen_Poison2" type="Control" unique_id=734501845]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vfx_poison_bubbles" type="GPUParticles2D" parent="." unique_id=1514937370]
+position = Vector2(577, 657)
+emitting = false
+amount = 12
+texture = ExtResource("1_oecyt")
+lifetime = 4.0
+randomness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_thvg0")
+
+[node name="vfx_poison_vignette" type="GPUParticles2D" parent="." unique_id=1461926150]
+position = Vector2(576, 324)
+emitting = false
+amount = 1
+texture = ExtResource("2_443qf")
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_m74y1")

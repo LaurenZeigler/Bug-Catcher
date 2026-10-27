@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c8maxq47l61q4" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netBehavior.gd" id="5_6xyts"]
 [ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBasic.tres" id="6_m7riy"]
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="7_h1qux"]
+[ext_resource type="PackedScene" uid="uid://c830wo442op6d" path="res://assets/World/particles/particle_scenes/p_screen_poison.tscn" id="9_3qatw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38uue"]
 radius = 0.16259766
@@ -2505,6 +2506,7 @@ transform = Transform3D(0.9950562, -0.062510245, -0.07717403, -0.07121194, -0.99
 bone_name = "R_hand_IK_jnt"
 bone_idx = 25
 script = ExtResource("4_pypo7")
+tool = 1
 
 [node name="Net_Objects" type="Node3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools" unique_id=1392250261]
 transform = Transform3D(-0.98577136, 0.027126543, 0.16589653, -0.08118862, -0.9409867, -0.32856625, 0.1471934, -0.3373596, 0.9297987, -0.012521476, -0.0013718009, 0.0035367124)
@@ -2631,6 +2633,8 @@ anim_player = NodePath("../AnimationPlayer")
 transform = Transform3D(-0.049446862, 0, -4.3227804e-09, 0, 0.049446862, 0, 4.3227804e-09, 0, -0.049446862, 3.359366e-09, 0.019655097, -0.038426667)
 emitting = false
 
+[node name="P_Screen_Poison" parent="." unique_id=734501845 instance=ExtResource("9_3qatw")]
+
 [node name="camera_pivot" type="Node3D" parent="." unique_id=1798444442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0292988, 0)
 
@@ -2643,5 +2647,9 @@ transform = Transform3D(1, 0, 0, 0, 0.96325034, 0.26860544, 0, -0.26860544, 0.96
 [node name="StunTimer" type="Timer" parent="." unique_id=1997941889]
 one_shot = true
 
+[node name="PoisonTimer" type="Timer" parent="." unique_id=840848055]
+one_shot = true
+
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="use_net"]
 [connection signal="timeout" from="StunTimer" to="." method="exit_stun"]
+[connection signal="timeout" from="PoisonTimer" to="." method="_end_poison"]

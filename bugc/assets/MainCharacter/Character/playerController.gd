@@ -12,6 +12,7 @@ signal use_net
 @onready var _anim_state_machine : AnimationNodeStateMachinePlayback = _anim_tree.get("parameters/StateMachine/playback")
 @onready var _anim_player : AnimationPlayer = %AnimationPlayer
 @onready var _timer : Timer = $StunTimer
+@onready var _timer_poison : Timer = $PoisonTimer
 @onready var _net_skeleton : Skeleton3D = %Skeleton3D
 @onready var _net : Node3D = %Nets
 
@@ -100,6 +101,7 @@ func _physics_process(delta: float) -> void:
 			pass
 	elif (stunned == true):
 		velocity = Vector3.ZERO
+		
 	## CAMERA MOVE and LIMIT ##
 	_camera_pivot.rotation.x += _camera_input_direction.y * delta
 	_camera_pivot.rotation.x = clamp(_camera_pivot.rotation.x, tilt_lower_limit, tilt_upper_limit)
@@ -172,6 +174,25 @@ func _is_moving():
 
 func _reset_particles():
 	_p_grass.emitting = false
+	
+func is_poisoned(time):
+	_timer_poison.start(time)
+	var poison = $P_Screen_Poison
+	var poison_effects = poison.get_children()
+	print(poison_effects.size())
+	if poison_effects.size() != 0:
+		print("poisoning")
+		for i in poison_effects:
+			i.emitting = true
+
+func _end_poison():
+	var poison = $P_Screen_Poison
+	var poison_effects = poison.get_children()
+	print(poison_effects.size())
+	if poison_effects.size() != 0:
+		print("poisoning")
+		for i in poison_effects:
+			i.emitting = false
 
 '''
 ## TODO: 

@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://bc04jx7r1oo4y"]
+
+[ext_resource type="Texture2D" uid="uid://c6ykhspqca6ix" path="res://assets/World/particles/particle_images/vfx_ring_blur.png" id="1_65gwl"]
+[ext_resource type="Texture2D" uid="uid://dbh8woxy406yg" path="res://assets/World/particles/particle_images/vfx_bite_img.png" id="2_01iqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_735tp"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5064, 0.72, 0.079200014, 1)
+albedo_texture = ExtResource("1_65gwl")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_qgltq"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xkk26"]
+curve = SubResource("Curve_qgltq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qjb5m"]
+lifetime_randomness = 0.5
+radial_velocity_min = 0.49997765
+radial_velocity_max = 1.9999776
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_xkk26")
+
+[sub_resource type="QuadMesh" id="QuadMesh_m74y1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpiwo"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_01iqj")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_735tp"]
+_data = [Vector2(0.5405406, 1), 0.0, -1.2965149, 0, 0, Vector2(1, 0), -2.1764708, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m74y1"]
+curve = SubResource("Curve_735tp")
+
+[sub_resource type="Curve" id="Curve_gpiwo"]
+_data = [Vector2(0, 0), 0.0, 0.62359565, 0, 1, Vector2(0.3783784, 0.23595512), 0.51166797, 0.51166797, 0, 0, Vector2(1, 0.1685394), -0.35274076, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_x80s2"]
+curve = SubResource("Curve_gpiwo")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_735tp"]
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_x80s2")
+alpha_curve = SubResource("CurveTexture_m74y1")
+sub_emitter_mode = 4
+sub_emitter_amount_at_start = 1
+
+[node name="P_Bite_Venom" type="Node3D" unique_id=2018043422]
+
+[node name="vfx_venom" type="GPUParticles3D" parent="." unique_id=4806917]
+material_override = SubResource("StandardMaterial3D_735tp")
+emitting = false
+amount = 12
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_qjb5m")
+draw_pass_1 = SubResource("QuadMesh_m74y1")
+
+[node name="vfx_bite" type="GPUParticles3D" parent="." unique_id=1061310219]
+material_override = SubResource("StandardMaterial3D_gpiwo")
+emitting = false
+amount = 1
+lifetime = 0.6
+one_shot = true
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_735tp")
+draw_pass_1 = SubResource("QuadMesh_m74y1")
