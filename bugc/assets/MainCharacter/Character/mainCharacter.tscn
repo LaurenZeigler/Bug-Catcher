@@ -6,8 +6,10 @@
 [ext_resource type="Material" uid="uid://br1x26appfowe" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/net_temp.tres" id="4_mrogs"]
 [ext_resource type="Script" uid="uid://uv4bt0s7qf2w" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/equipHandler.gd" id="4_pypo7"]
 [ext_resource type="Script" uid="uid://c8maxq47l61q4" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netBehavior.gd" id="5_6xyts"]
+[ext_resource type="Resource" uid="uid://djqrlk40b5s1y" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/equippedItem.tres" id="5_tobs8"]
 [ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBasic.tres" id="6_m7riy"]
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="7_h1qux"]
+[ext_resource type="Resource" uid="uid://ytji1p6lcly" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/baitBase.tres" id="7_r65mq"]
 [ext_resource type="PackedScene" uid="uid://c830wo442op6d" path="res://assets/World/particles/particle_scenes/p_screen_poison.tscn" id="9_3qatw"]
 [ext_resource type="AudioStream" uid="uid://b6xoa5cv7je08" path="res://assets/World/Sounds/Net_Swing_Sound.wav" id="10_tobs8"]
 [ext_resource type="AudioStream" uid="uid://c4xatt2sbs0mj" path="res://assets/World/Sounds/Bug_Captured.wav" id="11_r65mq"]
@@ -2506,10 +2508,13 @@ settings/0/enable_all_child_collisions = true
 settings/0/exclude_collision_count = 0
 
 [node name="R_Hand_Tools" type="BoneAttachment3D" parent="player_skin/Cat_Skeleton" unique_id=1684789305]
+process_mode = 3
 transform = Transform3D(0.9950562, -0.062510245, -0.07717403, -0.07121194, -0.99072605, -0.11570081, -0.06922612, 0.120624274, -0.99028164, -0.08053578, 0.17118458, -0.0014202723)
 bone_name = "R_hand_IK_jnt"
 bone_idx = 25
 script = ExtResource("4_pypo7")
+equippedItem = ExtResource("5_tobs8")
+equippableItems = Array[Resource]([ExtResource("6_m7riy"), ExtResource("7_r65mq")])
 tool = 1
 
 [node name="Net_Objects" type="Node3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools" unique_id=1392250261]
@@ -2610,7 +2615,6 @@ libraries/ = SubResource("AnimationLibrary_2hmyc")
 unique_name_in_owner = true
 transform = Transform3D(0.032513395, -0.12028185, -0.010005718, 0.11866146, 0.033750236, -0.02013395, 0.022075595, -0.004261323, 0.12296123, -0.048413493, 0.008310813, -0.14523284)
 script = ExtResource("5_6xyts")
-net_info = ExtResource("6_m7riy")
 
 [node name="Area3D" type="Area3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" unique_id=989829765]
 collision_layer = 2048
@@ -2671,5 +2675,6 @@ stream = ExtResource("13_alotp")
 volume_db = 10.0
 
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="use_net"]
+[connection signal="equipNetSignal" from="player_skin/Cat_Skeleton/R_Hand_Tools" to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="equip_new_net"]
 [connection signal="timeout" from="StunTimer" to="." method="exit_stun"]
 [connection signal="timeout" from="PoisonTimer" to="." method="_end_poison"]

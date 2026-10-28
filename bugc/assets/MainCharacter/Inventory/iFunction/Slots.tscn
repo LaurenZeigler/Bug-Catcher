@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtyq3a5a6dwvv"]
 
 [ext_resource type="Texture2D" uid="uid://c36axbkkkx7jc" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/Slot.png" id="2_deo6t"]
+[ext_resource type="Resource" uid="uid://djqrlk40b5s1y" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/equippedItem.tres" id="2_ef71y"]
 [ext_resource type="Script" uid="uid://di8k80cnj13t4" path="res://assets/MainCharacter/Inventory/iFunction/Slot.gd" id="2_yls0m"]
 [ext_resource type="Texture2D" uid="uid://dcl783f6ikr26" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/Gear.png" id="3_2uboe"]
 
@@ -16,6 +17,7 @@ offset_right = 96.0
 offset_bottom = 96.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_yoh8b")
 script = ExtResource("2_yls0m")
+equippedItem = ExtResource("2_ef71y")
 
 [node name="SlotBG" type="TextureRect" parent="." unique_id=547246500]
 layout_mode = 2

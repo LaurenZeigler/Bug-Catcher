@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Equip_Info" format=3 uid="uid://djqrlk40b5s1y"]
+
+[ext_resource type="Script" uid="uid://c848rantm1ppq" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/equipInfo.gd" id="1_jh6ua"]
+
+[resource]
+script = ExtResource("1_jh6ua")
+item_name = "NA"
+type = "NA"
+metadata/_custom_type_script = "uid://c848rantm1ppq"

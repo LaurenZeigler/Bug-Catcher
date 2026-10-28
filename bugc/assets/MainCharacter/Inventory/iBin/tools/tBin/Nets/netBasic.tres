@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_vd637")
-name = "Basic"
+name = "NetBasic"
 icon = ExtResource("1_yigxh")
 speed = 1.0
 size = 1.0
