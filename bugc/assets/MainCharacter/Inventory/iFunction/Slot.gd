@@ -59,23 +59,34 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:
 		modulate = Color(1,1,1,1)'''
-
-
-func _on_mouse_entered() -> void:
-	if item_data == null:
-		return
-	
-	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
-
-func _on_mouse_exited() -> void:
-	Popups.HideNamePopup()
 	
 func _gui_input(event: InputEvent) -> void:
 	if item_data == null:
 		return
 	if event.is_action_pressed("use_tool"):
 		#%MenuPopup.open(self)
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+>>>>>>> Stashed changes
 		#print("Menu Opened")
 		print(equippedItem.get_item_name())
 		equippedItem.set_item_name(item_data.item_name)
 		print("Item Equipped" + str(equippedItem.get_item_name()))
+<<<<<<< Updated upstream
+=======
+=======
+		print("Menu Opened")
+
+
+func _on_hover_zone_mouse_entered() -> void:
+	if item_data == null:
+		return
+	
+	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
+
+
+func _on_hover_zone_mouse_exited() -> void:
+	Popups.HideNamePopup()
+>>>>>>> bee43c0ae870681e557e5d98d41429ae8dc11f99
+>>>>>>> Stashed changes

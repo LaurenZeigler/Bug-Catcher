@@ -11,6 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="7_h1qux"]
 [ext_resource type="Resource" uid="uid://ytji1p6lcly" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/baitBase.tres" id="7_r65mq"]
 [ext_resource type="PackedScene" uid="uid://c830wo442op6d" path="res://assets/World/particles/particle_scenes/p_screen_poison.tscn" id="9_3qatw"]
+[ext_resource type="AudioStream" uid="uid://b6xoa5cv7je08" path="res://assets/World/Sounds/Net_Swing_Sound.wav" id="10_tobs8"]
+[ext_resource type="AudioStream" uid="uid://c4xatt2sbs0mj" path="res://assets/World/Sounds/Bug_Captured.wav" id="11_r65mq"]
+[ext_resource type="AudioStream" uid="uid://dohdfqvy07fq3" path="res://assets/World/Sounds/Bug_Bite_Sound.mp3" id="12_s013e"]
+[ext_resource type="AudioStream" uid="uid://dv5risleftr0d" path="res://assets/World/Sounds/Poison_Bubble_Sound.wav" id="13_alotp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_38uue"]
 radius = 0.16259766
@@ -2653,6 +2657,22 @@ one_shot = true
 
 [node name="PoisonTimer" type="Timer" parent="." unique_id=840848055]
 one_shot = true
+
+[node name="Net_Swing_Audio" type="AudioStreamPlayer3D" parent="." unique_id=930932233]
+stream = ExtResource("10_tobs8")
+volume_db = 3.0
+
+[node name="Bug_Caught_Audio" type="AudioStreamPlayer3D" parent="." unique_id=1413815366]
+stream = ExtResource("11_r65mq")
+volume_db = 7.0
+
+[node name="Bug_Bite_Audio" type="AudioStreamPlayer3D" parent="." unique_id=794235519]
+stream = ExtResource("12_s013e")
+volume_db = 3.0
+
+[node name="Poisoned_Audio" type="AudioStreamPlayer3D" parent="." unique_id=744858188]
+stream = ExtResource("13_alotp")
+volume_db = 10.0
 
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="use_net"]
 [connection signal="equipNetSignal" from="player_skin/Cat_Skeleton/R_Hand_Tools" to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="equip_new_net"]

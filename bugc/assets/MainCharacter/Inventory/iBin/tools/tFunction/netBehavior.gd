@@ -18,6 +18,7 @@ func use_net():
 		var result = bodies.get(0).attempt_to_catch()
 		if (result == "catch"):
 			bodies.get(0).caught_by_player()
+			$"../../../../../Bug_Caught_Audio".play()
 		if (result == "fail"):
 			print("failed to catch")
 		if (result == "stun"):

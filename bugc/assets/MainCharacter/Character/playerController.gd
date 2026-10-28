@@ -121,6 +121,7 @@ func _animate_state():
 	var cur_state: move_state
 	if Input.is_action_pressed("use_tool"):
 		cur_state = move_state.net_swing
+		$Net_Swing_Audio.play()
 	elif not is_on_floor():
 		cur_state = move_state.jump
 	elif _is_moving() and is_on_floor and Input.is_action_pressed("sprint"):
@@ -176,6 +177,8 @@ func _reset_particles():
 	_p_grass.emitting = false
 	
 func is_poisoned(time):
+	$Bug_Bite_Audio.play()
+	$Poisoned_Audio.play()
 	_timer_poison.start(time)
 	var poison = $P_Screen_Poison
 	var poison_effects = poison.get_children()
@@ -186,6 +189,7 @@ func is_poisoned(time):
 			i.emitting = true
 
 func _end_poison():
+	$Poisoned_Audio.stop()
 	var poison = $P_Screen_Poison
 	var poison_effects = poison.get_children()
 	print(poison_effects.size())
