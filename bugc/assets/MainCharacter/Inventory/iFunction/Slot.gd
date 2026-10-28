@@ -1,4 +1,7 @@
 extends PanelContainer
+
+@export var equippedItem : Equip_Info
+
 @onready var icon = $Icon
 @onready var quantity = $Quantity
 @onready var item_data = null
@@ -62,8 +65,10 @@ func _gui_input(event: InputEvent) -> void:
 		return
 	if event.is_action_pressed("use_tool"):
 		#%MenuPopup.open(self)
-		print("Menu Opened")
-
+		#print("Menu Opened")
+		print(equippedItem.get_item_name())
+		equippedItem.set_item_name(item_data.item_name)
+		print("Item Equipped" + str(equippedItem.get_item_name()))
 
 func _on_hover_zone_mouse_entered() -> void:
 	if item_data == null:

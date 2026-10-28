@@ -7,7 +7,7 @@ extends Node3D
 signal catch_bug
 
 func _ready() -> void:
-	ToolGlobalInv.add_item(net_info.name, net_info.icon, 1)
+	pass
 
 func use_net():
 	print("net used")
@@ -40,3 +40,8 @@ func compare_bug_size(bug_size):
 		return true
 	else:
 		return false
+
+func equip_new_net(new_net : Resource):
+	net_info = new_net
+	
+	
