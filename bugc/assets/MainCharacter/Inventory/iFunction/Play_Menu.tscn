@@ -415,17 +415,11 @@ offset_right = 295.0
 offset_bottom = 23.0
 grow_horizontal = 1
 grow_vertical = 1
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-=======
 
 [node name="Bug_Caught_Audio" type="AudioStreamPlayer3D" parent="." unique_id=473638849]
 unique_name_in_owner = true
 stream = ExtResource("8_nyhdu")
 volume_db = 6.0
->>>>>>> bee43c0ae870681e557e5d98d41429ae8dc11f99
->>>>>>> Stashed changes
 
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]
