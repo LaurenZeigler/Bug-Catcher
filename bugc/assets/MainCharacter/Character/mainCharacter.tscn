@@ -2304,6 +2304,7 @@ libraries/ = SubResource("AnimationLibrary_2hmyc")
 unique_name_in_owner = true
 transform = Transform3D(0.032513395, -0.12028185, -0.010005718, 0.11866146, 0.033750236, -0.02013395, 0.022075595, -0.004261323, 0.12296123, -0.048413493, 0.008310813, -0.14523284)
 script = ExtResource("5_6xyts")
+net_info = ExtResource("6_m7riy")
 
 [node name="Area3D" type="Area3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" unique_id=989829765]
 collision_layer = 2048

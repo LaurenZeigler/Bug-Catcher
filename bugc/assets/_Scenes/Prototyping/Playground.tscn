@@ -151,3 +151,4 @@ transform = Transform3D(3.6629138, 0, 0, 0, 1, 0, 0, 0, 7.1595054, -47.459354, 2
 
 [node name="StaticBody3D" parent="." unique_id=1957876489 instance=ExtResource("14_t2t6b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.223199, 1.0500011, -26.975178)
+visible = false

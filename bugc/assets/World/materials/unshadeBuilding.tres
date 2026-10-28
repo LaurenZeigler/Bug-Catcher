@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cu81hyt78w7yc"]
+
+[resource]
+albedo_color = Color(0.42165035, 0.28532255, 0.2360541, 1)
+billboard_keep_scale = true
+grow_amount = -3.799
+stencil_flags = 2
+stencil_outline_thickness = 2.35
