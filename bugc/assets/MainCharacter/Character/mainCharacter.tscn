@@ -2389,7 +2389,7 @@ pitch_scale = 0.5
 
 [node name="BG_Music" type="AudioStreamPlayer3D" parent="." unique_id=1560808785]
 stream = ExtResource("19_4dgk8")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="use_net"]
