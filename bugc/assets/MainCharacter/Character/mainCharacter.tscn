@@ -18,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://btyhplu1smncc" path="res://assets/World/Sounds/Vision_Impaired_Sound.wav" id="16_je410"]
 [ext_resource type="AudioStream" uid="uid://tqpyer1u2fno" path="res://assets/World/Sounds/Heavy_Hit.mp3" id="17_w1oxv"]
 [ext_resource type="AudioStream" uid="uid://bkf1swa8qcjum" path="res://assets/World/Sounds/Net_Too_Small_Sound.wav" id="18_r3gmd"]
-[ext_resource type="AudioStream" uid="uid://caphwnpqddyj8" path="res://assets/World/Sounds/Temp_BG_Music.mp3" id="19_4dgk8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yrupm"]
 resource_name = "lambert3"
@@ -2386,11 +2385,6 @@ autoplay = true
 stream = ExtResource("18_r3gmd")
 volume_db = -10.0
 pitch_scale = 0.5
-
-[node name="BG_Music" type="AudioStreamPlayer3D" parent="." unique_id=1560808785]
-stream = ExtResource("19_4dgk8")
-volume_db = -30.0
-autoplay = true
 
 [connection signal="use_net" from="." to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="use_net"]
 [connection signal="equipNetSignal" from="player_skin/Cat_Skeleton/R_Hand_Tools" to="player_skin/Cat_Skeleton/R_Hand_Tools/Net_Objects/Nets" method="equip_new_net"]

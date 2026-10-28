@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dksqagwhx5spc" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/BGSettings.png" id="6_new55"]
 [ext_resource type="PackedScene" uid="uid://bweg7s45c3aii" path="res://assets/MainCharacter/Inventory/iFunction/Popups.tscn" id="7_3fjay"]
 [ext_resource type="AudioStream" uid="uid://c4xatt2sbs0mj" path="res://assets/World/Sounds/Bug_Captured.wav" id="8_nyhdu"]
+[ext_resource type="AudioStream" uid="uid://caphwnpqddyj8" path="res://assets/World/Sounds/Temp_BG_Music.mp3" id="9_75dvy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ct0f"]
 bg_color = Color(0, 0, 0, 1)
@@ -420,6 +421,11 @@ grow_vertical = 1
 unique_name_in_owner = true
 stream = ExtResource("8_nyhdu")
 volume_db = 6.0
+
+[node name="BG_Music" type="AudioStreamPlayer3D" parent="." unique_id=554229352]
+stream = ExtResource("9_75dvy")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]
