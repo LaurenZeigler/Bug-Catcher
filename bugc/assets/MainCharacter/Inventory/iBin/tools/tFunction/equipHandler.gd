@@ -1,6 +1,12 @@
 extends Node
 
-# signal EQUIPTOOL
+signal equipNetSignal()
+
+@export var equippedItem : Equip_Info
+@export var equippableItems : Array[Resource]
+
+var tool_array : Array
+var cur_equipped : String
 # pull from enum Tool choice (enum list below)
 # 
 
@@ -37,7 +43,7 @@ enum Tool {
 	t26,
 	t27,
 	t28,
-	t29
+	Empty
 }
 
 @export var tool : Tool
@@ -45,13 +51,36 @@ enum Tool {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_empty_hand()
+	cur_equipped = equippedItem.get_item_name()
+	ToolGlobalInv.add_item(equippableItems[0].name, equippableItems[0].icon, 1)
+	
+	for i in Tool:
+		tool_array.append(str(i))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	#print (equippedItem.get_item_name() + " : " + cur_equipped)
+	if equippedItem.get_item_name() != cur_equipped:
+		#print("changing equipment")
+		var n = 0
+		for i in Tool:
+			#print("checking tools" + i)
+			var id = equippedItem.get_item_name()
+			if str(i) == id:
+				print("equipping tool")
+				_equip_tool(str(i), n)
+				n+=1
+	
 
+func _equip_tool(name : String, index : int):
+	equippedItem.set_item_name(name)
+	cur_equipped = equippedItem.get_item_name()
+	tool = Tool.get(cur_equipped)
+	if cur_equipped.contains("Net"):
+		print(equippableItems.get(index))
+		equipNetSignal.emit(equippableItems.get(index))
+	print(tool)
 
 func _empty_hand():
-	for n in Tool:
-		print("emptying hand")
+	tool = Tool.Empty

@@ -406,10 +406,14 @@ text = "MAP"
 [node name="Popups" parent="TAB_menu/UI_Inventory" unique_id=1406542051 instance=ExtResource("7_3fjay")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 295.0
 offset_top = 23.0
 offset_right = 295.0
 offset_bottom = 23.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]
