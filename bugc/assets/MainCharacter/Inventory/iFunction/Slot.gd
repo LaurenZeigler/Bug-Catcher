@@ -58,14 +58,14 @@ func _notification(what: int) -> void:
 		modulate = Color(1,1,1,1)'''
 
 
-func _on_mouse_entered() -> void:
+'''func _on_mouse_entered() -> void:
 	if item_data == null:
 		return
 	
 	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
-
-func _on_mouse_exited() -> void:
-	Popups.HideNamePopup()
+'''
+#func _on_mouse_exited() -> void:
+	#Popups.HideNamePopup()
 	
 func _gui_input(event: InputEvent) -> void:
 	if item_data == null:
@@ -73,3 +73,14 @@ func _gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("use_tool"):
 		#%MenuPopup.open(self)
 		print("Menu Opened")
+
+
+func _on_hover_zone_mouse_entered() -> void:
+	if item_data == null:
+		return
+	
+	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
+
+
+func _on_hover_zone_mouse_exited() -> void:
+	Popups.HideNamePopup()
