@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://qp5mldwr30g4" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/BGGuidbook.png" id="5_vcthq"]
 [ext_resource type="Texture2D" uid="uid://dksqagwhx5spc" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/BGSettings.png" id="6_new55"]
 [ext_resource type="PackedScene" uid="uid://bweg7s45c3aii" path="res://assets/MainCharacter/Inventory/iFunction/Popups.tscn" id="7_3fjay"]
+[ext_resource type="AudioStream" uid="uid://c4xatt2sbs0mj" path="res://assets/World/Sounds/Bug_Captured.wav" id="8_nyhdu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ct0f"]
 bg_color = Color(0, 0, 0, 1)
@@ -406,10 +407,19 @@ text = "MAP"
 [node name="Popups" parent="TAB_menu/UI_Inventory" unique_id=1406542051 instance=ExtResource("7_3fjay")]
 layout_mode = 0
 anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 295.0
 offset_top = 23.0
 offset_right = 295.0
 offset_bottom = 23.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Bug_Caught_Audio" type="AudioStreamPlayer3D" parent="." unique_id=473638849]
+unique_name_in_owner = true
+stream = ExtResource("8_nyhdu")
+volume_db = 6.0
 
 [connection signal="pressed" from="ESC_menu/Control/Panel/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="ESC_menu/Control/Panel/ExitBtn" to="." method="_on_exit_btn_pressed"]

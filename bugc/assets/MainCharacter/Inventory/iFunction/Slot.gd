@@ -56,16 +56,6 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:
 		modulate = Color(1,1,1,1)'''
-
-
-'''func _on_mouse_entered() -> void:
-	if item_data == null:
-		return
-	
-	Popups.ItemPopup(Rect2i(Vector2i(global_position), Vector2i(size)), item_data)
-'''
-#func _on_mouse_exited() -> void:
-	#Popups.HideNamePopup()
 	
 func _gui_input(event: InputEvent) -> void:
 	if item_data == null:

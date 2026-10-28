@@ -188,6 +188,7 @@ func attempt_to_catch():
 func caught_by_player():
 	print("bug been caught")
 	BugGlobalInv.add_bug(bug_name, bug_icon, 1)
+	bugcaught.emit()
 	queue_free()
 
 func compare_net_size(net_size):
