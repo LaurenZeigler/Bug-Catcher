@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://qs4t4xo8h2r6"]
+
+[ext_resource type="Texture2D" uid="uid://crvgpsh6481he" path="res://assets/World/particles/particle_images/vfx_crescent.png" id="1_45h3s"]
+[ext_resource type="Texture2D" uid="uid://cmcshftp0jhat" path="res://assets/World/particles/particle_images/vfx_star_blur.png" id="2_8nfae"]
+
+[sub_resource type="Curve" id="Curve_xkk26"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, -103.7662, 0, 1, Vector2(0.50675684, -52.58423), 0.0, 0.0, 0, 0, Vector2(1, 0), 106.60914, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_qs15p"]
+curve = SubResource("Curve_xkk26")
+
+[sub_resource type="Curve" id="Curve_y8r4u"]
+_data = [Vector2(0, 0), 0.0, 1.13381, 0, 1, Vector2(0.44594598, 0.50561804), 1.5045477, 1.5045477, 0, 0, Vector2(0.6418919, 1), 2.5230532, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_gq16b"]
+curve = SubResource("Curve_y8r4u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m74y1"]
+angular_velocity_min = -0.050016094
+angular_velocity_max = 0.049983904
+angular_velocity_curve = SubResource("CurveTexture_qs15p")
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_gq16b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thvg0"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_45h3s")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_735tp"]
+material = SubResource("StandardMaterial3D_thvg0")
+
+[sub_resource type="Curve" id="Curve_2dl2u"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2364865, 0.5842697), 0.0, 0.0, 0, 0, Vector2(0.8378379, 0.30337083), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_u2xoc"]
+curve = SubResource("Curve_2dl2u")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hq7sx"]
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = 116.12998
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 4.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_u2xoc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_82rhd"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("2_8nfae")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_26wmk"]
+material = SubResource("StandardMaterial3D_82rhd")
+
+[node name="P_Clash" type="Node3D" unique_id=846733232]
+
+[node name="vfx_slash" type="GPUParticles3D" parent="." unique_id=408034682]
+emitting = false
+amount = 1
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_m74y1")
+draw_pass_1 = SubResource("QuadMesh_735tp")
+
+[node name="vfx_sparks" type="GPUParticles3D" parent="." unique_id=565751979]
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_hq7sx")
+draw_pass_1 = SubResource("QuadMesh_26wmk")

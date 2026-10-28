@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://dm4ctmhwmev0n"]
+
+[ext_resource type="Texture2D" uid="uid://cey167jmm8ug1" path="res://assets/_Scenes/MainMenu/temporary/cat_and_bugs.png" id="1_f55cs"]
+[ext_resource type="Script" uid="uid://cggnqx1r2in5l" path="res://assets/_Scenes/MainMenu/Main_Menu_Handler.gd" id="1_ks0rt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ct0f"]
+bg_color = Color(0.5834289, 0.6159312, 0.5147513, 1)
+
+[node name="MainMenu" type="Control" unique_id=187841228]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ks0rt")
+
+[node name="Panel" type="Panel" parent="." unique_id=2115759218]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -18.0
+offset_top = -16.0
+offset_right = 20.0
+offset_bottom = 21.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ct0f")
+
+[node name="Main_Menu" type="Control" parent="." unique_id=81207190]
+visible = false
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_bottom = -1.9440308
+
+[node name="CatAndBugs" type="Sprite2D" parent="Main_Menu" unique_id=148222569]
+position = Vector2(909.00006, 274.00003)
+scale = Vector2(0.48366567, 0.48366562)
+texture = ExtResource("1_f55cs")
+
+[node name="Title" type="RichTextLabel" parent="Main_Menu" unique_id=1079078036]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 371.0
+offset_bottom = 144.0
+theme_override_font_sizes/normal_font_size = 54
+text = "BugCatcher"
+
+[node name="PlayBtn" type="Button" parent="Main_Menu" unique_id=1421994067]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 545.0
+offset_top = 557.0
+offset_right = -443.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "PLAY
+"
+
+[node name="SettingsBtn" type="Button" parent="Main_Menu" unique_id=927457845]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 744.0
+offset_top = 557.0
+offset_right = -244.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "SETTINGS
+"
+
+[node name="QuitBtn" type="Button" parent="Main_Menu" unique_id=215692455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 952.0
+offset_top = 557.0
+offset_right = -36.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "QUIT
+
+"
+
+[node name="Settings_Menu" type="Control" parent="." unique_id=1116061340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title_settings" type="RichTextLabel" parent="Settings_Menu" unique_id=1773311275]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 21.0
+offset_right = 371.0
+offset_bottom = 144.0
+theme_override_font_sizes/normal_font_size = 54
+text = "Settings"
+
+[node name="TBA_settings" type="RichTextLabel" parent="Settings_Menu" unique_id=1131540480]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 290.0
+offset_top = 192.0
+offset_right = -273.51257
+offset_bottom = -225.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0008711, 1)
+theme_override_font_sizes/normal_font_size = 54
+text = "Settings Menu
+not yet available"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackBtn" type="Button" parent="Settings_Menu" unique_id=685619856]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 36.0
+offset_top = 557.0
+offset_right = -952.0
+offset_bottom = -33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "BACK
+"
+
+[connection signal="pressed" from="Main_Menu/PlayBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Main_Menu/SettingsBtn" to="." method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Main_Menu/QuitBtn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="Settings_Menu/BackBtn" to="." method="_on_back_btn_pressed"]

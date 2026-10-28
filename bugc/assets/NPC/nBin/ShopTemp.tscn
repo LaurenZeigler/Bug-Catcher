@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bs4rqc232mxju"]
+
+[ext_resource type="Script" uid="uid://x84jo5rrv36" path="res://assets/NPC/nBin/shopTrigger.gd" id="1_73rbj"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3cb37"]
+radius = 2.152832
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_3ct0f"]
+
+[node name="Node3D" type="Node3D" unique_id=375067111]
+script = ExtResource("1_73rbj")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=663422864]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1414371790]
+shape = SubResource("CylinderShape3D_3cb37")
+
+[node name="VehicleBody3D" type="VehicleBody3D" parent="Area3D" unique_id=832137539]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1208109670]
+transform = Transform3D(2.4473066, 0, 0, 0, 2.4473066, 0, 0, 0, 2.4473066, 0, 1.2747821, 0)
+text = "SHOP"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=709856068]
+mesh = SubResource("CapsuleMesh_3ct0f")

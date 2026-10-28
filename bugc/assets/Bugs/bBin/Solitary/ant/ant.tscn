@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://d1hyt5u2fl4c"]
+
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_i1ao7"]
+[ext_resource type="Resource" uid="uid://cjmuhnp2dh8vx" path="res://assets/Bugs/bBin/Solitary/ant/antInfo.tres" id="2_y3ft0"]
+[ext_resource type="ArrayMesh" uid="uid://dkxopae4m0wrl" path="res://assets/Bugs/bBin/Solitary/ant/Ant_temp.res" id="3_xi016"]
+[ext_resource type="PackedScene" uid="uid://qs4t4xo8h2r6" path="res://assets/World/particles/particle_scenes/p_clash.tscn" id="4_fvvsw"]
+[ext_resource type="PackedScene" uid="uid://bc04jx7r1oo4y" path="res://assets/World/particles/particle_scenes/p_bite_venom.tscn" id="5_msbru"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
+radius = 0.2783203
+height = 1.5227051
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
+height = 1.9315643
+radius = 5.819336
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
+height = 0.7281494
+radius = 1.3798828
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+collision_layer = 512
+collision_mask = 1793
+script = ExtResource("1_i1ao7")
+bugInfo = ExtResource("2_y3ft0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
+transform = Transform3D(3.792908, 0, 0, 0, 3.792908, 0, 0, 0, 3.792908, 0, 0.31257224, 0)
+mesh = ExtResource("3_xi016")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580186757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.2879426, 0.02722168)
+shape = SubResource("CapsuleShape3D_uha4m")
+
+[node name="Detection" type="Area3D" parent="." unique_id=1542686731]
+collision_layer = 512
+collision_mask = 6400
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039344788, 0)
+shape = SubResource("CylinderShape3D_m74y1")
+
+[node name="DetectionBait" type="Area3D" parent="." unique_id=1269379334]
+collision_layer = 512
+collision_mask = 4096
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
+shape = SubResource("CylinderShape3D_735tp")
+
+[node name="Timer" type="Timer" parent="." unique_id=958815534]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1288847061]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309543927]
+
+[node name="P_Clash" parent="." unique_id=846733232 instance=ExtResource("4_fvvsw")]
+
+[node name="P_Defense" parent="." unique_id=2018043422 instance=ExtResource("5_msbru")]
+
+[connection signal="body_entered" from="Detection" to="." method="detected_body_distanced"]
+[connection signal="body_exited" from="Detection" to="." method="escaped_player"]
+[connection signal="body_entered" from="DetectionBait" to="." method="eat_bait"]

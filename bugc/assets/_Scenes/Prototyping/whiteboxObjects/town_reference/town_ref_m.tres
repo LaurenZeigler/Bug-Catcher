@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://851igg7k25yu"]
+
+[ext_resource type="Texture2D" uid="uid://cl03b0fijkjdl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref_image.png" id="1_uk5bn"]
+
+[resource]
+albedo_color = Color(0.67275155, 0.67275155, 0.6727515, 1)
+albedo_texture = ExtResource("1_uk5bn")
+grow = true

@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bd371u6l088cl"]
+
+[ext_resource type="Script" uid="uid://bjc8e28t6l4ep" path="res://assets/NPC/nFunction/DialogueUI.gd" id="1_3amon"]
+
+[node name="DialogueUI" type="Control" unique_id=939779076]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3amon")
+
+[node name="DialogueBoxes" type="Control" parent="." unique_id=2090794768]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = 448.0
+offset_right = -128.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shopping" type="Control" parent="DialogueBoxes" unique_id=946556028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopTextBox" type="Panel" parent="DialogueBoxes/Shopping" unique_id=1007136140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopText" type="RichTextLabel" parent="DialogueBoxes/Shopping/ShopTextBox" unique_id=610385290]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="DialogueBoxes/Shopping" unique_id=153640395]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_bottom = -96.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Buy"
+
+[node name="Button2" type="Button" parent="DialogueBoxes/Shopping" unique_id=1142321671]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_top = 48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sell"
+
+[node name="Button3" type="Button" parent="DialogueBoxes/Shopping" unique_id=808566307]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 768.0
+offset_top = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Leave
+"
+
+[node name="Chatting" type="Panel" parent="DialogueBoxes" unique_id=1265923149]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChattingText" type="RichTextLabel" parent="DialogueBoxes/Chatting" unique_id=356582070]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2

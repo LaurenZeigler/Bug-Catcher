@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cj6fdb4g15x4n"]
+
+[ext_resource type="ArrayMesh" uid="uid://b4wg328lpghir" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid_temp.res" id="1_emvid"]
+[ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_gq641"]
+[ext_resource type="Resource" uid="uid://dq8pegfj1icjb" path="res://assets/Bugs/bBin/Solitary/aphid/AphidInfo.tres" id="2_cjscr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
+radius = 0.21777344
+height = 0.9042969
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_m74y1"]
+height = 1.9315643
+radius = 5.819336
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_735tp"]
+height = 0.7281494
+radius = 1.3798828
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+collision_layer = 512
+collision_mask = 1793
+script = ExtResource("1_gq641")
+bugInfo = ExtResource("2_cjscr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
+transform = Transform3D(6.1053634, 0, 0, 0, 6.1053634, 0, 0, 0, 6.1053634, 0.0019299984, 0.19409329, -0.0016424656)
+mesh = ExtResource("1_emvid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1580186757]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.22108543, 0.03125)
+shape = SubResource("CapsuleShape3D_uha4m")
+
+[node name="Detection" type="Area3D" parent="." unique_id=1542686731]
+collision_layer = 512
+collision_mask = 6400
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection" unique_id=1826275937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039344788, 0)
+shape = SubResource("CylinderShape3D_m74y1")
+
+[node name="DetectionBait" type="Area3D" parent="." unique_id=1269379334]
+collision_layer = 512
+collision_mask = 4096
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
+shape = SubResource("CylinderShape3D_735tp")
+
+[node name="Timer" type="Timer" parent="." unique_id=958815534]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1288847061]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1309543927]
+
+[connection signal="body_entered" from="Detection" to="." method="detected_body_distanced"]
+[connection signal="body_exited" from="Detection" to="." method="escaped_player"]
+[connection signal="body_entered" from="DetectionBait" to="." method="eat_bait"]

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bedjydnqjj76i"]
+
+[resource]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_keep_scale = true
+grow_amount = -3.799
+stencil_flags = 2

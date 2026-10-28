@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bweg7s45c3aii"]
+
+[ext_resource type="Script" uid="uid://co4y4nqedyxn2" path="res://assets/MainCharacter/Inventory/iFunction/popups.gd" id="1_65bxa"]
+[ext_resource type="Texture2D" uid="uid://s52u4klkfbbh" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/PopUp.png" id="2_8yem4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0d4pk"]
+bg_color = Color(0, 0.7607843, 1, 0.57254905)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_65bxa"]
+texture = ExtResource("2_8yem4")
+
+[node name="Popups" type="Control" unique_id=526934980]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_65bxa")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1622570570]
+
+[node name="ItemNamePopup" type="PopupPanel" parent="." unique_id=152941339]
+oversampling_override = 1.0
+size = Vector2i(100, 31)
+visible = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_0d4pk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemNamePopup" unique_id=1595287827]
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 98.0
+offset_bottom = 29.0
+
+[node name="ItemName" type="Label" parent="ItemNamePopup/VBoxContainer" unique_id=900415851]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+text_overrun_behavior = 3
+
+[node name="MenuPopup" type="PopupMenu" parent="." unique_id=692258333]
+unique_name_in_owner = true
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(100, 40)
+visible = true
+theme_override_constants/v_separation = 10
+theme_override_constants/item_start_padding = 25
+theme_override_styles/panel = SubResource("StyleBoxTexture_65bxa")
+item_count = 1
+item_0/text = "Equip"
+item_0/id = 0
+
+[connection signal="index_pressed" from="MenuPopup" to="." method="_on_popup_menu_index_pressed"]
