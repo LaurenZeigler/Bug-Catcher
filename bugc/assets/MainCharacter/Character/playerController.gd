@@ -148,8 +148,8 @@ func _animate_state():
 		anim_state = move_state.walk
 		_p_grass.emitting = true
 	elif cur_state == move_state.sprint:
-		_anim_state_machine.travel("idle")#sprint
-		_anim_player.play("idle")#sprint
+		_anim_state_machine.travel("sprint")#sprint
+		_anim_player.play("sprint")#sprint
 		anim_state = move_state.sprint
 		_p_grass.emitting = true
 	elif cur_state == move_state.sneak:
@@ -158,8 +158,8 @@ func _animate_state():
 		anim_state = move_state.sneak
 		_reset_particles()
 	elif cur_state == move_state.jump:
-		_anim_state_machine.travel("idle")#jump
-		_anim_player.play("idle")#jump
+		_anim_state_machine.travel("jump")#jump
+		_anim_player.play("jump")#jump
 		anim_state = move_state.jump
 		_reset_particles()
 	elif cur_state == move_state.net_swing:
