@@ -37,6 +37,7 @@ func get_size():
 
 func compare_bug_size(bug_size):
 	if (get_size() < bug_size):
+		$"../../../../../Net_Too_Small_Audio".play()
 		return true
 	else:
 		return false

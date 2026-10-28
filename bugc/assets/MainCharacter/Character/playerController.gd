@@ -178,6 +178,7 @@ func _reset_particles():
 	
 func is_poisoned(time):
 	$Bug_Bite_Audio.play()
+	$Vision_Impaired_Audio.play()
 	$Poisoned_Audio.play()
 	_timer_poison.start(time)
 	var poison = $P_Screen_Poison
@@ -189,6 +190,7 @@ func is_poisoned(time):
 			i.emitting = true
 
 func _end_poison():
+	$Vision_Impaired_Audio.stop()
 	$Poisoned_Audio.stop()
 	var poison = $P_Screen_Poison
 	var poison_effects = poison.get_children()
