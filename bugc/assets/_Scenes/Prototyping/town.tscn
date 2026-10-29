@@ -5,6 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://dbyp2s4673h3d" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref.tscn" id="3_a3xju"]
 [ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="4_b30qq"]
 [ext_resource type="PackedScene" uid="uid://m2kkm4i7niks" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sprint.tscn" id="5_a3xju"]
+[ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Bugs/bFunction/bug_nest.tscn" id="6_6ifve"]
+[ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="7_m8l3m"]
+[ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="8_00wfw"]
+[ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="9_laoim"]
 
 [sub_resource type="Environment" id="Environment_o2ofy"]
 background_mode = 1
@@ -37,18 +41,19 @@ shadow_opacity = 0.65
 [node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_wceg6")]
 
 [node name="MainCharacter" parent="GAME_nodes" unique_id=309607646 instance=ExtResource("2_b30qq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.9044, -1.9073486e-06, 55.06433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.02374, 1.9073486e-06, 58.725113)
 
 [node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=267758088]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GAME_nodes/BottomWorldBounds" unique_id=21650537]
 shape = SubResource("WorldBoundaryShape3D_ih1lg")
 
+[node name="Play_Menu2" parent="GAME_nodes" unique_id=373440065 instance=ExtResource("1_wceg6")]
+
 [node name="template" type="Node3D" parent="." unique_id=1268186674]
 
 [node name="town_reference" parent="template" unique_id=569643710 instance=ExtResource("3_a3xju")]
-transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 62.726326, -3.331009, 120.27495)
+transform = Transform3D(500, 0, 0, 0, 500, 0, 0, 0, 500, 62.726326, -0.15421677, 120.27495)
 
 [node name="30s_walk" parent="template" unique_id=351726518 instance=ExtResource("4_b30qq")]
 transform = Transform3D(9.263251, 0, 0, 0, 1, 0, 0, 0, 1, 232.04735, 0, 145.74356)
@@ -657,3 +662,19 @@ size = Vector3(42.180054, 6.544922, 18.912598)
 transform = Transform3D(0.5657242, 0, 0.8245947, 0, 1, 0, -0.8245947, 0, 0.5657242, -66.84326, 1.1943388, -21.031687)
 operation = 2
 size = Vector3(2.0210419, 3.3886719, 3.1447754)
+
+[node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("6_6ifve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.50388, 0.8364992, 39.57877)
+items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
+
+[node name="BugNest2" parent="." unique_id=1043058722 instance=ExtResource("6_6ifve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.80557, 0.8364992, 98.76523)
+items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
+
+[node name="BugNest3" parent="." unique_id=1527371358 instance=ExtResource("6_6ifve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -151.78568, 0.8364992, -79.541)
+items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
+
+[node name="BugNest4" parent="." unique_id=1994088733 instance=ExtResource("6_6ifve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.724304, 0.8364992, -72.959854)
+items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])

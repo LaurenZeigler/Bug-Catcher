@@ -1178,12 +1178,15 @@ shadow_enabled = true
 shadow_opacity = 0.65
 
 [node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_3ovuw")]
+visible = false
 
 [node name="MainCharacter" parent="GAME_nodes" unique_id=309607646 instance=ExtResource("2_vphg6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7356262, -1.9073486e-06, 1.1967926)
 
 [node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=549535378]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GAME_nodes/BottomWorldBounds" unique_id=1714655906]
+visible = false
 shape = SubResource("WorldBoundaryShape3D_u8x1g")
