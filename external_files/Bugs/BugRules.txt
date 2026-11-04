@@ -1,0 +1,93 @@
+
+__________
+
+
+WORK IN PROGRESS
+
+__________
+
+
+
+WATCH TUTORIAL:
+ - not made yet
+
+
+__________
+
+
+
+RULES:
+ - use photo references
+ - use template file
+ - DO NOT touch the skeleton
+ - Segment centers should be the same as each joint 
+ - read below guides 
+
+__________
+
+
+MODELING GUIDE:
+ - keep low poly
+ - models will have flat colors with no shading
+ - focus on silhouette, add edge loops only as needed
+ - only combine segments once modeling is done
+ - DO NOT merge merge edges between segments
+    - each moving segment will need to have 100% bone influence when skinning
+ - segments intersecting is expected! 
+
+
+SIZE:
+ - model proportionally to skeleton
+ - bug will be scaled in game
+
+
+__________
+
+
+
+SKELETON GUIDE:
+ - Every bug shares the same universal skeleton
+ - Bones will go unused depending on type of bug
+ - DO NOT edit any part of the universal skeleton
+
+
+UNIVERSAL SKELETON:
+ - Root
+    - body
+      - head
+      - butt
+      - 8 legs - 4 segments each (clav, shoulder, elbow, foot)
+      - 4 gliding wings
+      - 4 fluttering wings
+      - 4 buzzing wings
+
+
+
+BONE EXCLUSIONS: 
+
+INSECTS: exclude 2nd pair of legs, dont use wings unless asked.
+ - DRAGONFLIES: use gliding wings
+ - BUTTERFLIES: use fluttering wings
+ - MOTHS, BEES, WASPS: use buzzing wings
+ - BEETLES: dont use butt
+
+ARACHNIDS: use all legs, dont use wings
+
+
+
+
+examples of bugs that dont use universal skeleton:
+ - MANTIS/MANTIDFLIES (or others who stand on 4 legs, use 2 as arms)
+ - WORMS
+ - MILLIPEDES + CENTIPEDES
+ - etc
+
+
+__________
+
+
+
+
+
+
+
