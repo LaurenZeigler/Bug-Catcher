@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="NetInfo" format=3 uid="uid://dmb3rxxpqfu0h"]
+
+[ext_resource type="Script" uid="uid://ba2gbdreqhdn6" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netInfo.gd" id="1_1770o"]
+[ext_resource type="Texture2D" uid="uid://chok4g7ja4tyf" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_big-net.png" id="1_wqcdq"]
+
+[resource]
+script = ExtResource("1_1770o")
+name = "NetBig"
+icon = ExtResource("1_wqcdq")
+speed = 0.5
+size = 2.0
+metadata/_custom_type_script = "uid://ba2gbdreqhdn6"

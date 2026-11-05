@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBasic.tres" id="6_m7riy"]
 [ext_resource type="PackedScene" uid="uid://bxd0jmm4dnfar" path="res://assets/World/particles/P_Grass.tscn" id="7_h1qux"]
 [ext_resource type="Resource" uid="uid://ytji1p6lcly" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/baitBase.tres" id="7_r65mq"]
+[ext_resource type="Resource" uid="uid://dmb3rxxpqfu0h" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBig.tres" id="8_4dgk8"]
 [ext_resource type="PackedScene" uid="uid://c830wo442op6d" path="res://assets/World/particles/particle_scenes/p_screen_poison.tscn" id="9_3qatw"]
 [ext_resource type="AudioStream" uid="uid://b6xoa5cv7je08" path="res://assets/World/Sounds/Net_Swing_Sound.wav" id="10_tobs8"]
 [ext_resource type="AudioStream" uid="uid://c4xatt2sbs0mj" path="res://assets/World/Sounds/Bug_Captured.wav" id="11_r65mq"]
@@ -2442,7 +2443,7 @@ bone_name = "R_hand_RK_jnt"
 bone_idx = 29
 script = ExtResource("4_pypo7")
 equippedItem = ExtResource("5_tobs8")
-equippableItems = Array[Resource]([ExtResource("6_m7riy"), ExtResource("7_r65mq")])
+equippableItems = Array[Resource]([ExtResource("6_m7riy"), ExtResource("7_r65mq"), ExtResource("8_4dgk8")])
 tool = 1
 
 [node name="Net_Objects" type="Node3D" parent="player_skin/Cat_Skeleton/R_Hand_Tools" unique_id=1392250261]

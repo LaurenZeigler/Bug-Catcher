@@ -53,7 +53,9 @@ func _ready() -> void:
 	_empty_hand()
 	cur_equipped = equippedItem.get_item_name()
 	ToolGlobalInv.add_item(equippableItems[0].name, equippableItems[0].icon, 1)
-	
+	ToolGlobalInv.add_item(equippableItems[1].name, equippableItems[1].icon, 1)
+	ToolGlobalInv.add_item(equippableItems[2].name, equippableItems[2].icon, 1)
+
 	for i in Tool:
 		tool_array.append(str(i))
 
@@ -84,3 +86,4 @@ func _equip_tool(name : String, index : int):
 
 func _empty_hand():
 	tool = Tool.Empty
+	equippedItem = null
