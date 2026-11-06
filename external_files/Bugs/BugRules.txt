@@ -87,6 +87,87 @@ __________
 
 
 
+guide
+
+FILE
+- duplicate BugTemplates file, and rename copy to the assigned bug's name
+
+
+HOW FILE IS SET UP
+- Multiple Templates are available
+- you should delete anything you know you will not need for this bug
+- keep UNIVERSAL_SKELETON
+
+- every geometry part is locked on translate, so you don't accidentally lose where a part should pivot.
+
+
+DONT TOUCH JOINTS
+- don't move, rotate, or rename joints
+- when modeling, make sure that joints cannot be selected
+- layer set to T or R
+- OR select at the top
+
+
+
+
+
+LAST MODELING STEPS
+- for every bug that is made, once it is completed, every geometry it has will be combined
+- when you do that - do not merge any faces, edges, or vertexes
+- we want to keep this until the end so you can scale segments at their local rotation and test movement
+- you can test combine and mirror model to preview 
+
+
+
+UV MAPPING
+- Make sure geometry pieces are combined (not merged!)
+- Delete half of the mesh to the halfway mark
+- After UV mapping is complete, mirror the geometry while world U or V is selected
+- Snap edges using snap to grid setting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
