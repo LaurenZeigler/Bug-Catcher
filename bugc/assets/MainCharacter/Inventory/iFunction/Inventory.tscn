@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b3qar4jwigyuq"]
+
+[ext_resource type="Script" uid="uid://bwpm1y0q3gmaa" path="res://assets/MainCharacter/Inventory/iFunction/Inventory.gd" id="1_57fnx"]
+[ext_resource type="PackedScene" uid="uid://du2rjeflpwrw" path="res://assets/MainCharacter/Inventory/iFunction/Tooltip.tscn" id="1_luret"]
+
+[node name="Inventory" type="Control" unique_id=401001398]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_57fnx")
+
+[node name="Tooltip" parent="." unique_id=1809859411 instance=ExtResource("1_luret")]
+layout_mode = 0
+color = Color(0, 0, 0, 1)
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1999069298]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1501016819]
+layout_mode = 2

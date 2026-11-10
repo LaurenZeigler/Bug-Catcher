@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ykr744yiincs"]
+
+[ext_resource type="Script" uid="uid://dqblbaass6pnc" path="res://assets/MainCharacter/Inventory/iFunction/InventoryItem.gd" id="1_jux7p"]
+
+[node name="InventoryItem" type="Control" unique_id=1321890764]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jux7p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317653739]
+
+[node name="Label" type="Label" parent="." unique_id=670040308]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

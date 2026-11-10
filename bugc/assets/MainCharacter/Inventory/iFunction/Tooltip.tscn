@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://du2rjeflpwrw"]
+
+[ext_resource type="Script" uid="uid://bowafi3mmiw7n" path="res://assets/MainCharacter/Inventory/iFunction/Tooltip.gd" id="1_s8rca"]
+
+[node name="Tooltip" type="ColorRect" unique_id=1809859411]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_s8rca")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=756960246]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer" unique_id=499485354]
+layout_mode = 2

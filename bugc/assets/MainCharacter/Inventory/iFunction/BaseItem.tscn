@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dqoaekljog6la"]
+
+[ext_resource type="Script" uid="uid://hvmp2ndyttiv" path="res://assets/MainCharacter/Inventory/iFunction/Item.gd" id="1_b53xn"]
+
+[node name="BaseItem" type="Area3D" unique_id=1798103514]
+script = ExtResource("1_b53xn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=37421506]
