@@ -27,11 +27,10 @@ func set_bug_slot(data):
 	quantity.text = str(data.quantity)
 	item_data = data
 	quantity.show()
-	
 
 	
 # Called when the node enters the scene tree for the first time.
-'''func _get_drag_data(at_position: Vector2) -> Variant:
+func _get_drag_tool_data(at_position: Vector2) -> Variant:
 	var prev = Control.new()
 	var picon = TextureRect.new()
 	picon.position -= Vector2(48,48)
@@ -41,7 +40,7 @@ func set_bug_slot(data):
 	set_drag_preview(prev)
 	modulate = Color(1,1,1,0.5)
 	
-	var data = GlobalInv.inventory[name].duplicate()
+	var data = ToolGlobalInv.inventory[name].duplicate()
 	data.from_slot = name
 	data.dragged = self
 	print(data)
@@ -50,15 +49,15 @@ func set_bug_slot(data):
 func _can_drop_data(at_position: Vector2, data: Variant) -> bool:
 	return true
 	
-func _drop_data(at_position: Vector2, data: Variant) -> void:
-	GlobalInv.move_item(data.quantity,data.from_slot,name)
-	set_slot(data)
-	data.dragged.set_slot(GlobalInv.inventory[data.from_slot])
+func _drop_tool_data(at_position: Vector2, data: Variant) -> void:
+	ToolGlobalInv.move_item(data.quantity,data.from_slot,name)
+	set_tool_slot(data)
+	data.dragged.set_slot(ToolGlobalInv.inventory[data.from_slot])
 
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_DRAG_END:
-		modulate = Color(1,1,1,1)'''
+		modulate = Color(1,1,1,1)
 	
 func _gui_input(event: InputEvent) -> void:
 	if item_data == null:

@@ -51,10 +51,7 @@ enum Tool {
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_empty_hand()
-	cur_equipped = equippedItem.get_item_name()
-	ToolGlobalInv.add_item(equippableItems[0].name, equippableItems[0].icon, 1)
-	ToolGlobalInv.add_item(equippableItems[1].name, equippableItems[1].icon, 1)
-	ToolGlobalInv.add_item(equippableItems[2].name, equippableItems[2].icon, 1)
+	#cur_equipped = equippedItem.get_item_name()
 
 	for i in Tool:
 		tool_array.append(str(i))
@@ -63,17 +60,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print (equippedItem.get_item_name() + " : " + cur_equipped)
-	if equippedItem.get_item_name() != cur_equipped:
-		#print("changing equipment")
-		var n = 0
-		for i in Tool:
-			#print("checking tools" + i)
-			var id = equippedItem.get_item_name()
-			if str(i) == id:
-				print("equipping tool")
-				_equip_tool(str(i), n)
-				n+=1
-	
+	#if equippedItem.get_item_name() != cur_equipped:
+		##print("changing equipment")
+		#var n = 0
+		#for i in Tool:
+			##print("checking tools" + i)
+			#var id = equippedItem.get_item_name()
+			#if str(i) == id:
+				#print("equipping tool")
+				#_equip_tool(str(i), n)
+				#n+=1
+	pass
 
 func _equip_tool(name : String, index : int):
 	equippedItem.set_item_name(name)

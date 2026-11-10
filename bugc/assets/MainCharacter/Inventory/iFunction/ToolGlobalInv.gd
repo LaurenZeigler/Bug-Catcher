@@ -21,13 +21,13 @@ func _ready() -> void:
 	#add_item("basic_net",1)
 	#add_item("fast_net",1)
 	#add_item("big_net",1)
-	#create_sample_inventory()
+	create_sample_inventory()
 	
 func initailize():
 	for i in SLOTS:
 		inventory["Slot"+str(i)] = {}
 
-'''func create_sample_inventory():
+func create_sample_inventory():
 	for slot in inventory:
 		if randf() >= 0.5:
 			continue
@@ -35,7 +35,7 @@ func initailize():
 		inventory[slot] = {
 			"item_name": items.pick_random(),
 			"quantity": randi_range(1,10)}
-	updated.emit()'''
+	updated.emit()
 
 func add_item(item_name, item_icon, quantity):
 	var empty_slot = ""
