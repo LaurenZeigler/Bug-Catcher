@@ -5,8 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://br734wmhnv3ph" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/Slot1.png" id="3_olbpx"]
 
 [node name="InventorySlot" type="CenterContainer" unique_id=1858382498]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_gvwv8")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1917861537]

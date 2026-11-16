@@ -3,6 +3,7 @@ extends Node3D
 @export var net_info : NetInfo
 
 @onready var collider = $Area3D
+@onready var inventory : Inventory = get_node("/root/Node3D/GAME_nodes/Play_Menu/Inventory")
 
 signal catch_bug
 
@@ -18,6 +19,7 @@ func use_net():
 		var result = bodies.get(0).attempt_to_catch()
 		if (result == "catch"):
 			bodies.get(0).caught_by_player()
+			#inventory.add_item(result as Item, 1)
 			$"../../../../../Bug_Caught_Audio".play()
 		if (result == "fail"):
 			print("failed to catch")

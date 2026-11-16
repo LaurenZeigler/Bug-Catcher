@@ -3,6 +3,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b4wg328lpghir" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid_temp.res" id="1_emvid"]
 [ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_gq641"]
 [ext_resource type="Resource" uid="uid://dq8pegfj1icjb" path="res://assets/Bugs/bBin/Solitary/aphid/AphidInfo.tres" id="2_cjscr"]
+[ext_resource type="Script" uid="uid://hvmp2ndyttiv" path="res://assets/MainCharacter/Inventory/iFunction/Item.gd" id="4_ktjqg"]
+[ext_resource type="Texture2D" uid="uid://nwd4utaj023n" path="res://assets/Bugs/bBin/Solitary/aphid/Icon_aphid.png" id="5_bwhvt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
 radius = 0.21777344
@@ -16,11 +18,15 @@ radius = 5.819336
 height = 0.7281494
 radius = 1.3798828
 
-[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkjyr"]
+size = Vector3(1.3642578, 0.54589844, 1.3091431)
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057 node_paths=PackedStringArray("bug_item")]
 collision_layer = 512
 collision_mask = 1793
 script = ExtResource("1_gq641")
 bugInfo = ExtResource("2_cjscr")
+bug_item = NodePath("BaseItem")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
 transform = Transform3D(6.1053634, 0, 0, 0, 6.1053634, 0, 0, 0, 6.1053634, 0.0019299984, 0.19409329, -0.0016424656)
@@ -45,6 +51,20 @@ collision_mask = 4096
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
 shape = SubResource("CylinderShape3D_735tp")
+
+[node name="BaseItem" type="Area3D" parent="." unique_id=1049047620]
+unique_name_in_owner = true
+collision_layer = 512
+collision_mask = 2048
+script = ExtResource("4_ktjqg")
+item_name = "Aphid"
+icon = ExtResource("5_bwhvt")
+is_stackable = true
+type = "Bug"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseItem" unique_id=506605361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22705078, 0.0340271)
+shape = SubResource("BoxShape3D_dkjyr")
 
 [node name="Timer" type="Timer" parent="." unique_id=958815534]
 

@@ -123,7 +123,9 @@ func clear_inventory() -> void:
 func open_inventory():
 	print("opening inventory")
 	panel_container.visible = true
+	
 
 func close_inventory():
 	print("closing inventory")
 	panel_container.visible = false
+	

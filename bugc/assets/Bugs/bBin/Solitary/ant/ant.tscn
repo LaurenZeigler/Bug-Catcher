@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://drd760anhxn3f" path="res://assets/Bugs/bFunction/bugBehavior.gd" id="1_i1ao7"]
 [ext_resource type="Resource" uid="uid://cjmuhnp2dh8vx" path="res://assets/Bugs/bBin/Solitary/ant/antInfo.tres" id="2_y3ft0"]
 [ext_resource type="ArrayMesh" uid="uid://dkxopae4m0wrl" path="res://assets/Bugs/bBin/Solitary/ant/Ant_temp.res" id="3_xi016"]
+[ext_resource type="Script" uid="uid://hvmp2ndyttiv" path="res://assets/MainCharacter/Inventory/iFunction/Item.gd" id="4_3v32m"]
 [ext_resource type="PackedScene" uid="uid://qs4t4xo8h2r6" path="res://assets/World/particles/particle_scenes/p_clash.tscn" id="4_fvvsw"]
+[ext_resource type="Texture2D" uid="uid://dh0vmbbjvrjhn" path="res://assets/Bugs/bBin/Solitary/ant/Icon_ant.png" id="5_ccikq"]
 [ext_resource type="PackedScene" uid="uid://bc04jx7r1oo4y" path="res://assets/World/particles/particle_scenes/p_bite_venom.tscn" id="5_msbru"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uha4m"]
@@ -18,11 +20,15 @@ radius = 5.819336
 height = 0.7281494
 radius = 1.3798828
 
-[node name="mainBug" type="CharacterBody3D" unique_id=538178057]
+[sub_resource type="BoxShape3D" id="BoxShape3D_3i6qn"]
+size = Vector3(1.3642578, 0.54589844, 1.3091431)
+
+[node name="mainBug" type="CharacterBody3D" unique_id=538178057 node_paths=PackedStringArray("bug_item")]
 collision_layer = 512
 collision_mask = 1793
 script = ExtResource("1_i1ao7")
 bugInfo = ExtResource("2_y3ft0")
+bug_item = NodePath("BaseItem")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=259309487]
 transform = Transform3D(3.792908, 0, 0, 0, 3.792908, 0, 0, 0, 3.792908, 0, 0.31257224, 0)
@@ -47,6 +53,20 @@ collision_mask = 4096
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionBait" unique_id=1459490433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37476265, 0)
 shape = SubResource("CylinderShape3D_735tp")
+
+[node name="BaseItem" type="Area3D" parent="." unique_id=1798103514]
+unique_name_in_owner = true
+collision_layer = 512
+collision_mask = 2048
+script = ExtResource("4_3v32m")
+item_name = "Ant"
+icon = ExtResource("5_ccikq")
+is_stackable = true
+type = "Bug"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseItem" unique_id=37421506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22705078, 0.0340271)
+shape = SubResource("BoxShape3D_3i6qn")
 
 [node name="Timer" type="Timer" parent="." unique_id=958815534]
 

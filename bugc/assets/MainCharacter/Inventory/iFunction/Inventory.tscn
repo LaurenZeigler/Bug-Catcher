@@ -2,8 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bwpm1y0q3gmaa" path="res://assets/MainCharacter/Inventory/iFunction/Inventory.gd" id="1_57fnx"]
 [ext_resource type="PackedScene" uid="uid://du2rjeflpwrw" path="res://assets/MainCharacter/Inventory/iFunction/Tooltip.tscn" id="1_luret"]
+[ext_resource type="PackedScene" uid="uid://cyp2cdu1550rk" path="res://assets/MainCharacter/Inventory/iFunction/InventorySlot.tscn" id="2_lyych"]
+[ext_resource type="Texture2D" uid="uid://bs8ay6br5othx" path="res://assets/MainCharacter/Inventory/iFunction/iImages/TempSlot/BG1.png" id="4_3i6qn"]
 
-[node name="Inventory" type="Control" unique_id=401001398]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t2t6b"]
+content_margin_left = 19.0
+content_margin_top = 71.0
+content_margin_bottom = 15.0
+texture = ExtResource("4_3i6qn")
+
+[node name="Inventory" type="Control" unique_id=401001398 node_paths=PackedStringArray("inventory_grid", "panel_container", "tooltip")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,15 +19,29 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_57fnx")
+rows = 5
+inventory_grid = NodePath("PanelContainer/GridContainer")
+panel_container = NodePath("PanelContainer")
+inventory_slot_scene = ExtResource("2_lyych")
+tooltip = NodePath("Tooltip")
 
 [node name="Tooltip" parent="." unique_id=1809859411 instance=ExtResource("1_luret")]
 layout_mode = 0
-color = Color(0, 0, 0, 1)
+offset_left = 735.0
+offset_top = 98.0
+offset_right = 775.0
+offset_bottom = 138.0
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1999069298]
+visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 295.0
+offset_top = 23.0
+offset_right = 929.0
+offset_bottom = 605.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_t2t6b")
 
 [node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1501016819]
 layout_mode = 2
+columns = 6

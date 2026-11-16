@@ -2,9 +2,11 @@ extends CharacterBody3D
 signal bugcaught
 
 @export var bugInfo : BugInfo
+@export var bug_item : Item
 
 @onready var bug_name : String = bugInfo.name
 @onready var bug_icon = bugInfo.icon
+
 
 @onready var disposition = bugInfo.bug_disposition
 @onready var attack_type = bugInfo.bug_attack
@@ -21,6 +23,8 @@ signal bugcaught
 @onready var skin : MeshInstance3D = $MeshInstance3D
 @onready var detector : Area3D = $Detection
 @onready var detector_bait : Area3D = $DetectionBait
+
+@onready var inventory := get_node("/root/Node3D/GAME_nodes/Play_Menu/Inventory")
 
 enum State {IDLE,WALKING,RUNNING,BAITED}
 var state = State.IDLE
@@ -187,7 +191,7 @@ func attempt_to_catch():
 
 func caught_by_player():
 	print("bug been caught")
-	BugGlobalInv.add_bug(bug_name, bug_icon, 1)
+	inventory.add_item(bug_item as Item, 1)
 	bugcaught.emit()
 	queue_free()
 
