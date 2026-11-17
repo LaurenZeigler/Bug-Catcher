@@ -14,7 +14,7 @@ albedo_color = Color(0.63888407, 2.0214916e-06, 4.813075e-07, 1)
 [node name="NetBigItem" unique_id=1798103514 instance=ExtResource("1_ecigg")]
 item_name = "Big Net"
 icon = ExtResource("2_k10u7")
-item_type = "Tool"
+item_type = "Net"
 info = ExtResource("3_k10u7")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=37421506]

@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://ba2gbdreqhdn6" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/netInfo.gd" id="1_vd637"]
 [ext_resource type="Texture2D" uid="uid://dujp1qj6ly826" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_net.png" id="1_yigxh"]
+[ext_resource type="ArrayMesh" uid="uid://cfsua2r4mb5mb" path="res://assets/Resources/3D_Meshes/Net/net_mesh.tres" id="2_tsq3p"]
 
 [resource]
 script = ExtResource("1_vd637")
 name = "NetBasic"
 icon = ExtResource("1_yigxh")
+mesh = ExtResource("2_tsq3p")
 speed = 1.0
 size = 1.0
 metadata/_custom_type_script = "uid://ba2gbdreqhdn6"

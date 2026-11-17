@@ -15,7 +15,6 @@ metadata/_stencil_owned = true
 [resource]
 next_pass = SubResource("StandardMaterial3D_06d5n")
 shading_mode = 0
-albedo_color = Color(0.85791785, 0.8169798, 0.750064, 1)
 grow_amount = 0.198
 point_size = 35.0
 fov_override = 151.4

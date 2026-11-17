@@ -4,6 +4,7 @@ class_name NetInfo extends Resource
 @export var name : String
 @export var type : String = "NetInfo"
 @export var icon : Resource
+@export var mesh : ArrayMesh
 
 @export_group("Info")
 @export var speed : float

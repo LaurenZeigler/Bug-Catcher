@@ -15,6 +15,7 @@ signal use_net
 @onready var _timer_poison : Timer = $PoisonTimer
 @onready var _net_skeleton : Skeleton3D = %Skeleton3D
 @onready var _net : Node3D = %Nets
+@onready var _r_hand : Node = $player_skin/Cat_Skeleton/R_Hand_Tools
 @onready var _reach : Area3D = $Reach
 @onready var inventory := get_node("/root/Node3D/GAME_nodes/Play_Menu/Inventory")
 
@@ -237,6 +238,14 @@ func update_net_type():
 	_net_skeleton.net_handle_04_jnt.size(net_size, net_size, net_size)
 	
 func update_tool_type(new_tool : InventoryItem):
-	var new_tool_info = new_tool.info
-	_net.equip_new_net(new_tool_info)
+	#var new_tool_info = new_tool.info
+	if new_tool.item_type == "Net":
+		print(new_tool.info)
+		_net.equip_new_net(new_tool.info)
+		_r_hand._empty_hand()
+		_r_hand.equip_tool(new_tool.info)
 	print("updating tool type to " + str(new_tool))
+
+func empty_tool_hand():
+	_net.unequip_net()
+	_r_hand._empty_hand()

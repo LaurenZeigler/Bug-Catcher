@@ -2,6 +2,8 @@ extends Node
 
 signal equipNetSignal()
 
+@onready var net_mesh : MeshInstance3D = $Net_Objects/Skeleton3D/net_geo
+
 @export var equippedItem : Equip_Info
 @export var equippableItems : Array[Resource]
 
@@ -72,15 +74,24 @@ func _ready() -> void:
 				#n+=1
 	#pass
 
-func _equip_tool(name : String, index : int):
-	equippedItem.set_item_name(name)
-	cur_equipped = equippedItem.get_item_name()
-	tool = Tool.get(cur_equipped)
-	if cur_equipped.contains("Net"):
-		print(equippableItems.get(index))
-		equipNetSignal.emit(equippableItems.get(index))
-	print(tool)
+#func _equip_tool(name : String, index : int):
+	#equippedItem.set_item_name(name)
+	#cur_equipped = equippedItem.get_item_name()
+	#tool = Tool.get(cur_equipped)
+	#if cur_equipped.contains("Net"):
+		#print(equippableItems.get(index))
+		#equipNetSignal.emit(equippableItems.get(index))
+	#print(tool)
+
+func equip_tool(net_info : Resource):
+	if net_info.type == "NetInfo":
+		net_mesh.mesh = net_info.mesh
+		net_mesh.scale = Vector3(
+			net_info.size, net_info.size, net_info.size
+			)
+	
 
 func _empty_hand():
 	tool = Tool.Empty
 	equippedItem = null
+	net_mesh.mesh = null

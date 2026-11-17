@@ -46,10 +46,18 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 			print("splitting")
 			selected_item = which.split_item()
 		elif action == InventorySlot.InventorySlotAction.USE:
-			print("equipping")
-			unequip_all()
-			#selected_item = which.equip_item()
-			player.update_tool_type(which.equip_item())
+			if which.use_sprite.visible:
+				print("unequipping")
+				unequip_all()
+				which.unequip_item()
+				player.empty_tool_hand()
+			else:
+				print("equipping")
+				unequip_all()
+				#selected_item = which.equip_item()
+				player.update_tool_type(which.equip_item())
+			
+			
 	else:
 		print("deselecting")
 		selected_item = which.deselect_item(selected_item)
@@ -68,7 +76,7 @@ func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 func add_item(item : Item, amount : int) -> void:
 	var _item : InventoryItem = inventory_item_scene.instantiate()
 	_item.set_data(
-		item.item_name, item.item_type, item.icon, item.is_stackable, amount
+		item.item_name, item.item_type, item.info, item.icon, item.is_stackable, amount
 	)
 	print(_item.item_name + _item.item_type + str(_item.icon) + str(_item.is_stackable) + str(amount))
 	item.queue_free()

@@ -11,7 +11,7 @@ size = Vector3(1, 1, 2.2055664)
 [node name="NetItem" unique_id=1798103514 instance=ExtResource("1_fh636")]
 item_name = "Basic Net"
 icon = ExtResource("2_uypkf")
-item_type = "Tool"
+item_type = "Net"
 info = ExtResource("3_uypkf")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=37421506]

@@ -47,4 +47,5 @@ func compare_bug_size(bug_size):
 func equip_new_net(new_net : Resource):
 	net_info = new_net
 	
-	
+func unequip_net():
+	net_info = null

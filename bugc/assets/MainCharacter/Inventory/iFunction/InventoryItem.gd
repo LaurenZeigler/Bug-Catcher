@@ -6,11 +6,12 @@ class_name InventoryItem
 @export var sprite : Sprite2D
 @export var label : Label
 
-func set_data(_name : String, _type : String, _icon : Texture2D, _is_stackable : bool, _amount : int):
+func set_data(_name : String, _type : String, _info : Resource, _icon : Texture2D, _is_stackable : bool, _amount : int):
 	self.item_name = _name
 	self.item_type = _type
 	self.name = _name
 	self.icon = _icon
+	self.info = _info
 	self.is_stackable = _is_stackable
 	self.amount = _amount
 
