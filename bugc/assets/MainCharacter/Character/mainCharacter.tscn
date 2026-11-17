@@ -2078,6 +2078,9 @@ node_connections = [&"output", 0, &"StateMachine"]
 radius = 0.16259766
 height = 1.0785522
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_m74y1"]
+size = Vector3(1.8935547, 1.4580078, 1.4623413)
+
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=309607646]
 collision_layer = 256
 collision_mask = 1537
@@ -2567,6 +2570,14 @@ emitting = false
 [node name="collider" type="CollisionShape3D" parent="." unique_id=1986074596]
 transform = Transform3D(1.9513701, 0, 0, 0, 1.9513701, 0, 0, 0, 1.9513701, 0, 1.0169512, 0)
 shape = SubResource("CapsuleShape3D_38uue")
+
+[node name="Reach" type="Area3D" parent="." unique_id=1986413482]
+collision_layer = 256
+collision_mask = 8192
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Reach" unique_id=106994275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.654541, -0.75599694)
+shape = SubResource("BoxShape3D_m74y1")
 
 [node name="P_Screen_Poison" parent="." unique_id=734501845 instance=ExtResource("9_3qatw")]
 

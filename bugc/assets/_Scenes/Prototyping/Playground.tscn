@@ -9,9 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="6_4spru"]
 [ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="6_btpeq"]
 [ext_resource type="PackedScene" uid="uid://m2kkm4i7niks" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sprint.tscn" id="8_0d4pk"]
+[ext_resource type="PackedScene" uid="uid://c37dndjhri37b" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/NetItem.tscn" id="8_ckvui"]
 [ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="8_mxwkx"]
 [ext_resource type="PackedScene" uid="uid://ck32yamv1nkc8" path="res://assets/_Scenes/Prototyping/whiteboxObjects/whitebox_stairs.tscn" id="8_qsoa8"]
 [ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="9_t2t6b"]
+[ext_resource type="PackedScene" uid="uid://d0eb820kx768p" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/NetBigItem.tscn" id="9_tnsiu"]
 [ext_resource type="PackedScene" uid="uid://dhywgvyrty20a" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sneak.tscn" id="10_agf4j"]
 [ext_resource type="PackedScene" uid="uid://bs4rqc232mxju" path="res://assets/NPC/nBin/ShopTemp.tscn" id="14_t2t6b"]
 
@@ -46,6 +48,7 @@ shadow_opacity = 0.65
 [node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_xt170")]
 
 [node name="MainCharacter" parent="GAME_nodes" unique_id=882916200 instance=ExtResource("1_a4hq8")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.302658, -1.9073486e-06, -10.594297)
 
 [node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=1824446394]
@@ -66,6 +69,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.906578, 0.13118841, -30.9
 
 [node name="baitBase" parent="." unique_id=1865278169 instance=ExtResource("6_btpeq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.440876, 0.065594204, -26.121042)
+
+[node name="NetItem" parent="." unique_id=1798103514 instance=ExtResource("8_ckvui")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4268303, 0.5804163, -16.01397)
+
+[node name="NetBigItem" parent="." unique_id=1667830674 instance=ExtResource("9_tnsiu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.331024, 0.8572638, -17.558947)
 
 [node name="world" type="Node3D" parent="." unique_id=1781463784]
 

@@ -27,10 +27,10 @@ tooltip = NodePath("Tooltip")
 
 [node name="Tooltip" parent="." unique_id=1809859411 instance=ExtResource("1_luret")]
 layout_mode = 0
-offset_left = 735.0
-offset_top = 98.0
-offset_right = 775.0
-offset_bottom = 138.0
+offset_left = 975.0
+offset_top = 382.0
+offset_right = 1015.0
+offset_bottom = 422.0
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1999069298]
 visible = false

@@ -6,8 +6,10 @@ class_name InventorySlot
 @export var item : InventoryItem
 @export var hint_item : InventoryItem = null
 
+@onready var use_sprite : Sprite2D = $UseSprite
+
 enum InventorySlotAction {
-	SELECT, SPLIT,
+	SELECT, SPLIT, USE
 }
 
 signal slot_input(which: InventorySlot, action: InventorySlotAction)
@@ -15,17 +17,26 @@ signal slot_hovered(which: InventorySlot, is_hovering: bool)
 
 func _ready():
 	add_to_group("inventory_slots")
+	use_sprite.hide()
 
 func _on_texture_button_gui_inut(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
+			print("select item emit")
 			slot_input.emit(
 				self, InventorySlotAction.SELECT
 			)
 		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			slot_input.emit(
-				self, InventorySlotAction.SPLIT
-			)
+			if item.item_type == "Tool":
+				print("tool use emit")
+				slot_input.emit(
+					self, InventorySlotAction.USE
+				)
+			elif item.item_type != "Tool":
+				print("split item emit")
+				slot_input.emit(
+					self, InventorySlotAction.SPLIT
+				)
 
 func _on_texture_button_mouse_entered():
 	slot_hovered.emit(self, true)
@@ -103,7 +114,7 @@ func split_item() -> InventoryItem:
 	if self.item.amount > 1:
 		var new_item: InventoryItem = inventory_item_scene.instantiate()
 		new_item.set_data(
-			self.item.item_name, self.item.icon,
+			self.item.item_name, self.item.item_type, self.item.icon,
 			self.item.is_stackable, self.item.amount
 		)
 		new_item.amount = self.item.amount / 2
@@ -115,6 +126,11 @@ func split_item() -> InventoryItem:
 		return self.select_item()
 	else:
 		return null
+
+func equip_item() -> InventoryItem:
+	self.use_sprite.show()
+	var tmp_item := self.item
+	return tmp_item
 
 func is_empty():
 	return self.item == null

@@ -58,7 +58,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+#func _process(delta: float) -> void:
 	#print (equippedItem.get_item_name() + " : " + cur_equipped)
 	#if equippedItem.get_item_name() != cur_equipped:
 		##print("changing equipment")
@@ -70,7 +70,7 @@ func _process(delta: float) -> void:
 				#print("equipping tool")
 				#_equip_tool(str(i), n)
 				#n+=1
-	pass
+	#pass
 
 func _equip_tool(name : String, index : int):
 	equippedItem.set_item_name(name)

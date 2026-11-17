@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c37dndjhri37b"]
+
+[ext_resource type="PackedScene" uid="uid://dqoaekljog6la" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/BaseItem.tscn" id="1_fh636"]
+[ext_resource type="ArrayMesh" uid="uid://cfsua2r4mb5mb" path="res://assets/Resources/3D_Meshes/Net/net_mesh.tres" id="2_pwfgw"]
+[ext_resource type="Texture2D" uid="uid://dujp1qj6ly826" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_net.png" id="2_uypkf"]
+[ext_resource type="Resource" uid="uid://dyt8glbqwvcxp" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBasic.tres" id="3_uypkf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l8x13"]
+size = Vector3(1, 1, 2.2055664)
+
+[node name="NetItem" unique_id=1798103514 instance=ExtResource("1_fh636")]
+item_name = "Basic Net"
+icon = ExtResource("2_uypkf")
+item_type = "Tool"
+info = ExtResource("3_uypkf")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=37421506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6027832)
+shape = SubResource("BoxShape3D_l8x13")
+
+[node name="MeshInstance3D" parent="." index="1" unique_id=1899989921]
+mesh = ExtResource("2_pwfgw")

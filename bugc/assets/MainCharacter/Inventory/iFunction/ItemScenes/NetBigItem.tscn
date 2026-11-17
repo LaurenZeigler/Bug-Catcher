@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d0eb820kx768p"]
+
+[ext_resource type="PackedScene" uid="uid://dqoaekljog6la" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/BaseItem.tscn" id="1_ecigg"]
+[ext_resource type="Texture2D" uid="uid://chok4g7ja4tyf" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/Icon_big-net.png" id="2_k10u7"]
+[ext_resource type="Resource" uid="uid://dmb3rxxpqfu0h" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Nets/netBig.tres" id="3_k10u7"]
+[ext_resource type="ArrayMesh" uid="uid://b405wcdbn0mtd" path="res://assets/Resources/3D_Meshes/Net/net_big_mesh.tres" id="4_k10u7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v64s6"]
+size = Vector3(1.3161621, 1.3579102, 3.0283203)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k4gcq"]
+albedo_color = Color(0.63888407, 2.0214916e-06, 4.813075e-07, 1)
+
+[node name="NetBigItem" unique_id=1798103514 instance=ExtResource("1_ecigg")]
+item_name = "Big Net"
+icon = ExtResource("2_k10u7")
+item_type = "Tool"
+info = ExtResource("3_k10u7")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=37421506]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.17895508, -1.0141602)
+shape = SubResource("BoxShape3D_v64s6")
+
+[node name="MeshInstance3D" parent="." index="1" unique_id=1899989921]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+mesh = ExtResource("4_k10u7")
+surface_material_override/0 = SubResource("StandardMaterial3D_k4gcq")

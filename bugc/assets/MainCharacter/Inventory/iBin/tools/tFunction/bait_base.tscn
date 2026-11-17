@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://bxitgor7thwjp"]
 
-[ext_resource type="Script" uid="uid://0l8vdckuthc2" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/baitInfo.gd" id="1_urpff"]
+[ext_resource type="Texture2D" uid="uid://b1swocexafwwx" path="res://assets/MainCharacter/Inventory/iBin/tools/tBin/Baits/Icon_goo.png" id="2_d1v6e"]
 [ext_resource type="Resource" uid="uid://ytji1p6lcly" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/baitBase.tres" id="2_n3d5e"]
-
-[sub_resource type="Resource" id="Resource_n3d5e"]
-script = ExtResource("1_urpff")
-name = "bread"
-metadata/_custom_type_script = "uid://0l8vdckuthc2"
+[ext_resource type="Script" uid="uid://hvmp2ndyttiv" path="res://assets/MainCharacter/Inventory/iFunction/Item.gd" id="3_d1v6e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_m74y1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m74y1"]
 
-[node name="baitBase" type="Node3D" unique_id=1031670082]
-metadata/bait = SubResource("Resource_n3d5e")
+[sub_resource type="BoxShape3D" id="BoxShape3D_735tp"]
+
+[node name="baitBase" type="Area3D" unique_id=1227472848]
+collision_layer = 8192
+collision_mask = 256
+script = ExtResource("3_d1v6e")
+item_name = "Base Bait"
+icon = ExtResource("2_d1v6e")
+is_stackable = true
+item_type = "Bait"
+info = ExtResource("2_n3d5e")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=851796293]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.1, 0)
@@ -26,3 +31,7 @@ metadata/Bait = ExtResource("2_n3d5e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2128992228]
 shape = SubResource("BoxShape3D_m74y1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1398467674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08786231, 0)
+shape = SubResource("BoxShape3D_735tp")

@@ -4,6 +4,7 @@ extends Control
 class_name Inventory
 
 var inventory_item_scene = preload('res://assets/MainCharacter/Inventory/iFunction/InventoryItem.tscn')
+@onready var player : CharacterBody3D = get_node("/root/Node3D/GAME_nodes/MainCharacter")
 
 @export var rows : int = 3
 @export var cols : int = 6
@@ -39,14 +40,22 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 	print(action)
 	if not selected_item:
 		if action == InventorySlot.InventorySlotAction.SELECT:
+			print("selecting")
 			selected_item = which.select_item()
 		elif action == InventorySlot.InventorySlotAction.SPLIT:
+			print("splitting")
 			selected_item = which.split_item()
+		elif action == InventorySlot.InventorySlotAction.USE:
+			print("equipping")
+			unequip_all()
+			#selected_item = which.equip_item()
+			player.update_tool_type(which.equip_item())
 	else:
+		print("deselecting")
 		selected_item = which.deselect_item(selected_item)
 
 func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
-	print("hovering over " + str(which))
+	#print("hovering over " + str(which))
 	if which.item:
 		tooltip.set_text(which.item.item_name)
 		tooltip.visible = is_hovering
@@ -59,8 +68,9 @@ func _on_slot_hovered(which: InventorySlot, is_hovering: bool):
 func add_item(item : Item, amount : int) -> void:
 	var _item : InventoryItem = inventory_item_scene.instantiate()
 	_item.set_data(
-		item.item_name, item.icon, item.is_stackable, amount
+		item.item_name, item.item_type, item.icon, item.is_stackable, amount
 	)
+	print(_item.item_name + _item.item_type + str(_item.icon) + str(_item.is_stackable) + str(amount))
 	item.queue_free()
 	if item.is_stackable:
 		for slot in slots:
@@ -113,6 +123,11 @@ func remove_all(_name : String) -> void:
 		if slot.item and slot.item.item_name == _name:
 			slot.remove_item()
 
+func unequip_all():
+	for slot in slots:
+		var use_sprite = slot.get_child(1)
+		if use_sprite.visible:
+			use_sprite.hide()
 
 # !DESTRUCTUVE (removes all items from inventory)
 func clear_inventory() -> void:

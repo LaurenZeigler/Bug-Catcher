@@ -19,7 +19,6 @@ func use_net():
 		var result = bodies.get(0).attempt_to_catch()
 		if (result == "catch"):
 			bodies.get(0).caught_by_player()
-			#inventory.add_item(result as Item, 1)
 			$"../../../../../Bug_Caught_Audio".play()
 		if (result == "fail"):
 			print("failed to catch")
@@ -28,6 +27,7 @@ func use_net():
 	else:
 		print("theres nothing")
 	
+
 func get_net_name():
 	return net_info.name
 

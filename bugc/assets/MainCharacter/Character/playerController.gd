@@ -15,6 +15,8 @@ signal use_net
 @onready var _timer_poison : Timer = $PoisonTimer
 @onready var _net_skeleton : Skeleton3D = %Skeleton3D
 @onready var _net : Node3D = %Nets
+@onready var _reach : Area3D = $Reach
+@onready var inventory := get_node("/root/Node3D/GAME_nodes/Play_Menu/Inventory")
 
 @onready var _p_grass : GPUParticles3D = $player_skin/P_Grass
 
@@ -46,6 +48,22 @@ var _gravity := -30.0
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func _input(event : InputEvent):
+	if (stunned == false):
+			# Tool/Net Use
+		if Input.is_action_just_pressed("use_tool"):
+			use_net.emit()
+		if Input.is_action_just_pressed("grab"):
+			grab_item()
+		
+		## SPEED CHANGES ##
+		if Input.is_action_pressed("sprint"):
+			speed_cur = speed_sprint
+		elif Input.is_action_pressed("sneak"):
+			speed_cur = speed_sneak
+		else: 
+			speed_cur = speed_walk
+
 func _unhandled_input(event: InputEvent) -> void:
 	var player_is_using_mouse := (
 		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
@@ -56,50 +74,37 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if (stunned == false):
-			# Tool/Net Use
-		if Input.is_action_just_pressed("use_tool"):
-			use_net.emit()
-		
-		## SPEED CHANGES ##
-		if Input.is_action_pressed("sprint"):
-			speed_cur = speed_sprint
-		elif Input.is_action_pressed("sneak"):
-			speed_cur = speed_sneak
-		else: 
-			speed_cur = speed_walk
-		
-			# Calculate movement input and align it to the camera's direction.
-		var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.4)
-		# Should be projected onto the ground plane.
-		var forward := _camera.global_basis.z
-		var right := _camera.global_basis.x
-		var move_direction := forward * raw_input.y + right * raw_input.x
-		move_direction.y = 0.0
-		move_direction = move_direction.normalized()
+		# Calculate movement input and align it to the camera's direction.
+	var raw_input := Input.get_vector("move_left", "move_right", "move_up", "move_down", 0.4)
+	# Should be projected onto the ground plane.
+	var forward := _camera.global_basis.z
+	var right := _camera.global_basis.x
+	var move_direction := forward * raw_input.y + right * raw_input.x
+	move_direction.y = 0.0
+	move_direction = move_direction.normalized()
 
-		# To not orient the character too abruptly, we filter movement inputs we
-		# consider when turning the skin. This also ensures we have a normalized
-		# direction for the rotation basis.
-		if move_direction.length() > 0.2:
-			_last_input_direction = move_direction.normalized()
-		var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
-		_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
+	# To not orient the character too abruptly, we filter movement inputs we
+	# consider when turning the skin. This also ensures we have a normalized
+	# direction for the rotation basis.
+	if move_direction.length() > 0.2:
+		_last_input_direction = move_direction.normalized()
+	var target_angle := Vector3.BACK.signed_angle_to(_last_input_direction, Vector3.UP)
+	_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rotation_speed * delta)
 
-		# We separate out the y velocity to only interpolate the velocity in the
-		# ground plane, and not affect the gravity.
-		var y_velocity := velocity.y
-		velocity.y = 0.0
-		velocity = velocity.move_toward(move_direction * speed_cur, acceleration * delta)
-		velocity.y = y_velocity + _gravity * delta
+	# We separate out the y velocity to only interpolate the velocity in the
+	# ground plane, and not affect the gravity.
+	var y_velocity := velocity.y
+	velocity.y = 0.0
+	velocity = velocity.move_toward(move_direction * speed_cur, acceleration * delta)
+	velocity.y = y_velocity + _gravity * delta
 
-		# Character animations and visual effects.
-		var ground_speed := Vector2(velocity.x, velocity.z).length()
-		var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
-		if is_just_jumping:
-			velocity.y += jump_velocity
-			pass
-	elif (stunned == true):
+	# Character animations and visual effects.
+	var ground_speed := Vector2(velocity.x, velocity.z).length()
+	var is_just_jumping := Input.is_action_just_pressed("jump") and is_on_floor()
+	if is_just_jumping:
+		velocity.y += jump_velocity
+		pass
+	if (stunned == true):
 		velocity = Vector3.ZERO
 		
 	## CAMERA MOVE and LIMIT ##
@@ -113,7 +118,17 @@ func _physics_process(delta: float) -> void:
 	_animate_state()
 	move_and_slide()
 
-
+func grab_item():
+	print("attempting grab")
+	var bodies = _reach.get_overlapping_areas()
+	print("grab size check" + str(bodies.size()))
+	if bodies.size() > 0:
+		print("grab item check")
+		if bodies.get(0) in get_tree().get_nodes_in_group("items"):
+			print(str(bodies.get(0)) + " grabbed")
+			inventory.add_item(bodies.get(0) as Item, 1)
+			bodies.get(0).queue_free()
+			
 
 ## HANDLE ANIMATIONS + STATES ##
 func _animate_state():
@@ -221,3 +236,7 @@ func update_net_type():
 	#add something that changes material, material override
 	_net_skeleton.net_handle_04_jnt.size(net_size, net_size, net_size)
 	
+func update_tool_type(new_tool : InventoryItem):
+	var new_tool_info = new_tool.info
+	_net.equip_new_net(new_tool_info)
+	print("updating tool type to " + str(new_tool))
