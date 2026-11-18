@@ -123,6 +123,7 @@ func split_item() -> InventoryItem:
 		inventory.add_child(new_item)
 		new_item.z_index = 128
 		return new_item
+		
 	elif self.item.amount == 1:
 		return self.select_item()
 	else:

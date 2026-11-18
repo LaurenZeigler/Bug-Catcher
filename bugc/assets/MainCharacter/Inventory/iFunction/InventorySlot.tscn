@@ -11,10 +11,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 script = ExtResource("1_gvwv8")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=1917861537]
 layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource("2_6f5ov")
 texture_pressed = ExtResource("3_olbpx")
 texture_hover = ExtResource("3_olbpx")

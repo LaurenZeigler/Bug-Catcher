@@ -11,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+mouse_default_cursor_shape = 16
 script = ExtResource("1_jux7p")
 sprite = NodePath("Sprite2D")
 label = NodePath("Label")

@@ -40,8 +40,8 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 	print(action)
 	if not selected_item:
 		if action == InventorySlot.InventorySlotAction.SELECT:
-			print("selecting")
 			selected_item = which.select_item()
+			print("selecting " + str(selected_item))
 		elif action == InventorySlot.InventorySlotAction.SPLIT:
 			print("splitting")
 			selected_item = which.split_item()

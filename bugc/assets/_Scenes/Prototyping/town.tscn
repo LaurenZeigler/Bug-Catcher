@@ -44,20 +44,13 @@ shadow_opacity = 0.65
 [node name="Play_Menu" parent="GAME_nodes" unique_id=97466689 instance=ExtResource("1_wceg6")]
 
 [node name="MainCharacter" parent="GAME_nodes" unique_id=309607646 instance=ExtResource("2_b30qq")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.02374, 1.9073486e-06, 58.725113)
 
 [node name="BottomWorldBounds" type="StaticBody3D" parent="GAME_nodes" unique_id=267758088]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GAME_nodes/BottomWorldBounds" unique_id=21650537]
 shape = SubResource("WorldBoundaryShape3D_ih1lg")
-
-[node name="Play_Menu2" parent="GAME_nodes" unique_id=373440065 instance=ExtResource("1_wceg6")]
-
-[node name="NetBigItem" parent="GAME_nodes" unique_id=1798103514 instance=ExtResource("3_00wfw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.64285, 0.82969576, 54.019604)
-
-[node name="NetItem" parent="GAME_nodes" unique_id=639996393 instance=ExtResource("4_laoim")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.1612, 0.5531305, 52.87357)
 
 [node name="template" type="Node3D" parent="." unique_id=1268186674]
 
@@ -674,6 +667,21 @@ size = Vector3(2.0210419, 3.3886719, 3.1447754)
 
 [node name="items" type="Node3D" parent="." unique_id=401428888]
 
+[node name="NetBigItem" parent="items" unique_id=1798103514 instance=ExtResource("3_00wfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.64285, 0.82969576, 54.019604)
+
+[node name="NetItem" parent="items" unique_id=639996393 instance=ExtResource("4_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.1612, 0.5531305, 52.87357)
+
+[node name="baitBase" parent="items" unique_id=1227472848 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.849686, -0.15412736, 34.879524)
+
+[node name="baitBase2" parent="items" unique_id=422980072 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.24742, -0.15219718, 35.25211)
+
+[node name="baitBase3" parent="items" unique_id=772996662 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.65892, -0.116509676, -71.8651)
+
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("6_6ifve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.50388, 0.8364992, 39.57877)
 items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
@@ -689,12 +697,3 @@ items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtR
 [node name="BugNest4" parent="." unique_id=1994088733 instance=ExtResource("6_6ifve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.724304, 0.8364992, -72.959854)
 items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
-
-[node name="baitBase" parent="." unique_id=1227472848 instance=ExtResource("12_laoim")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.849686, -0.15412736, 34.879524)
-
-[node name="baitBase2" parent="." unique_id=422980072 instance=ExtResource("12_laoim")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.24742, -0.15219718, 35.25211)
-
-[node name="baitBase3" parent="." unique_id=772996662 instance=ExtResource("12_laoim")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.65892, -0.116509676, -71.8651)
