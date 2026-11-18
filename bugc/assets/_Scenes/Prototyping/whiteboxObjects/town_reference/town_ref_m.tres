@@ -3,6 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cl03b0fijkjdl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref_image.png" id="1_uk5bn"]
 
 [resource]
-albedo_color = Color(0.67275155, 0.67275155, 0.6727515, 1)
+albedo_color = Color(0.45064825, 0.4506483, 0.45064813, 1)
 albedo_texture = ExtResource("1_uk5bn")
 grow = true

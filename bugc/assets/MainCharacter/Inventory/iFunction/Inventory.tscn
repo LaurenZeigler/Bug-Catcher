@@ -27,13 +27,12 @@ tooltip = NodePath("Tooltip")
 
 [node name="Tooltip" parent="." unique_id=1809859411 instance=ExtResource("1_luret")]
 layout_mode = 0
-offset_left = 975.0
-offset_top = 382.0
-offset_right = 1015.0
-offset_bottom = 422.0
+offset_left = 1494.4746
+offset_top = -428.44348
+offset_right = 1534.4746
+offset_bottom = -388.4435
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1999069298]
-visible = false
 layout_mode = 0
 offset_left = 295.0
 offset_top = 23.0
@@ -45,3 +44,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_t2t6b")
 [node name="GridContainer" type="GridContainer" parent="PanelContainer" unique_id=1501016819]
 layout_mode = 2
 columns = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=2031045426]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 22.0
+offset_right = -881.0
+offset_bottom = -581.0
+theme_override_font_sizes/normal_font_size = 27
+text = "right click to equip"
