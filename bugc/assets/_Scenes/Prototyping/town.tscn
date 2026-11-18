@@ -2,13 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bcsrckv4om07x" path="res://assets/MainCharacter/Inventory/iFunction/Play_Menu.tscn" id="1_wceg6"]
 [ext_resource type="PackedScene" uid="uid://co3i1ap6yftey" path="res://assets/MainCharacter/Character/mainCharacter.tscn" id="2_b30qq"]
+[ext_resource type="PackedScene" uid="uid://d0eb820kx768p" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/NetBigItem.tscn" id="3_00wfw"]
 [ext_resource type="PackedScene" uid="uid://dbyp2s4673h3d" path="res://assets/_Scenes/Prototyping/whiteboxObjects/town_reference/town_ref.tscn" id="3_a3xju"]
 [ext_resource type="PackedScene" uid="uid://djsqvmlkaqrl" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_walk.tscn" id="4_b30qq"]
+[ext_resource type="PackedScene" uid="uid://c37dndjhri37b" path="res://assets/MainCharacter/Inventory/iFunction/ItemScenes/NetItem.tscn" id="4_laoim"]
 [ext_resource type="PackedScene" uid="uid://m2kkm4i7niks" path="res://assets/_Scenes/Prototyping/whiteboxObjects/30s_sprint.tscn" id="5_a3xju"]
 [ext_resource type="PackedScene" uid="uid://cywxeqe0fpq6m" path="res://assets/Bugs/bFunction/bug_nest.tscn" id="6_6ifve"]
 [ext_resource type="PackedScene" uid="uid://c7p8c11v1ovjr" path="res://assets/Bugs/bBin/bugNodeTemplate.tscn" id="7_m8l3m"]
 [ext_resource type="PackedScene" uid="uid://d1hyt5u2fl4c" path="res://assets/Bugs/bBin/Solitary/ant/ant.tscn" id="8_00wfw"]
 [ext_resource type="PackedScene" uid="uid://cj6fdb4g15x4n" path="res://assets/Bugs/bBin/Solitary/aphid/Aphid.tscn" id="9_laoim"]
+[ext_resource type="PackedScene" uid="uid://bxitgor7thwjp" path="res://assets/MainCharacter/Inventory/iBin/tools/tFunction/bait_base.tscn" id="12_laoim"]
 
 [sub_resource type="Environment" id="Environment_o2ofy"]
 background_mode = 1
@@ -24,7 +27,7 @@ adjustment_saturation = 0.8
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ih1lg"]
 
-[node name="Town" type="Node3D" unique_id=539681068]
+[node name="Node3D" type="Node3D" unique_id=539681068]
 
 [node name="GAME_nodes" type="Node3D" parent="." unique_id=511621466]
 
@@ -49,6 +52,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -146.02374, 1.9073486e-06, 58
 shape = SubResource("WorldBoundaryShape3D_ih1lg")
 
 [node name="Play_Menu2" parent="GAME_nodes" unique_id=373440065 instance=ExtResource("1_wceg6")]
+
+[node name="NetBigItem" parent="GAME_nodes" unique_id=1798103514 instance=ExtResource("3_00wfw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.64285, 0.82969576, 54.019604)
+
+[node name="NetItem" parent="GAME_nodes" unique_id=639996393 instance=ExtResource("4_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.1612, 0.5531305, 52.87357)
 
 [node name="template" type="Node3D" parent="." unique_id=1268186674]
 
@@ -663,6 +672,8 @@ transform = Transform3D(0.5657242, 0, 0.8245947, 0, 1, 0, -0.8245947, 0, 0.56572
 operation = 2
 size = Vector3(2.0210419, 3.3886719, 3.1447754)
 
+[node name="items" type="Node3D" parent="." unique_id=401428888]
+
 [node name="BugNest" parent="." unique_id=85989814 instance=ExtResource("6_6ifve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -129.50388, 0.8364992, 39.57877)
 items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
@@ -678,3 +689,12 @@ items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtR
 [node name="BugNest4" parent="." unique_id=1994088733 instance=ExtResource("6_6ifve")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.724304, 0.8364992, -72.959854)
 items = Array[PackedScene]([ExtResource("7_m8l3m"), ExtResource("8_00wfw"), ExtResource("9_laoim")])
+
+[node name="baitBase" parent="." unique_id=1227472848 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -121.849686, -0.15412736, 34.879524)
+
+[node name="baitBase2" parent="." unique_id=422980072 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -140.24742, -0.15219718, 35.25211)
+
+[node name="baitBase3" parent="." unique_id=772996662 instance=ExtResource("12_laoim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.65892, -0.116509676, -71.8651)
