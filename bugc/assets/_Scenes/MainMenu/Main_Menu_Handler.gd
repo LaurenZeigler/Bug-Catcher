@@ -11,7 +11,7 @@ func _ready() -> void:
 	MAIN.show()
 
 func _on_play_btn_pressed() -> void:
-	get_tree().change_scene_to_file("res://assets/_Scenes/Prototyping/Playground.tscn")
+	get_tree().change_scene_to_file("res://assets/_Scenes/Prototyping/town.tscn")
 
 func _on_settings_btn_pressed() -> void:
 	MAIN.hide()
