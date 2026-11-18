@@ -46,6 +46,8 @@ var _camera_input_direction := Vector2.ZERO
 
 var _gravity := -30.0
 
+var can_swing : bool = false
+
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -135,7 +137,7 @@ func grab_item():
 func _animate_state():
 	## CHANGE STATE ##
 	var cur_state: move_state
-	if Input.is_action_pressed("use_tool"):
+	if Input.is_action_pressed("use_tool") and can_swing == true:
 		cur_state = move_state.net_swing
 		$player_skin/Cat_Skeleton/R_Hand_Tools.show()
 		$Net_Swing_Audio.play()
