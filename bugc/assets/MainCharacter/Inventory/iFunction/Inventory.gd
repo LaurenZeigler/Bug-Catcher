@@ -48,15 +48,13 @@ func _on_slot_input(which: InventorySlot, action: InventorySlot.InventorySlotAct
 		elif action == InventorySlot.InventorySlotAction.USE:
 			if which.use_sprite.visible:
 				print("unequipping")
-				player.can_swing = false
 				unequip_all()
 				which.unequip_item()
 				player.empty_tool_hand()
 			else:
 				print("equipping")
-				player.can_swing = true
 				unequip_all()
-				selected_item = which.equip_item()
+				#selected_item = which.equip_item()
 				player.update_tool_type(which.equip_item())
 			
 			

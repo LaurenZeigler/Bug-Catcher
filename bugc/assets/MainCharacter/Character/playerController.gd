@@ -46,8 +46,6 @@ var _camera_input_direction := Vector2.ZERO
 
 var _gravity := -30.0
 
-var can_swing : bool = false
-
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

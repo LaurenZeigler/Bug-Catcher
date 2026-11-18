@@ -22,22 +22,22 @@ func _ready():
 func _on_texture_button_gui_inut(event):
 	if event is InputEventMouseButton and event.pressed:
 		if item != null:
-			'''if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.button_index == MOUSE_BUTTON_LEFT:
 				print("select item emit")
 				slot_input.emit(
 					self, InventorySlotAction.SELECT
-				)'''
-			if event.button_index == MOUSE_BUTTON_LEFT:
+				)
+			elif event.button_index == MOUSE_BUTTON_RIGHT:
 				if item.item_type == "Tool" or item.item_type == "Net":
 					print("tool use emit")
 					slot_input.emit(
 						self, InventorySlotAction.USE
 					)
-				'''elif item.item_type != "Tool":
+				elif item.item_type != "Tool":
 					print("split item emit")
 					slot_input.emit(
 						self, InventorySlotAction.SPLIT
-					)'''
+					)
 
 func _on_texture_button_mouse_entered():
 	slot_hovered.emit(self, true)

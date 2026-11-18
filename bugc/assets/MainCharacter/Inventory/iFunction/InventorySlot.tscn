@@ -20,6 +20,7 @@ texture_pressed = ExtResource("3_olbpx")
 texture_hover = ExtResource("3_olbpx")
 
 [node name="UseSprite" type="Sprite2D" parent="." unique_id=1044256811]
+visible = false
 texture = ExtResource("4_olbpx")
 centered = false
 
